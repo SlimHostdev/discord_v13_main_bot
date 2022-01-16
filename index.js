@@ -40,7 +40,7 @@ for (const file of commandFiles) {
 
     client.commands.set(command.help.name, command);
 
-    console.log(`I have Load [${command.help.name}]`);
+    console.log([`I have Load [${command.help.name}]`]);
 
 }
 
