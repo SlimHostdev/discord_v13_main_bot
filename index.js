@@ -54,7 +54,7 @@ client.once("ready", () => {
 
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log(['All commands ar load']);
-    console.log([`${client.user.username}`, 'is online']);
+    console.log(`${client.user.username}`),(['is online']);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log([`Bot Name: ${client.user.username}`]);
     console.log([`Bot BotID: ${process.env.BOTID}`]);
