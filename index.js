@@ -2,6 +2,7 @@ console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 console.log(`\x1b[31m Dit is de officiële source code van de SlimGame. \x1b[0m`);
 console.log(`\x1b[31m Het door geven van deze files of verkopen is van zijn strengste verboden! \x1b[0m`);
 console.log(`\x1b[31m Deze bot is gemaakt bij SlimGame. \x1b[0m`);
+console.log(`\x1b[31m https://github.com/SlimHostdev/discord_v13_main_bot \x1b[0m`);
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 console.log(['DISCORD.JS V13 Bot']);

@@ -31,11 +31,6 @@ module.exports.run = async (client, message, args) => {
                     info += `${prefix} ${command.help.name}\r\n`;
                     infod += `${command.help.discription}\r\n`;
                     break;
-                case "sponsore":
-                    sponsore += `${prefix} ${command.help.name}\r\n`;
-                    sponsored += `${command.help.discription}\r\n`;
-                    break;
-
             }
 
         });
