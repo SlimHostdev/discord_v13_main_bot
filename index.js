@@ -61,7 +61,7 @@ client.once("ready", () => {
     console.log([`Bot BotID: ${process.env.BOTID}`]);
     console.log([`Bot Preffix: ${process.env.PREFFIX}`]);
     console.log([`Bot Collor: ${process.env.COLLOR}`]);
-    console.log([`Bot Invite:]`]);
+    console.log([`Bot Invite:`]);
     console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
