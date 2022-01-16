@@ -4,6 +4,22 @@
 - Look at The [[UPDATE]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/main/LAST-UPDATE.md)
 - Run the bot
 
+### Beta v0.0.1
+- commands
+> help
+> info
+> serverinfo
+> serverregels (need to be edit to yor server rules)
+> review
+- admin commands
+> adminhelp
+> ping
+> warn (auto ban on 4t warn)
+> COMING SOON kick
+> COMING SOON ban
+
+<br />
+
 ### Partner
 
 - [SlimGame](https://slimgame.eu)
