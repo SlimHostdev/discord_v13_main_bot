@@ -1,5 +1,8 @@
-console.log(`\x1b[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \nDit is de officiële source code van de SlimGame. \nHet door geven van deze files of verkopen is van zijn strengste verboden! \nDeze bot is gemaakt bij SlimHost.\x1b[0m`);
-console.log(`\x1b[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\x1b[0m`);
+console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
+console.log(`\x1b[31m Dit is de officiële source code van de SlimGame. \x1b[0m`);
+console.log(`\x1b[31m Het door geven van deze files of verkopen is van zijn strengste verboden! \x1b[0m`);
+console.log(`\x1b[31m Deze bot is gemaakt bij SlimHost. \x1b[0m`);
+console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 console.log(['DISCORD.JS V13 Bot']);
 console.log(['Aan het opsterten...']);
