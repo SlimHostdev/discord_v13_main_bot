@@ -1,7 +1,7 @@
 ## Instaling
 
 - Edit .env
-- Look at The [![UPDATE]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/main/LAST-UPDATE.md)
+- Look at The [[UPDATE]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/main/LAST-UPDATE.md)
 - Run the bot
 
 ### Partner
