@@ -1,6 +1,6 @@
 console.log(`\x1b[31m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \nDit is de officiële source code van de SlimGame. \nHet door geven van deze files of verkopen is van zijn strengste verboden! \nDeze bot is gemaakt bij SlimHost. \n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\x1b[0m`);
 console.log('<-------------------------->',);
-console.log(['DISCORD.JS V13 Bot is aan het opstarten']);
+console.log(['DISCORD.JS V13 Bot']);
 console.log(['Aan het opsterten...']);
 console.log('<-------------------------->',);
 
