@@ -56,13 +56,11 @@ client.once("ready", () => {
     console.log(['All commands ar load']);
     console.log([`${client.user.username}`, 'is online']);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log(' ');
-    console.log(`Bot Name: ${client.user.username}`);
-    console.log(`Bot BotID: ${process.env.BOTID}`);
-    console.log(`Bot Preffix: ${process.env.PREFFIX}`);
-    console.log(`Bot Invite: ${process.env.INVITE}`);
-    console.log(`Bot Collor: ${process.env.COLLOR}`);
-    console.log(' ');
+    console.log([`Bot Name: ${client.user.username}`]);
+    console.log([`Bot BotID: ${process.env.BOTID}`]);
+    console.log([`Bot Preffix: ${process.env.PREFFIX}`]);
+    console.log([`Bot Invite: ${process.env.INVITE}`]);
+    console.log([`Bot Collor: ${process.env.COLLOR}`]);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
 });
