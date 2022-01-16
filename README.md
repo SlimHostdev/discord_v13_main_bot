@@ -6,17 +6,17 @@
 
 ### Beta v0.0.1
 - commands
-> help
-> info
-> serverinfo
-> serverregels (need to be edit to yor server rules)
-> review
+ help
+ info
+ serverinfo
+ serverregels (need to be edit to yor server rules)
+ review
 - admin commands
-> adminhelp
-> ping
-> warn (auto ban on 4t warn)
-> COMING SOON kick
-> COMING SOON ban
+ adminhelp
+ ping
+ warn (auto ban on 4t warn)
+ COMING SOON kick
+ COMING SOON ban
 
 <br />
 
