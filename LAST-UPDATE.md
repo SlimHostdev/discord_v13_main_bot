@@ -1,4 +1,4 @@
-## I'm a Hosting, Developer!!
+## Progres!!
 
 - I stil working on the kick.js (its not working now) 🤣
 
