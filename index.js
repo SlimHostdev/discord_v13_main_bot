@@ -52,7 +52,6 @@ client.once("ready", () => {
     console.log(['All commands ar load']);
     console.log([`${client.user.username}`, 'is online']);
     console.log('<-------------------------->',);
-    console.log("SlimGame");
     console.log(`${client.user.username} is online`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log(' ');
