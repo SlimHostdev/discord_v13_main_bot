@@ -15,8 +15,9 @@
 >adminhelp
 >ping
 >warn (auto ban on 4t warn)
->COMING SOON kick
->COMING SOON ban
+- commands caming soon
+>kick
+>ban
 
 <br />
 
