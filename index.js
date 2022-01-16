@@ -110,7 +110,7 @@ client.on("messageCreate", async message => {
     } catch (error) {
 
         console.log(`\x1b[31m ERROR \x1b[0m`),(error);
-        await message.reply("Er is iets Fout Gegaan!");
+        await message.reply("Er is iets Fout Gegaan **Kijk in het console voor de ERROR!");
 
     }
 
