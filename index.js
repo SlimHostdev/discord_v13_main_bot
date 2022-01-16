@@ -48,7 +48,12 @@ client.once("ready", () => {
 
     client.user.setActivity(`${process.env.STATUS}`, { type: "PLAYING" });
 
+    console.log('<-------------------------->',);
+    console.log(['All commands ar load']);
+    console.log([`${client.user.username}`, 'is online']);
     console.log("SlimGame");
+    console.log('<-------------------------->',);
+
     console.log(`${client.user.username} is online`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log(' ');
