@@ -54,7 +54,8 @@ client.once("ready", () => {
 
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log(['All commands ar load']);
-    console.log(`\x1b[31m ${client.user.username} \x1b[0m`),(['is online']);
+    console.log(`\x1b[31m ${client.user.username} \x1b[0m`);
+    console.log(['is online']);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log([`Bot Name: ${client.user.username}`]);
     console.log([`Bot BotID: ${process.env.BOTID}`]);
@@ -110,7 +111,8 @@ client.on("messageCreate", async message => {
 
     } catch (error) {
 
-        console.log(`\x1b[31m ERROR \x1b[0m`),(error);
+        console.log(`\x1b[31m ERROR \x1b[0m`);
+        console.log(error);
         await message.reply("Er is iets Fout Gegaan **Kijk in het console voor de ERROR!");
 
     }
