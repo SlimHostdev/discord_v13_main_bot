@@ -54,7 +54,7 @@ client.once("ready", () => {
 
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log(['All commands ar load']);
-    console.log(`\x1b[31m ${client.user.username} \x1b[0m`);
+    console.log(`[\x1b[31m ${client.user.username} \x1b[0m]`);
     console.log(['is online']);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log([`Bot Name: ${client.user.username}`]);
