@@ -33,7 +33,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription(`Gekickt:** ${kickUser} (${kickUser.id})
         **Gekickt Door:** ${message.author}
         **Reden:** ${reason}`)
-        .setFooter(message.member.displayname)
+        .setFooter(message.member.displayName)
         .setTimestamp();
 
     message.channel.send({ embeds: [embedPrompt] }).then(async msg => {
