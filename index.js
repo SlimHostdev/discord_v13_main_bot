@@ -46,9 +46,9 @@ for (const file of commandFiles) {
 }
 
 //Ophaalen van commandos uit map add-ons
-const commandFiles = fs.readdirSync('./add-ons').filter(file => file.endsWith(".js"));
+const addonFiles = fs.readdirSync('./add-ons').filter(file => file.endsWith(".js"));
 
-for (const file of commandFiles) {
+for (const file of addonFiles) {
 
     const command = require(`./add-ons/${file}`);
 
