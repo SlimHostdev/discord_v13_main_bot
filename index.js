@@ -45,12 +45,12 @@ for (const file of commandFiles) {
 
 }
 
-//Ophaalen van commandos uit map add-ons
-const addonFiles = fs.readdirSync('./add-ons').filter(file => file.endsWith(".js"));
+//Ophaalen van commandos uit map addons
+const addonFiles = fs.readdirSync('./addons').filter(file => file.endsWith(".js"));
 
 for (const file of addonFiles) {
 
-    const command = require(`./add-ons/${file}`);
+    const command = require(`./addons/${file}`);
 
     client.commands.set(command.help.name, command);
 
