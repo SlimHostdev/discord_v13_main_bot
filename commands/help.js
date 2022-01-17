@@ -11,12 +11,12 @@ module.exports.run = async (client, message, args) => {
         var respons = "**Help Commands**\r\n\n";
         var general = "**__Algemeen__**\n";
         var info = "\n**__Info__**\n";
-        var sponsore = "\n**__Sponsore__**\n";
+        var addons = "\n**__Addons Commands__**\n";
 
         //Discription
         var generald = "***__Algemeen  Beschijvinge__***\n";
         var infod = "\n***__Info Beschijvinge__***\n";
-        var sponsored = "\n***___Sponsore Beschijvinge__***\n"
+        var addonsd = "\n***___Addons Beschijvinge__***\n"
 
 
         client.commands.forEach(command => {
