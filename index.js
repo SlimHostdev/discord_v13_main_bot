@@ -45,6 +45,19 @@ for (const file of commandFiles) {
 
 }
 
+//Ophaalen van commandos uit map add-ons
+const commandFiles = fs.readdirSync('./add-ons').filter(file => file.endsWith(".js"));
+
+for (const file of commandFiles) {
+
+    const command = require(`./add-ons/${file}`);
+
+    client.commands.set(command.help.name, command);
+
+    console.log([`I have Load [${command.help.name}.js]`]);
+
+}
+
 //----------------------------------------ADMINS-----------------------------------------------
 const admins = [process.env.ADMINROLL];
 
