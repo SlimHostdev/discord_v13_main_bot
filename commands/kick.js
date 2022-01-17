@@ -31,10 +31,10 @@ module.exports.run = async (client, message, args) => {
     var embedKick = new discord.MessageEmbed()
         .setColor(process.env.BANCOLLOR)
         .setDescription(`Gekickt:** ${kickUser} (${kickUser.id})
-    **Gekickt Door:** ${message.author}
-    **Reden:** ${reason}`)
-        .setTimestamp()
+        **Gekickt Door:** ${message.author}
+        **Reden:** ${reason}`)
         .setFooter(message.member.displayname)
+        .setTimestamp();
 
     message.channel.send({ embeds: [embedPrompt] }).then(async msg => {
 
@@ -61,12 +61,33 @@ module.exports.run = async (client, message, args) => {
         msg.awaitReactions({ filter, max: 1, time: time }).then(collected => {
             var emojiDetails = collected.first();
 
-            
 
+            if(emojiDetails.emoji.name === "✅") {
+
+                msg.delete();
+
+                kickUser.kick(reason).catch(err => {
+
+                    if (err) 
+                    console.log(err);
+                    return message.channel.send(`Er is iets fout ge gaan met het Kicken van ${kickUser}`);
+
+                });
+
+                message.channel.send({ embeds: [embedKick] });
+
+            } else if(emojiDetails.emoji.name === "❌") {
+
+                msg.delete();
+
+                message.channel.send(`Je heb gekozen om ${kickUser} niet te kicken.`).then(msg => {
+                    message.delete()
+                    setTimeout(() => msg.delete(), 5000);
+                });
+
+            }
         });
     });
-
-
 }
 
 module.exports.help = {
