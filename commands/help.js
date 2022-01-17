@@ -31,6 +31,10 @@ module.exports.run = async (client, message, args) => {
                     info += `${prefix} ${command.help.name}\r\n`;
                     infod += `${command.help.discription}\r\n`;
                     break;
+                case "add ons":
+                    info += `${prefix} ${command.help.name}\r\n`;
+                    infod += `${command.help.discription}\r\n`;
+                    break;
             }
 
         });
