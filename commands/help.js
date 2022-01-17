@@ -32,8 +32,8 @@ module.exports.run = async (client, message, args) => {
                     infod += `${command.help.discription}\r\n`;
                     break;
                 case "add ons":
-                    info += `${prefix} ${command.help.name}\r\n`;
-                    infod += `${command.help.discription}\r\n`;
+                    addons += `${prefix} ${command.help.name}\r\n`;
+                    addonsd += `${command.help.discription}\r\n`;
                     break;
             }
 
@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args) => {
             .setFooter("help command")
             .addField(info, infod)
             .addField(general, generald)
-            .addField(sponsore, sponsored)
+            .addField(addons, addonsd)
 
         //Error Embed
         var errorEmbed = new discord.MessageEmbed()
