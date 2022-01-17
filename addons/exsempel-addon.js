@@ -10,9 +10,6 @@ module.exports.run = async (client, message, args) => {
         //.setImage(''process.env.INFO'')
         .setTimestamp()
         .setFooter("exsempel addon command")
-        .addFields(
-            { name: "Bot Naam", value: client.user.username }
-        )
 
     return message.channel.send({ embeds: [botEmbed] });
 
