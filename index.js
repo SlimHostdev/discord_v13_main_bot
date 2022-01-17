@@ -35,6 +35,8 @@ client.commands = new Collection();
 //Ophaalen van commandos uit map commands
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith(".js"));
 
+console.log(`[\x1b[31m COMMANDS \x1b[0m]`);
+
 for (const file of commandFiles) {
 
     const command = require(`./commands/${file}`);
@@ -47,6 +49,8 @@ for (const file of commandFiles) {
 
 //Ophaalen van commandos uit map addons
 const addonFiles = fs.readdirSync('./addons').filter(file => file.endsWith(".js"));
+
+console.log(`[\x1b[31m ADDONS \x1b[0m]`);
 
 for (const file of addonFiles) {
 
