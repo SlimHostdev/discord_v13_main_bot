@@ -18,7 +18,10 @@ module.exports.run = async (client, message, args) => {
             { name: "!! LET OP !!", value: "Het is mogelijk dat je stem woord OPGENOMEN / GESTREAMT woord. (wij zijn hier niet vrand wordelijk voor)." },
         )
 
-    return message.channel.send({ embeds: [botEmbed] });
+    return message.channel.send({ embeds: [botEmbed] }).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
 }
 

@@ -16,7 +16,10 @@ module.exports.run = async (client, message, args) => {
             { name: "Bot Naam", value: client.user.username }
         )
 
-    return message.channel.send({ embeds: [botEmbed] });
+    return message.channel.send({ embeds: [botEmbed] }).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
 }
 

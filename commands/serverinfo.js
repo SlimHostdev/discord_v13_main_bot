@@ -16,7 +16,10 @@ module.exports.run = async (client, message, args) => {
             { name: "Totaal members", value: message.guild.memberCount.toString() }
         )
 
-    return message.channel.send({ embeds: [botEmbed] });
+    return message.channel.send({ embeds: [botEmbed] }).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
 }
 

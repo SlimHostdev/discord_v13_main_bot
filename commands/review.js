@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
     message.delete();
 
     const review = new discord.MessageEmbed()
-    .setTitle(`${message.member.displayName}'S' review! 🎉`)
+    .setTitle(`${message.member.displayName}'s review! 🎉`)
     .setFooter(message.member.displayName, message.author.displayAvatarURL)
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
@@ -42,7 +42,10 @@ module.exports.run = async (client, message, args) => {
     .setFooter("review command")
     .addField("Review Chat:", `<#${process.env.REVIEWCHAT}>`)
 
-    message.channel.send({ embeds: [sucsesEmbed] });
+    message.channel.send({ embeds: [sucsesEmbed] }).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
     return reviewChannel.send({ embeds: [review] });
 

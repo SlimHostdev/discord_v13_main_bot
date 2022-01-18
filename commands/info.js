@@ -17,7 +17,10 @@ module.exports.run = async (client, message, args) => {
             { name: "Bot Host", value: 'https://SlimHost.nl' }
         )
 
-    return message.channel.send({ embeds: [botEmbed] });
+    return message.channel.send({ embeds: [botEmbed] }).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
 }
 
