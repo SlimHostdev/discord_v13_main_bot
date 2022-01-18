@@ -61,7 +61,10 @@ module.exports.run = async (client, message, args) => {
             .setFooter("help command")
             .addField("Er gaat iets fout ge gaan", " probeer het laater opnieuw.")
 
-        message.channel.send({ embeds: [botEmbed] })
+        message.channel.send({ embeds: [botEmbed] }).then(msg => {
+            message.delete()
+            setTimeout(() => msg.delete(), 10000);
+        })
 
     } catch (error) {
         message.reply({ embeds: [errorEmbed] });
