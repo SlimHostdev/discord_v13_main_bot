@@ -29,11 +29,11 @@ var DB = mysql.createConnection({
 //MySQL ERROR LOG
 DB.connect(function(err) {
     if (err) throw err;
-    DB.query("JOIN_ROLL_ID * FROM JOINROLL", function (err, result, fields) {
+    DB.query("JOIN_ROLL_ID * FROM JOIN", function (err, result, fields) {
       if (err) throw err;
       console.log(result);
     });
-  });
+});
 
 //File server
 const fs = require("fs");
