@@ -26,6 +26,15 @@ var DB = mysql.createConnection({
   database: process.env.DBNAME
 });
 
+//MySQL ERROR LOG
+DB.connect(function(err) {
+    if (err) throw err;
+    DB.query("JOIN_ROLL_ID * FROM JOINROLL", function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+    });
+  });
+
 //File server
 const fs = require("fs");
 
