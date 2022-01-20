@@ -39,10 +39,14 @@ DB.connect(function(err) {
    // });
 
    //Select Form Table
-    if (err) throw err;
     DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
         if (err) throw err;
         console.log(joinrollid);
+    });
+
+    DB.query("SELECT WELKOM_ID FROM SERVERINFO", function (err, welkomid, fields) {
+        if (err) throw err;
+        console.log(welkomid);
     });
 
 });
@@ -127,7 +131,7 @@ client.on("guildMemberAdd", member => {
 
     member.roles.add(role);
 
-    var channel = member.guild.channels.cache.get(process.env.WELKOM);
+    var channel = member.guild.channels.cache.get(welkomid);
 
     if (!channel) return;
 
