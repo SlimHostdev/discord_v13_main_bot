@@ -26,6 +26,11 @@ var DB = mysql.createConnection({
   database: process.env.DBNAME
 });
 
+DB.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected To DataBase!");
+});
+
 //File server
 const fs = require("fs");
 
