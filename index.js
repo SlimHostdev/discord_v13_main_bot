@@ -16,6 +16,16 @@ const { Client, Intents, Collection } = require("discord.js");
 //.env config
 require('dotenv-flow').config();
 
+//MySQL
+var mysql = require('mysql');
+
+var DB = mysql.createConnection({
+  host: process.env.DBHOST,
+  user: process.env.DBUSER,
+  password: process.env.DBPW,
+  database: process.env.DBNAME
+});
+
 //File server
 const fs = require("fs");
 
