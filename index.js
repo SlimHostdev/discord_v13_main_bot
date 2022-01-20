@@ -121,7 +121,7 @@ client.once("ready", () => {
 
 client.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.cache.get(process.env.JOINROLL);
+    var role = member.guild.roles.cache.get(joinrollid);
 
     if (!role) return;
 
