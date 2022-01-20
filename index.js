@@ -44,11 +44,6 @@ DB.connect(function(err) {
         console.log(joinrollid);
     });
 
-    DB.query("SELECT WELKOM_ID FROM SERVERINFO", function (err, welkomid, fields) {
-        if (err) throw err;
-        console.log(welkomid);
-    });
-
 });
 
 //File server
@@ -125,13 +120,13 @@ client.once("ready", () => {
 
 client.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.cache.get(joinrollid);
+    var role = member.guild.roles.cache.get(process.env.JOINROLL);
 
     if (!role) return;
 
     member.roles.add(role);
 
-    var channel = member.guild.channels.cache.get(welkomid);
+    var channel = member.guild.channels.cache.get(process.env.WELKOM);
 
     if (!channel) return;
 
