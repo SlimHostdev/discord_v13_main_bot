@@ -31,12 +31,12 @@ DB.connect(function(err) {
     console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
     
     //Table Create
-   // var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
+    var sql = "ADD TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
     
-   // DB.query(sql, function (err, result) {
-   //   if (err) throw err;
-   //   console.log(`[\x1b[31m Create Table! \x1b[0m]`);
-   // });
+    DB.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log(`[\x1b[31m Create Table! \x1b[0m]`);
+    });
 
    //Select Form Table
     DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
