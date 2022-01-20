@@ -17,9 +17,9 @@ const { Client, Intents, Collection } = require("discord.js");
 require('dotenv-flow').config();
 
 //MySQL
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var DB = mysql.createConnection({
+const DB = mysql.createConnection({
   host: process.env.DBHOST,
   user: process.env.DBUSER,
   password: process.env.DBPW,
@@ -29,6 +29,11 @@ var DB = mysql.createConnection({
 DB.connect(function(err) {
     if (err) throw err;
     console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
+    const sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log(`[\x1b[31m Create Table! \x1b[0m]`);
+    });
 });
 
 //File server
