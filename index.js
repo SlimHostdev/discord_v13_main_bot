@@ -28,7 +28,7 @@ var DB = mysql.createConnection({
 
 DB.connect(function(err) {
     if (err) throw err;
-    console.log([`Connected To DataBase!`]);
+    console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
 });
 
 //File server
