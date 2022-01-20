@@ -37,15 +37,14 @@ DB.connect(function(err) {
    //   if (err) throw err;
    //   console.log(`[\x1b[31m Create Table! \x1b[0m]`);
    // });
-});
 
-//Select Form Table
-DB.connect(function (err) {
+   //Select Form Table
     if (err) throw err;
     DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
         if (err) throw err;
         console.log(joinrollid);
     });
+
 });
 
 //File server
