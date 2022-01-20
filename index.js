@@ -30,7 +30,7 @@ DB.connect(function(err) {
     if (err) throw err;
     console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
     var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
-    con.query(sql, function (err, result) {
+    DB.query(sql, function (err, result) {
       if (err) throw err;
       console.log(`[\x1b[31m Create Table! \x1b[0m]`);
     });
