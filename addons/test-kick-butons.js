@@ -87,13 +87,20 @@ module.exports.run = async (client, message, args) => {
                     
                     msg.delete();
 
-                    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't kick ADMIN!");
+                    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`))
+                    return message.reply("You can't kick ADMIN!").then(msg => {
+                        message.delete()
+                        setTimeout(() => msg.delete(), 5000);
+                    });
 
                     kickUser.kick(reason).catch(err => {
 
                         if (err) 
                         console.log(err);
-                        return message.channel.send(`Something went wrong while kicking ${kickUser}`);
+                        return message.channel.send(`Something went wrong while kicking ${kickUser}`).then(msg => {
+                            message.delete()
+                            setTimeout(() => msg.delete(), 5000);
+                        });
 
                     });
 
