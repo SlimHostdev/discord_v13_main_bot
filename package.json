@@ -1,6 +1,6 @@
 {
   "name": "discord_bot_v13",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "testen van discord bot v13",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "nodemon"
   },
   "keywords": [
-    "discord"
+    "discord", "ADMIN"
   ],
   "author": "bryan",
   "license": "ISC",

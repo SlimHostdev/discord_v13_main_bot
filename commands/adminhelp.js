@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("Je Bend Geen ADMIN dus je kan dit niet doen.");
+    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
 
     try {
 
@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
 
         var respons = "**Admin Help Commands**\r\n\n";
         var admin = "\n**__Admin__**\n";
-        var admind = "\n***__Admin  Beschijvinge__***\n";
+        var admind = "\n***__Admin  Description__***\n";
 
 
         client.commands.forEach(command => {
@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle(respons)
-            .setDescription("Hier vindje veel info van de bot")
+            .setDescription("Here you will find all ADMIN commands")
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setTimestamp()
@@ -43,7 +43,7 @@ module.exports.run = async (client, message, args) => {
             .setThumbnail(process.env.LOGO)
             .setTimestamp()
             .setFooter("help command")
-            .addField("Er gaat iets fout ge gaan", " probeer het laater opnieuw.")
+            .addField("Something is going wrong!", " try again later.")
 
         message.author.send({ embeds: [botEmbed] })
 
@@ -56,5 +56,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "adminhelp",
     category: "admin",
-    discription: "Hier Vind je alle admin commandos."
+    discription: "Here you will find all admin commands."
 }

@@ -3,19 +3,19 @@ const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("Je Bend Geen ADMIN dus je kan dit niet doen.");
+    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
 
-    if (!args[0]) return message.reply("Je moet een persoon opgeven.");
+    if (!args[0]) return message.reply("You must specify a person.");
 
-    if (!args[1]) return message.reply("Je moet aangeven waarom je de persoon warnt.");
+    if (!args[1]) return message.reply("You must indicate why you warn the person.");
 
     var warnUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
 
     var reason = args.slice(1).join(" ");
 
-    if (!warnUser) return message.reply("Ik kan niemand in de server vinden met deze naam");
+    if (!warnUser) return message.reply("I can't find anyone in the server with this name");
 
-    if (warnUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("Je kan geen warn aan een ADMIN geven!");
+    if (warnUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't give a warm to an ADMIN!");
 
     const warns = JSON.parse(fs.readFileSync("./data/warnings.json", "UTF8"));
 
@@ -29,10 +29,10 @@ module.exports.run = async (client, message, args) => {
         .setColor(process.env.WARNCOLLOR)
         .setFooter(message.member.displayName, message.author.displayAvatarURL)
         .setTimestamp()
-        .setDescription(`**Gewarnd:** <@${warnUser.id}> (${warnUser.id})
-        **Warning door:** ${message.author}
-        **Redenen: ** ${reason}`)
-        .addField("Aantal warns", warns[warnUser.id].warns.toString());
+        .setDescription(`**Warn:** <@${warnUser.id}> (${warnUser.id})
+        **Warning by:** ${message.author}
+        **Reasons: ** ${reason}`)
+        .addField("Number of warnings", warns[warnUser.id].warns.toString());
 
     const channel = message.member.guild.channels.cache.get(`${process.env.MODCHAT}`);
 
@@ -43,25 +43,25 @@ module.exports.run = async (client, message, args) => {
     if (warns[warnUser.id].warns == 3) {
 
         var mes = new discord.MessageEmbed()
-            .setDescription("PAS OP " + warnUser.user.username)
+            .setDescription("WATCH OUT " + warnUser.user.username)
             .setColor(process.env.WARNCOLLOR)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
-            .addField("Bericht", "Nog één warn en je hebt een ban!!");
+            .addField("Message", "One more warm and you're banned!!");
 
         message.channel.send({ embeds: [mes] });
 
     } else if (warns[warnUser.id].warns == 4) {
 
         message.guild.members.ban(warnUser, { reason: reason });
-        message.channel.send(`${warnUser} is verbannen door de bot wegens te veel warns`);
+        message.channel.send(`${warnUser} got banned by the bot for too many warns`);
 
         var banEmbed = new discord.MessageEmbed()
             .setColor(process.env.BANCOLLOR)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
             .setTimestamp()
-            .setDescription(`**Geband:** <@${warnUser.id}> (${warnUser.id})
-        **Redenen: ** is verbannen door de bot wegens te veel warns`)
-            .addField("Aantal warns", warns[warnUser.id].warns.toString());
+            .setDescription(`**BANNED:** <@${warnUser.id}> (${warnUser.id})
+        **Reasons: ** got banned by the bot for too many warns`)
+            .addField("number of warnings", warns[warnUser.id].warns.toString());
 
         const banchannel = message.member.guild.channels.cache.get(`${process.env.ADMINLOGS}`);
 
@@ -81,5 +81,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "warn",
     category: "admin",
-    discription: "Dit is een warn command."
+    discription: "This is a warn command."
 }

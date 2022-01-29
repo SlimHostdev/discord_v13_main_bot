@@ -6,13 +6,13 @@ module.exports.run = async (client, message, args) => {
 
     const amountStarts = args[0];
 
-    if(!amountStarts || amountStarts < 1 || amountStarts > 5) return message.reply("Geef een aantal sterren aan van 1 t.e.m. 5");
+    if(!amountStarts || amountStarts < 1 || amountStarts > 5) return message.reply("Please indicate a number of stars from 1 to 5");
 
-    const messageReview = args.splice(1,args.length).join(" ") || `**Geen Bericht Mee gegeven**`;
+    const messageReview = args.splice(1,args.length).join(" ") || `**No Message Provided**`;
 
     const reviewChannel = message.member.guild.channels.cache.get(process.env.REVIEWCHAT);
 
-    if(!reviewChannel) return message.reply("Er is nog geen Review Channel ingesteld.");
+    if(!reviewChannel) return message.reply("No Review Channel has been set up yet.");
 
     var stars = "";
 
@@ -30,11 +30,11 @@ module.exports.run = async (client, message, args) => {
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
     .setTimestamp()
-    .addField("Sterren:", `${stars}`)
+    .addField("Stars:", `${stars}`)
     .addField("Review:", `${messageReview}`);
 
     const sucsesEmbed = new discord.MessageEmbed()
-    .setTitle(`${message.member.displayName} Bedankt voor jou review! 🎉`)
+    .setTitle(`${message.member.displayName} Thank you for your review! 🎉`)
     .setFooter(message.member.displayName, message.author.displayAvatarURL)
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
@@ -54,5 +54,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "review",
     category: "general",
-    discription: "Dit is een command om een review te geven."
+    discription: "This is a command to give a review."
 }

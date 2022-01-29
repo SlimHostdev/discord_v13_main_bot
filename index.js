@@ -26,9 +26,9 @@ const DB = mysql.createConnection({
   database: process.env.DBNAME
 });
 
-DB.connect(function(err) {
-    if (err) throw err;
-    console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
+//DB.connect(function(err) {
+//    if (err) throw err;
+//    console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
     
     //Table Create
    // var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
@@ -39,12 +39,12 @@ DB.connect(function(err) {
    // });
 
    //Select Form Table
-    DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
-        if (err) throw err;
-        console.log(joinrollid);
-    });
+//    DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
+//        if (err) throw err;
+//        console.log(joinrollid);
+//    });
 
-});
+//});
 
 //File server
 const fs = require("fs");
@@ -164,7 +164,7 @@ client.on("messageCreate", async message => {
 
         console.log(`\x1b[31m ERROR \x1b[0m`);
         console.log(error);
-        await message.reply("Er is iets Fout Gegaan **Kijk in het console voor de ERROR!");
+        await message.reply("Something went wrong **Look in the console for the ERROR!**");
 
     }
 

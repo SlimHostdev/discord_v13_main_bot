@@ -9,14 +9,14 @@ module.exports.run = async (client, message, args) => {
 
         //Main info
         var respons = "**Help Commands**\r\n\n";
-        var general = "**__Algemeen__**\n";
+        var general = "**__General__**\n";
         var info = "\n**__Info__**\n";
         var addons = "\n**__Addons Commands__**\n";
 
         //Discription
-        var generald = "***__Algemeen  Beschijvinge__***\n";
-        var infod = "\n***__Info Beschijvinge__***\n";
-        var addonsd = "\n***___Addons Beschijvinge__***\n"
+        var generald = "***__General  Description__***\n";
+        var infod = "\n***__Info Description__***\n";
+        var addonsd = "\n***___Addons Description__***\n"
 
 
         client.commands.forEach(command => {
@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args) => {
         //Main Embed
         var botEmbed = new discord.MessageEmbed()
             .setTitle(respons)
-            .setDescription("Hier vindje veel info van de bot")
+            .setDescription("Here you will find many commands of the bot")
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setTimestamp()
@@ -59,7 +59,7 @@ module.exports.run = async (client, message, args) => {
             .setThumbnail(process.env.LOGO)
             .setTimestamp()
             .setFooter("help command")
-            .addField("Er gaat iets fout ge gaan", " probeer het laater opnieuw.")
+            .addField("Something went wrong", " try again later.")
 
         message.channel.send({ embeds: [botEmbed] }).then(msg => {
             message.delete()
@@ -75,5 +75,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "help",
     category: "info",
-    discription: "Hier Vind je alle commandos."
+    discription: "Here you will find all commands."
 }

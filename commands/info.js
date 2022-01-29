@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle("Info command")
-        .setDescription("Hier vindje veel info van de bot")
+        .setDescription("Here you will find a lot of info from the bot")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         //.setImage(''process.env.INFO'')
@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
         .addFields(
             { name: "Bot Prefix", value: process.env.PREFFIX },
             { name: "Bot Dev", value: "𝕭𝖗𝖞𝖆𝖓#6694" },
-            { name: "Bot Host", value: 'https://SlimHost.nl' }
+            { name: "Bot Host", value: 'https://Slimgame.nl' }
         )
 
     return message.channel.send({ embeds: [botEmbed] }).then(msg => {
@@ -27,5 +27,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "info",
     category: "info",
-    discription: "Hier vindje veel info van de bot."
+    discription: "Here you will find a lot of info from the bot."
 }
