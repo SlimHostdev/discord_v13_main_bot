@@ -7,22 +7,26 @@ module.exports.run = async (client, message, args) => {
         new discord.MessageButton()
         .setCustomId("test")
         .setLabel("DANGER")
-        .setStyle("DANGER"),
+        .setStyle("DANGER")
+        .setEmoji("❌"),
 
         new discord.MessageButton()
         .setCustomId("test2")
         .setLabel("PRIMARY")
-        .setStyle("PRIMARY"),
+        .setStyle("PRIMARY")
+        .setEmoji("😊"),
 
         new discord.MessageButton()
         .setCustomId("test3")
         .setLabel("SECONDARY")
-        .setStyle("SECONDARY"),
+        .setStyle("SECONDARY")
+        .setEmoji("⚠️"),
 
         new discord.MessageButton()
         .setCustomId("test4")
         .setLabel("SUCCESS")
-        .setStyle("SUCCESS"),
+        .setStyle("SUCCESS")
+        .setEmoji("✅"),
 
         new discord.MessageButton()
         .setLabel("LINK")
