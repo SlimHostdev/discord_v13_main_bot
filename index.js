@@ -78,11 +78,11 @@ for (const file of commandFiles) {
 }
 
 //Ophaalen van commandos uit map admincommands
-const commandFiles = fs.readdirSync('./admincommands').filter(file => file.endsWith(".js"));
+const admincommandFiles = fs.readdirSync('./admincommands').filter(file => file.endsWith(".js"));
 
 console.log(`[\x1b[31m ADMIN COMMANDS \x1b[0m]`);
 
-for (const file of commandFiles) {
+for (const file of admincommandFiles) {
 
     const command = require(`./admincommands/${file}`);
 
