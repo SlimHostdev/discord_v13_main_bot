@@ -88,10 +88,7 @@ module.exports.run = async (client, message, args) => {
                     msg.delete();
 
                     if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`))
-                    return message.reply("You can't kick ADMIN!").then(msg => {
-                        message.delete()
-                        setTimeout(() => msg.delete(), 5000);
-                    });
+                    return message.reply("You can't kick ADMIN!");
 
                     kickUser.kick(reason).catch(err => {
 
@@ -104,10 +101,7 @@ module.exports.run = async (client, message, args) => {
 
                     });
 
-                    return message.channel.send({ embeds: [embedKick] }).then(msg => {
-                        message.delete()
-                        setTimeout(() => msg.delete(), 5000);
-                    });
+                    return message.channel.send({ embeds: [embedKick] });
                     
                 case "No":
                     
