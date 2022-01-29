@@ -25,7 +25,7 @@ module.exports.run = async (client, message, args) => {
         .setStyle("SUCCESS"),
 
         new discord.MessageButton()
-        .setLabel("SlimGame")
+        .setLabel("LINK")
         .setStyle("LINK")
         .setURL("https://slimgame.nl")
 
