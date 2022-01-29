@@ -6,22 +6,22 @@ module.exports.run = async (client, message, args) => {
 
         new discord.MessageButton()
         .setCustomId("test")
-        .setLabel("TEST")
+        .setLabel("DANGER")
         .setStyle("DANGER"),
 
         new discord.MessageButton()
         .setCustomId("test2")
-        .setLabel("TEST")
+        .setLabel("PRIMARY")
         .setStyle("PRIMARY"),
 
         new discord.MessageButton()
         .setCustomId("test3")
-        .setLabel("TEST")
+        .setLabel("SECONDARY")
         .setStyle("SECONDARY"),
 
         new discord.MessageButton()
         .setCustomId("test4")
-        .setLabel("TEST")
+        .setLabel("SUCCESS")
         .setStyle("SUCCESS"),
 
         new discord.MessageButton()
