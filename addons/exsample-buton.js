@@ -11,22 +11,27 @@ module.exports.run = async (client, message, args) => {
         .setDisabled(true),
 
         new discord.MessageButton()
-        .setCustomId("test")
+        .setCustomId("test2")
         .setLabel("TEST")
         .setStyle("LINK")
         .setDisabled(true),
 
         new discord.MessageButton()
-        .setCustomId("test")
+        .setCustomId("test3")
         .setLabel("TEST")
         .setStyle("PRIMARY")
         .setDisabled(true),
 
         new discord.MessageButton()
-        .setCustomId("test")
+        .setCustomId("test4")
         .setLabel("TEST")
         .setStyle("SACONDARY")
-        .setDisabled(true)
+        .setDisabled(true),
+
+        new discord.MessageButton()
+        .setCustomId("test5")
+        .setLabel("TEST")
+        .setStyle("SUCCESS")
 
     );
 
