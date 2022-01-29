@@ -48,7 +48,7 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    message.channel.send({ content: "Test Message", Compoments: [danger, link, primary, sacondary, success] });
+    message.channel.send({ content: "Test Message", Compoments: [danger] });
 
 }
 
