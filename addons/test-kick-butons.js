@@ -87,6 +87,8 @@ module.exports.run = async (client, message, args) => {
                     
                     msg.delete();
 
+                    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't kick ADMIN!");
+
                     kickUser.kick(reason).catch(err => {
 
                         if (err) 
