@@ -6,32 +6,32 @@ module.exports.run = async (client, message, args) => {
 
     //(prefix)kick naam reden
 
-    if (!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply("I have no right to kick anyone.");
+    if (!message.guild.me.permissions.has("BAN_MEMBERS")) return message.reply("I have no right to Ban anyone.");
 
     if (!args[0]) return message.reply("You must specify a person.");
 
-    if (!args[1]) return message.reply("You have to indicate why you want to kick the person.");
+    if (!args[1]) return message.reply("You must indicate why you want to Ban the person.");
 
     //try catch
 
-    var kickUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
+    var banUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
 
-    if (!kickUser) return message.reply("I can't find anyone in the server with this name");
+    if (!banUser) return message.reply("I can't find anyone in the server with this name");
 
-    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't kick ADMIN!");
+    if (banUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't Ban a ADMIN!");
 
     var reason = args.slice(1).join(" ");
 
     var embedPrompt = new discord.MessageEmbed()
         .setColor(process.env.WARNCOLLOR)
-        .setTitle("Are you sure you want to perform this kick?")
-        .setDescription(`Do you want to kick ${kickUser} ?`)
+        .setTitle("Are you sure you want to do this Ban?")
+        .setDescription(`Do you want to Ban ${banUser} ?`)
         .setTimestamp()
 
-    var embedKick = new discord.MessageEmbed()
+    var embedBan = new discord.MessageEmbed()
         .setColor(process.env.BANCOLLOR)
-        .setDescription(`**kicked:** ${kickUser} (${kickUser.id})
-        **Kicked By:** ${message.author}
+        .setDescription(`Banned:** ${banUser} (${banUser.id})
+        **Banned By:** ${message.author}
         **Reason:** ${reason}`)
         .setFooter(message.member.displayName)
         .setTimestamp();
@@ -88,26 +88,25 @@ module.exports.run = async (client, message, args) => {
                     msg.delete();
 
                     if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`))
-                    return message.reply("You can't kick ADMIN!");
+                    return message.reply("You can't ban ADMIN!");
 
-                    kickUser.kick(reason).catch(err => {
+                    msg.delete();
 
+                    banUser.ban({reason: reason}).catch(err => {
+    
                         if (err) 
                         console.log(err);
-                        return message.channel.send(`Something went wrong while kicking ${kickUser}`).then(msg => {
-                            message.delete()
-                            setTimeout(() => msg.delete(), 5000);
-                        });
-
+                        return message.channel.send(`Something went wrong with Banning ${banUser}`);
+    
                     });
 
-                    return message.channel.send({ embeds: [embedKick] });
+                    return message.channel.send({ embeds: [embedBan] });
                     
                 case "No":
                     
                     msg.delete();
 
-                    message.channel.send(`You have chosen to dont Kick ${kickUser} .`).then(msg => {
+                    message.channel.send(`You have chosen to dont Ban ${banUser}.`).then(msg => {
                         message.delete()
                         setTimeout(() => msg.delete(), 5000);
                     });
@@ -122,7 +121,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "kickbuton",
+    name: "banbuton",
     category: "add ons",
-    discription: "Dist is an example code for Kick buton addons."
+    discription: "Dist is an example code for ban buton addons."
 }
