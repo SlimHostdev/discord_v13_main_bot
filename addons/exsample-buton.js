@@ -7,8 +7,7 @@ module.exports.run = async (client, message, args) => {
         new discord.MessageButton()
         .setCustomId("test")
         .setLabel("TEST")
-        .setStyle("DANGER")
-        .setDisabled(true),
+        .setStyle("DANGER"),
 
         new discord.MessageButton()
         .setLabel("SlimGame")
@@ -18,14 +17,12 @@ module.exports.run = async (client, message, args) => {
         new discord.MessageButton()
         .setCustomId("test3")
         .setLabel("TEST")
-        .setStyle("PRIMARY")
-        .setDisabled(true),
+        .setStyle("SUCCESS"),
 
         new discord.MessageButton()
         .setCustomId("test4")
         .setLabel("TEST")
         .setStyle("SACONDARY")
-        .setDisabled(true)
 
     );
 
