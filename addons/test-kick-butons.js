@@ -39,16 +39,16 @@ module.exports.run = async (client, message, args) => {
     const row = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
-        .setCustomId("No")
-        .setLabel("No")
-        .setStyle("DANGER")
-        .setEmoji("⚠️"),
-
-        new discord.MessageButton()
         .setCustomId("Yes")
         .setLabel("Yes")
         .setStyle("SUCCESS")
         .setEmoji("✅"),
+
+        new discord.MessageButton()
+        .setCustomId("No")
+        .setLabel("No")
+        .setStyle("DANGER")
+        .setEmoji("⚠️")
 
     );
 
@@ -77,22 +77,21 @@ module.exports.run = async (client, message, args) => {
  
         switch (id) {
             case "Yes":
-                return
-                    msg.delete();
+                
+                msg.delete();
 
-                    kickUser.kick(reason).catch(err => {
-    
-                        if (err) 
-                        console.log(err);
-                        return message.channel.send(`Something went wrong while kicking ${kickUser}`);
-    
-                    });
-    
-                    message.channel.send({ embeds: [embedKick] });
+                kickUser.kick(reason).catch(err => {
+
+                    if (err) 
+                    console.log(err);
+                    return message.channel.send(`Something went wrong while kicking ${kickUser}`);
+
+                });
+
+                return message.channel.send({ embeds: [embedKick] });
                 
             case "No":
-                return 
-
+                
                 msg.delete();
 
                 message.channel.send(`You have chosen to dont Kick ${kickUser} .`).then(msg => {
@@ -100,6 +99,7 @@ module.exports.run = async (client, message, args) => {
                     setTimeout(() => msg.delete(), 5000);
                 });
 
+                return 
             default:
                 return interactionButton.reply("This button has no functionality yet.");
         }
