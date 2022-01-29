@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
 
     client.user.setPresence({
 
-        status: "dnd",
+        status: "DND",
         activities: [
             {
                 name: statusTxt

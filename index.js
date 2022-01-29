@@ -113,7 +113,7 @@ const admins = [process.env.ADMINROLL];
 //Start op info
 client.once("ready", () => {
 
-    client.user.setActivity(`${process.env.STATUS}`, { type: "PLAYING" });
+    client.user.setActivity(`${process.env.STATUS}`, { type: "DND" });
 
     const statusOptions = [
         `${process.env.STATUS}`,
