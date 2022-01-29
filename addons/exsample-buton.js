@@ -10,9 +10,14 @@ module.exports.run = async (client, message, args) => {
         .setStyle("DANGER"),
 
         new discord.MessageButton()
+        .setCustomId("test2")
+        .setLabel("TEST")
+        .setStyle("PRIMARY"),
+
+        new discord.MessageButton()
         .setLabel("SlimGame")
         .setStyle("LINK")
-        .setURL("https://slimgame.nl"),
+        .setURL("https://slimgame.nl")
 
     );
 
