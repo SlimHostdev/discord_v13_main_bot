@@ -8,6 +8,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test")
         .setLabel("TEST")
         .setStyle("DANGER")
+        .setDisabled(true)
     
     );
     
@@ -18,6 +19,7 @@ module.exports.run = async (client, message, args) => {
         .setLabel("TEST")
         .setStyle("LINK")
         .setURL("https://slimgame.nl")
+        .setDisabled(true)
     
     );
     
@@ -27,6 +29,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test")
         .setLabel("TEST")
         .setStyle("PRIMARY")
+        .setDisabled(true)
     
     );
     
@@ -36,6 +39,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test")
         .setLabel("TEST")
         .setStyle("SACONDARY")
+        .setDisabled(true)
     
     );
     
@@ -45,6 +49,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test")
         .setLabel("TEST")
         .setStyle("SUCCESS")
+        .setDisabled(true)
     
     );
 
