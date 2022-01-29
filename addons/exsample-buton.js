@@ -11,11 +11,9 @@ module.exports.run = async (client, message, args) => {
         .setDisabled(true),
 
         new discord.MessageButton()
-        .setCustomId("test2")
-        .setLabel("TEST")
+        .setLabel("SlimGame")
         .setStyle("LINK")
-        .setURL("https://slimgame.nl")
-        .setDisabled(true),
+        .setURL("https://slimgame.nl"),
 
         new discord.MessageButton()
         .setCustomId("test3")
