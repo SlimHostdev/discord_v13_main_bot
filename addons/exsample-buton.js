@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    const danger = new discord.MessageActionRow().addCompoments(
+    const danger = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
         .setCustomId("test")
@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    const link = new discord.MessageActionRow().addCompoments(
+    const link = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
         .setCustomId("test")
@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    const primary = new discord.MessageActionRow().addCompoments(
+    const primary = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
         .setCustomId("test")
@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    const sacondary = new discord.MessageActionRow().addCompoments(
+    const sacondary = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
         .setCustomId("test")
@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    const success = new discord.MessageActionRow().addCompoments(
+    const success = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
         .setCustomId("test")
