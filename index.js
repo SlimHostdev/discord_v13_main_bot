@@ -115,6 +115,37 @@ client.once("ready", () => {
 
     client.user.setActivity(`${process.env.STATUS}`, { type: "PLAYING" });
 
+    const statusOptions = [
+        `${process.env.STATUS}`,
+        "I AM",
+        "BULD BY",
+        "https://slimgame.nl"
+    ]
+
+    let counter =0;
+
+    let time = 1 * 60 * 1000; //1000 = 1 Minut
+
+    const updateStatus = () => {
+
+        client.user.setPresence({
+
+            status: "dnd",
+            activities: [
+                {
+                    name: statusOptions[counter]
+                }
+            ]
+    
+        });
+
+        if(counter++ >= statusOptions.length) counter = 0;
+
+        setTimeout(updateStatus, time);
+
+    }
+    updateStatus();
+
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log(['All commands ar load']);
     console.log(`[\x1b[31m ${client.user.username} \x1b[0m]`);
