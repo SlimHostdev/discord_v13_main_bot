@@ -104,7 +104,10 @@ module.exports.run = async (client, message, args) => {
 
                     });
 
-                    return message.channel.send({ embeds: [embedKick] });
+                    return message.channel.send({ embeds: [embedKick] }).then(msg => {
+                        message.delete()
+                        setTimeout(() => msg.delete(), 5000);
+                    });
                     
                 case "No":
                     
