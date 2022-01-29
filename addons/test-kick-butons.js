@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
 
     var embedKick = new discord.MessageEmbed()
         .setColor(process.env.BANCOLLOR)
-        .setDescription(`kicked:** ${kickUser} (${kickUser.id})
+        .setDescription(`**kicked:** ${kickUser} (${kickUser.id})
         **Kicked By:** ${message.author}
         **Reason:** ${reason}`)
         .setFooter(message.member.displayName)
