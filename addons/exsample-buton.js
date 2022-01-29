@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    const danger = new discord.MessageActionRow().addComponents(
+    const row = new discord.MessageActionRow().addComponents(
 
         new discord.MessageButton()
         .setCustomId("test")
@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    message.channel.send({ content: "Test Message", Compoments: [danger] });
+    message.channel.send({ content: "Test Message", Compoments: [row] });
 
 }
 
