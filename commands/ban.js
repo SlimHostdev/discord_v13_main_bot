@@ -36,58 +36,88 @@ module.exports.run = async (client, message, args) => {
         .setFooter(message.member.displayName)
         .setTimestamp();
 
-    message.channel.send({ embeds: [embedPrompt] }).then(async msg => {
+    const row = new discord.MessageActionRow().addComponents(
+
+        new discord.MessageButton()
+        .setCustomId("Yes")
+        .setLabel("Yes")
+        .setStyle("SUCCESS")
+        .setEmoji("✅"),
+
+        new discord.MessageButton()
+        .setCustomId("No")
+        .setLabel("No")
+        .setStyle("DANGER")
+        .setEmoji("⚠️")
+
+    );
+
+    message.channel.send({ embeds: [embedPrompt], components: [row] }).then(async msg => {
 
         let authorID = message.author.id;
         let time = 30;
-        let reactions = ["✅", "❌"];
 
         // We gaan eerst de tijd * 1000 doen zodat we seconden uitkomen.
         time *= 1000;
 
-        // We gaan iedere reactie meegegeven onder de reactie en deze daar plaatsen.
-        for (const reaction of reactions) {
-            await msg.react(reaction);
+        // We maken een filter aan die nakijkt als het dezelfde gebruiker 
+        // is die het bericht heeft aangemaakt.
+        const filter = (interaction) => {
+            if (interaction.user.id === authorID) return true;
+            return interaction.reply("You can't use this.");
         }
+    
+        // We maken een component collector aan die er voor zal zorgen dat we de knoppen kunnen opvangen.
+        // We voegen de filter er aan toe en geven mee dat men enkel maar max één knop kan indrukken.
+        const collector = message.channel.createMessageComponentCollector({
+            filter,
+            max: 1,
+            time: time
+        });
+    
+        // Als men een knop heeft ingdrukt zal dit worden opgeroepen.
+        // Deze zal de CustomID ophalen van de knop en hier kan men deze dan
+        // gaan vergelijken in eventueel een switch case om zo een desbtreffende actie te doen.
+        collector.on("collect", (interactionButton) => {
+    
+            const id = interactionButton.customId;
+    
+            switch (id) {
+                case "Yes":
+                    
+                    msg.delete();
 
-        // Als de emoji de juiste emoji is die men heeft opgegeven en als ook de auteur die dit heeft aangemaakt er op klikt
-        // dan kunnen we een bericht terug sturen.
-        const filter = (reaction, user) => {
-            return reactions.includes(reaction.emoji.name) && user.id === authorID;
-        };
+                    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`))
+                    return message.reply("You can't ban ADMIN!");
 
-        // We kijken als de reactie juist is, dus met die filter en ook het aantal keren en binnen de tijd.
-        // Dan kunnen we bericht terug sturen met dat icoontje dat is aangeduid.
-        msg.awaitReactions({ filter, max: 1, time: time }).then(collected => {
-            var emojiDetails = collected.first();
+                    msg.delete();
 
+                    banUser.ban({reason: reason}).catch(err => {
+    
+                        if (err) 
+                        console.log(err);
+                        return message.channel.send(`Something went wrong with Banning ${banUser}`);
+    
+                    });
 
-            if(emojiDetails.emoji.name === "✅") {
+                    return message.channel.send({ embeds: [embedBan] });
+                    
+                case "No":
+                    
+                    msg.delete();
 
-                msg.delete();
+                    message.channel.send(`You have chosen to dont Ban ${banUser}.`).then(msg => {
+                        message.delete()
+                        setTimeout(() => msg.delete(), 5000);
+                    });
 
-                banUser.ban({reason: reason}).catch(err => {
-
-                    if (err) 
-                    console.log(err);
-                    return message.channel.send(`Something went wrong with Banning ${banUser}`);
-
-                });
-
-                message.channel.send({ embeds: [embedBan] });
-
-            } else if(emojiDetails.emoji.name === "❌") {
-
-                msg.delete();
-
-                message.channel.send(`You have chosen to dont Ban ${banUser}.`).then(msg => {
-                    message.delete()
-                    setTimeout(() => msg.delete(), 5000);
-                });
-
+                    return 
+                default:
+                    return interactionButton.reply("This button has no functionality yet.");
             }
         });
     });
+
 }
 
 module.exports.help = {
