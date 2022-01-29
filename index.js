@@ -120,8 +120,7 @@ client.once("ready", () => {
         "-help",
         "-info",
         "-serverinfo",
-        "-review",
-        "-addon"
+        "-review"
     ]
 
     let counter =0;
