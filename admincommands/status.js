@@ -17,7 +17,10 @@ module.exports.run = async (client, message, args) => {
 
     });
 
-    return;
+    return message.channel.send(`The bot status has changed to: ${statusTxt}`).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
 }
 
