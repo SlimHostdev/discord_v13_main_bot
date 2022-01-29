@@ -139,7 +139,7 @@ client.once("ready", () => {
     
         });
 
-        if(counter++ >= statusOptions.length) counter = 0;
+        if(++counter >= statusOptions.length) counter = 0;
 
         setTimeout(updateStatus, time);
 
