@@ -27,12 +27,6 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test")
         .setLabel("TEST")
         .setStyle("SACONDARY")
-        .setDisabled(true),
-
-        new discord.MessageButton()
-        .setCustomId("test")
-        .setLabel("TEST")
-        .setStyle("SUCCESS")
         .setDisabled(true)
 
     );
