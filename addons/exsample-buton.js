@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test")
         .setLabel("DANGER")
         .setStyle("DANGER")
-        .setEmoji("❌"),
+        .setEmoji("⚠️"),
 
         new discord.MessageButton()
         .setCustomId("test2")
@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test3")
         .setLabel("SECONDARY")
         .setStyle("SECONDARY")
-        .setEmoji("⚠️"),
+        .setEmoji("🆘"),
 
         new discord.MessageButton()
         .setCustomId("test4")
