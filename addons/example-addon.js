@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle("exsempel addon !!!!!!")
-        .setDescription("Dit is een command om de addons te testen")
+        .setDescription("This is a command to test the addons")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         //.setImage(''process.env.INFO'')
@@ -21,5 +21,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "exsempel",
     category: "add ons",
-    discription: "Dist is een voorbeeld code voor addons."
+    discription: "Dist is an example code for addons."
 }
