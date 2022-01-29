@@ -108,7 +108,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "buton",
+    name: "kickbuton",
     category: "add ons",
-    discription: "Dist is an example code for buton addons."
+    discription: "Dist is an example code for Kick buton addons."
 }
