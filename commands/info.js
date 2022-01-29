@@ -22,6 +22,7 @@ module.exports.run = async (client, message, args) => {
             new discord.MessageButton()
             .setLabel("Host")
             .setStyle("LINK")
+            .setEmoji("📡")
             .setURL("https://slimgame.nl")
     
         );
