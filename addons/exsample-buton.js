@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
         new discord.MessageButton()
         .setCustomId("test3")
         .setLabel("TEST")
-        .setStyle("SECCONDARY"),
+        .setStyle("SECONDARY"),
 
         new discord.MessageButton()
         .setLabel("SlimGame")
