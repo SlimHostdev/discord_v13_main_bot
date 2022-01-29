@@ -117,9 +117,11 @@ client.once("ready", () => {
 
     const statusOptions = [
         `${process.env.STATUS}`,
-        "I AM",
-        "BULD BY",
-        "https://slimgame.nl"
+        "-help",
+        "-info",
+        "-serverinfo",
+        "-review",
+        "-addon"
     ]
 
     let counter =0;
