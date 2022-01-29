@@ -34,7 +34,7 @@ module.exports.run = async (client, message, args) => {
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setTimestamp()
-            .setFooter("help command")
+            .setFooter("addon command")
             .addField(info, infod)
             .addField(general, generald)
             .addField(addons, addonsd)
@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args) => {
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setTimestamp()
-            .setFooter("help command")
+            .setFooter("addon command")
             .addField("Something went wrong", " try again later.")
 
         message.channel.send({ embeds: [botEmbed] }).then(msg => {
