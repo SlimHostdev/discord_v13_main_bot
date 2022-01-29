@@ -52,57 +52,65 @@ module.exports.run = async (client, message, args) => {
 
     );
 
-    message.channel.send({ embeds: [embedPrompt], components: [row] });
+    message.channel.send({ embeds: [embedPrompt], components: [row] }).then(async msg => {
 
-    // We maken een filter aan die nakijkt als het dezelfde gebruiker 
-    // is die het bericht heeft aangemaakt.
-    const filter = (interaction) => {
-        if (interaction.user.id === message.author.id) return true;
-        return interaction.reply("You can't use this.");
-    }
- 
-    // We maken een component collector aan die er voor zal zorgen dat we de knoppen kunnen opvangen.
-    // We voegen de filter er aan toe en geven mee dat men enkel maar max één knop kan indrukken.
-    const collector = message.channel.createMessageComponentCollector({
-        filter,
-        max: 1
-    });
- 
-    // Als men een knop heeft ingdrukt zal dit worden opgeroepen.
-    // Deze zal de CustomID ophalen van de knop en hier kan men deze dan
-    // gaan vergelijken in eventueel een switch case om zo een desbtreffende actie te doen.
-    collector.on("collect", (interactionButton) => {
- 
-        const id = interactionButton.customId;
- 
-        switch (id) {
-            case "Yes":
-                
-                msg.delete();
+        let authorID = message.author.id;
+        let time = 30;
 
-                kickUser.kick(reason).catch(err => {
+        // We gaan eerst de tijd * 1000 doen zodat we seconden uitkomen.
+        time *= 1000;
 
-                    if (err) 
-                    console.log(err);
-                    return message.channel.send(`Something went wrong while kicking ${kickUser}`);
-
-                });
-
-                return message.channel.send({ embeds: [embedKick] });
-                
-            case "No":
-                
-                msg.delete();
-
-                message.channel.send(`You have chosen to dont Kick ${kickUser} .`).then(msg => {
-                    message.delete()
-                    setTimeout(() => msg.delete(), 5000);
-                });
-
-                return 
-            default:
-                return interactionButton.reply("This button has no functionality yet.");
+        // We maken een filter aan die nakijkt als het dezelfde gebruiker 
+        // is die het bericht heeft aangemaakt.
+        const filter = (interaction) => {
+            if (interaction.user.id === authorID) return true;
+            return interaction.reply("You can't use this.");
         }
+    
+        // We maken een component collector aan die er voor zal zorgen dat we de knoppen kunnen opvangen.
+        // We voegen de filter er aan toe en geven mee dat men enkel maar max één knop kan indrukken.
+        const collector = message.channel.createMessageComponentCollector({
+            filter,
+            max: 1,
+            time: time
+        });
+    
+        // Als men een knop heeft ingdrukt zal dit worden opgeroepen.
+        // Deze zal de CustomID ophalen van de knop en hier kan men deze dan
+        // gaan vergelijken in eventueel een switch case om zo een desbtreffende actie te doen.
+        collector.on("collect", (interactionButton) => {
+    
+            const id = interactionButton.customId;
+    
+            switch (id) {
+                case "Yes":
+                    
+                    msg.delete();
+
+                    kickUser.kick(reason).catch(err => {
+
+                        if (err) 
+                        console.log(err);
+                        return message.channel.send(`Something went wrong while kicking ${kickUser}`);
+
+                    });
+
+                    return message.channel.send({ embeds: [embedKick] });
+                    
+                case "No":
+                    
+                    msg.delete();
+
+                    message.channel.send(`You have chosen to dont Kick ${kickUser} .`).then(msg => {
+                        message.delete()
+                        setTimeout(() => msg.delete(), 5000);
+                    });
+
+                    return 
+                default:
+                    return interactionButton.reply("This button has no functionality yet.");
+            }
+        });
     });
 
 }
