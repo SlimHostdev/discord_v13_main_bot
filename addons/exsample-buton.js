@@ -14,6 +14,7 @@ module.exports.run = async (client, message, args) => {
         .setCustomId("test2")
         .setLabel("TEST")
         .setStyle("LINK")
+        .setURL("https://slimgame.nl")
         .setDisabled(true),
 
         new discord.MessageButton()
