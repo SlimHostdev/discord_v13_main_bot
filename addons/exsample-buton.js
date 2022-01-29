@@ -14,16 +14,6 @@ module.exports.run = async (client, message, args) => {
         .setStyle("LINK")
         .setURL("https://slimgame.nl"),
 
-        new discord.MessageButton()
-        .setCustomId("test3")
-        .setLabel("TEST")
-        .setStyle("SUCCESS"),
-
-        new discord.MessageButton()
-        .setCustomId("test4")
-        .setLabel("TEST")
-        .setStyle("SACONDARY")
-
     );
 
     message.channel.send({ content: "Test Message", components: [row] });
