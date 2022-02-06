@@ -1,3 +1,4 @@
+console.log("slimgame");
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log(`\x1b[31m Dit is de officiële source code van de SlimGame. \x1b[0m`);
 console.log(`\x1b[31m Het door geven van deze files of verkopen is van zijn strengste verboden! \x1b[0m`);
