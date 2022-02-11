@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription("Here you will find a lot of info from the bot")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
-        //.setImage(''process.env.INFO'')
+        .setImage(process.env.BANNER)
         .setTimestamp()
         .setFooter("info command")
         .addField("Bot Naam", client.user.username)

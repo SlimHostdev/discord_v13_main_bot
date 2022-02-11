@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription("This is a command to test the bot")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
-        //.setImage(''process.env.INFO'')
+        .setImage(process.env.BANNER)
         .setTimestamp()
         .setFooter("ping command")
         .addFields(

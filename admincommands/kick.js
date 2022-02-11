@@ -24,12 +24,16 @@ module.exports.run = async (client, message, args) => {
 
     var embedPrompt = new discord.MessageEmbed()
         .setColor(process.env.WARNCOLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
         .setTitle("Are you sure you want to perform this kick?")
         .setDescription(`Do you want to kick ${kickUser} ?`)
         .setTimestamp()
 
     var embedKick = new discord.MessageEmbed()
         .setColor(process.env.BANCOLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
         .setDescription(`**kicked:** ${kickUser} (${kickUser.id})
         **Kicked By:** ${message.author}
         **Reason:** ${reason}`)

@@ -7,6 +7,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription("This is a command to test the addons")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
         //.setImage(''process.env.INFO'')
         .setTimestamp()
         .setFooter("exsempel addon command")

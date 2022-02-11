@@ -23,13 +23,17 @@ module.exports.run = async (client, message, args) => {
     var reason = args.slice(1).join(" ");
 
     var embedPrompt = new discord.MessageEmbed()
+        .setThumbnail(process.env.LOGO)
         .setColor(process.env.WARNCOLLOR)
+        .setImage(process.env.BANNER)
         .setTitle("Are you sure you want to do this Ban?")
         .setDescription(`Do you want to Ban ${banUser} ?`)
         .setTimestamp()
 
     var embedBan = new discord.MessageEmbed()
+        .setThumbnail(process.env.LOGO)
         .setColor(process.env.BANCOLLOR)
+        .setImage(process.env.BANNER)
         .setDescription(`Banned:** ${banUser} (${banUser.id})
         **Banned By:** ${message.author}
         **Reason:** ${reason}`)

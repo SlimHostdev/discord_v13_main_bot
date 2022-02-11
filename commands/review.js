@@ -29,6 +29,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.member.displayName, message.author.displayAvatarURL)
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
+    .setImage(process.env.BANNER)
     .setTimestamp()
     .addField("Stars:", `${stars}`)
     .addField("Review:", `${messageReview}`);
@@ -38,6 +39,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(message.member.displayName, message.author.displayAvatarURL)
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
+    .setImage(process.env.BANNER)
     .setTimestamp()
     .setFooter("review command")
     .addField("Review Chat:", `<#${process.env.REVIEWCHAT}>`)

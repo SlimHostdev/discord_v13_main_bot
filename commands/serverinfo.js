@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription("Here you will find a lot of information about this server")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
-        //.setImage(''process.env.INFO'')
+        .setImage(process.env.BANNER)
         .setTimestamp()
         .setFooter("serverinfo command")
         .addFields(

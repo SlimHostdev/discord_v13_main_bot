@@ -27,6 +27,8 @@ module.exports.run = async (client, message, args) => {
 
     var warnEmbed = new discord.MessageEmbed()
         .setColor(process.env.WARNCOLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
         .setFooter(message.member.displayName, message.author.displayAvatarURL)
         .setTimestamp()
         .setDescription(`**Warn:** <@${warnUser.id}> (${warnUser.id})
@@ -43,6 +45,8 @@ module.exports.run = async (client, message, args) => {
     if (warns[warnUser.id].warns == 3) {
 
         var mes = new discord.MessageEmbed()
+            .setThumbnail(process.env.LOGO)
+            .setImage(process.env.BANNER)
             .setDescription("WATCH OUT " + warnUser.user.username)
             .setColor(process.env.WARNCOLLOR)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
@@ -56,6 +60,8 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(`${warnUser} got banned by the bot for too many warns`);
 
         var banEmbed = new discord.MessageEmbed()
+            .setThumbnail(process.env.LOGO)
+            .setImage(process.env.BANNER)
             .setColor(process.env.BANCOLLOR)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
             .setTimestamp()
