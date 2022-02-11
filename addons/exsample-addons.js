@@ -8,7 +8,6 @@ module.exports.run = async (client, message, args) => {
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
-        //.setImage(''process.env.INFO'')
         .setTimestamp()
         .setFooter("exsempel addon command")
 
