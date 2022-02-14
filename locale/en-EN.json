@@ -1,0 +1,6 @@
+{
+    "no.admin": "You're Not an ADMIN so you can't do this.",
+    "command.ping.title": "Pong !!!!!!",
+    "command.ping.discription": "This is a command to test the bot",
+    "command.ping.footer": "ping command"
+}
