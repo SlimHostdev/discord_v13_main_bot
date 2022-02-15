@@ -218,20 +218,20 @@ client.on("messageCreate", async message => {
 
 });
 
-client.on("interactionsCreate", Interaction => {
+client.on("interactionsCreate", interaction => {
 
-    if(!Interaction.isSelectMenu()){
+    if(!interaction.isSelectMenu()){
         return;
     }
 
-    const {customId, values, member} = Interaction;
+    const { customId, values, member } = interaction;
 
     if(customId === 'dropdown'){
 
-        const component = Interaction.component;
+        const component = interaction.component;
         //filter van wat er wel en niet is gekoozen
         const removed = component.options.filter((option) => {
-            return !values.includs(option.value)
+            return !values.includes(option.value)
         });
         //roll verwijderen all hij niet is ge selecteerd.
         for(var id of removed){
