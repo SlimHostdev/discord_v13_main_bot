@@ -224,7 +224,7 @@ client.on("interactionsCreate", Interaction => {
         return;
     }
 
-    const {customId, value, member} = Interaction;
+    const {customId, values, member} = Interaction;
 
     if(customId === 'dropdown'){
 
