@@ -12,7 +12,7 @@ console.log('<------------------------------------------------------------------
 
 const { Console } = require("console");
 //------------------------------------Benodigt heeden------------------------------------------
-const { Client, Intents, Collection } = require("discord.js");
+const { Client, Intents, Collection, Interaction } = require("discord.js");
 
 //.env config
 require('dotenv-flow').config();
@@ -213,6 +213,39 @@ client.on("messageCreate", async message => {
         console.log(`\x1b[31m ERROR \x1b[0m`);
         console.log(error);
         await message.reply("Something went wrong **Look in the console for the ERROR!**");
+
+    }
+
+});
+
+client.on("interactionsCreate", Interaction => {
+
+    if(!Interaction.isSelectMenu()){
+        return;
+    }
+
+    const {customId, value, member} = Interaction;
+
+    if(customId === 'dropdown'){
+
+        const component = Interaction.component;
+        //filter van wat er wel en niet is gekoozen
+        const removed = component.options.filter((option) => {
+            return !values.includs(option.value)
+        });
+        //roll verwijderen all hij niet is ge selecteerd.
+        for(var id of removed){
+            member.roles.remove(id.value)
+        }
+        //roll toevoegen
+        for(var id of values){
+            member.roles.add(id)
+        }
+
+        Interaction.reply({
+            content: "Your choice has been well received",
+            ephemeral: true
+        });
 
     }
 

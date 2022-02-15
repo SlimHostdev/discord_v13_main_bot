@@ -4,9 +4,9 @@ module.exports.run = async (client, message, args) => {
 
     const options = [
         {
-            label: "Name",
-            value: "Roll ID",
-            discription: "Item Discription",
+            label: "Red",
+            value: "774409433597345833",
+            discription: "Bekom Red collor.",
             emoji: "🟥"
         }
     ];
@@ -17,11 +17,23 @@ module.exports.run = async (client, message, args) => {
                 .setCustomId("dropdown")
                 .setMinValues(0) //Minimum keuzes
                 .setMaxValues(1) //Maximum keuzes
-                .setPlaceholder("Maak een keuze.")
+                .setPlaceholder("make a choice.")
                 .addOptions(options)
         );
 
-    return message.channel.send( {content: "Maak een keuze", components: [row]} );
+    var botEmbed = new discord.MessageEmbed()
+        .setTitle("exsempel addon !!!!!!")
+        .setDescription("This is a command to test the addons")
+        .setColor(process.env.COLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
+        .setTimestamp()
+        .setFooter("exsempel addon command")
+
+    return message.channel.send({ embeds: [botEmbed], components: [row] }).then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
 }
 
