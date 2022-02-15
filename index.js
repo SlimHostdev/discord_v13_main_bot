@@ -229,20 +229,23 @@ client.on("interactionsCreate", interaction => {
     if(customId === 'dropdown'){
 
         const component = interaction.component;
+        
         //filter van wat er wel en niet is gekoozen
         const removed = component.options.filter((option) => {
             return !values.includes(option.value)
         });
+
         //roll verwijderen all hij niet is ge selecteerd.
-        for(var id of removed){
+        for (var id of removed){
             member.roles.remove(id.value)
         }
+
         //roll toevoegen
-        for(var id of values){
+        for (var id of values){
             member.roles.add(id)
         }
 
-        Interaction.reply({
+        interaction.reply({
             content: "Your choice has been well received",
             ephemeral: true
         });
