@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
         },
         {
             label: "Blue",
-            value: "774409433597345833",
+            value: "774410190845247508",
             discription: "Bekom Blue collor.",
             emoji: "🟦"
         }
