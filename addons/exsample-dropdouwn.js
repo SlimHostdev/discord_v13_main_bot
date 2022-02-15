@@ -15,8 +15,8 @@ module.exports.run = async (client, message, args) => {
         .addComponents(
             new discord.MessageSelectMenu()
                 .setCustomId("dropdown")
-                .setMinValue(0) //Minimum keuzes
-                .setMaxValue(1) //Maximum keuzes
+                .setMinValues(0) //Minimum keuzes
+                .setMaxValues(1) //Maximum keuzes
                 .setPlaceholder("Maak een keuze.")
                 .addOptions(options)
         );
