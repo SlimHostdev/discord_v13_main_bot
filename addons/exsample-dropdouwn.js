@@ -32,7 +32,6 @@ module.exports.run = async (client, message, args) => {
 
     return message.channel.send({ embeds: [botEmbed], components: [row] }).then(msg => {
         message.delete()
-        setTimeout(() => msg.delete(), 50000);
     });
 
 }
