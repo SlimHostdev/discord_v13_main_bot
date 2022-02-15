@@ -22,17 +22,17 @@ module.exports.run = async (client, message, args) => {
         );
 
     var botEmbed = new discord.MessageEmbed()
-        .setTitle("exsempel addon !!!!!!")
-        .setDescription("This is a command to test the addons")
+        .setTitle("make a choice !!!!!!")
+        .setDescription("Make a choice with the dropdown menu.")
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
         .setTimestamp()
-        .setFooter("exsempel addon command")
+        .setFooter("dropdown addon command")
 
     return message.channel.send({ embeds: [botEmbed], components: [row] }).then(msg => {
         message.delete()
-        setTimeout(() => msg.delete(), 10000);
+        setTimeout(() => msg.delete(), 50000);
     });
 
 }
