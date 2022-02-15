@@ -218,7 +218,7 @@ client.on("messageCreate", async message => {
 
 });
 
-client.on("interactionsCreate", interaction => {
+client.on("interactionCreate", interaction => {
 
     if(!interaction.isSelectMenu()){
         return;
