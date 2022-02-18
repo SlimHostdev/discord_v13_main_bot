@@ -75,7 +75,7 @@ module.exports.run = async (client, message, args) => {
                 .setTitle('New Ticket.')
                 .addFields(
                     { name: "Create On:", value: today, inline: true },
-                    { name: "Reason:", value: reason, inline: false }
+                    { name: "Reason:", value: reason, inline: true }
                 );
 
             message.channel.send('✅ Your ticket has been created.');
