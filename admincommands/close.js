@@ -2,7 +2,10 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.roles.cache.has(`${process.env.TICKETSTAFF}`)) return message.reply("You're Not an Ticket Staff so you can't do this.");
+    if (!message.member.roles.cache.has(`${process.env.TICKETSTAFF}`)) return message.reply("You're Not an Ticket Staff so you can't do this.").then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
     const categoryID = process.env.TICKETID;
 
