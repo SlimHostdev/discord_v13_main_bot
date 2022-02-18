@@ -7,9 +7,11 @@ module.exports.run = async (client, message, args) => {
         setTimeout(() => msg.delete(), 10000);
     });
 
-//    const categoryID = process.env.TICKETID;
+    const categoryID = process.env.TICKETID;
 
-    if (message.channel.parendId == process.env.TICKETID) {
+    if (message.channel.parendId == categoryID) {
+
+        message.channel.delete();
 
         var embedTicket = new discord.MessageEmbed()
             .setTitle("Ticket, " + message.channel.name)
