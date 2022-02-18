@@ -14,13 +14,13 @@ module.exports.run = async (client, message, args) => {
         message.channel.delete();
 
         var embedTicket = new discord.MessageEmbed()
-            .setTitle("Ticket, " + message.channel.name)
+            .setTitle("Ticket closed!")
             .setColor(process.env.COLLOR)
             .setImage(process.env.BANNER)
             .setDescription("This ticket is closed!")
             .addFields(
                 { name: "Ticket Name:", value: message.channel.name, inline: false },
-                { name: "Ticket Clost By:", value: message.author.name, inline: false }
+//                { name: "Ticket Clost By:", value: message.author.name, inline: false }
             )
             .setTimestamp()
             .setFooter("Ticket closed -");
