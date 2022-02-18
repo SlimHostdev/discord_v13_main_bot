@@ -44,6 +44,7 @@ module.exports.run = async (client, message, args) => {
             // READ_MESSAGE_HISTORY Was vroeger READ_MESSAGES
             // Perms zodat de gebruiker die het command heeft getypt alles kan zien van zijn ticket.
             settedParent.permissionOverwrites.edit(message.author.id, {
+                VIEW_CHANNEL: true,
                 CREATE_INSTANT_INVITE: false,
                 READ_MESSAGE_HISTORY: true,
                 SEND_MESSAGES: true,
@@ -54,6 +55,7 @@ module.exports.run = async (client, message, args) => {
 
             // Perms zodat de gebruikers die admin zijn alles kunnen zien van zijn ticket.
             settedParent.permissionOverwrites.edit(message.guild.roles.cache.find(x => x.id === `${process.env.TICKETSTAFF}`), {
+                VIEW_CHANNEL: true,
                 CREATE_INSTANT_INVITE: false,
                 READ_MESSAGE_HISTORY: true,
                 SEND_MESSAGES: true,
