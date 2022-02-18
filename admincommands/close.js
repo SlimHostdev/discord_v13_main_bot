@@ -13,20 +13,17 @@ module.exports.run = async (client, message, args) => {
 
         message.channel.delete();
 
-        let today = new Date();
-        let dd = String(today.getDate()).padStart(2, '0'); // Nul toevoegen als het bv. 1 is -> 01
-        let mm = String(today.getMonth() + 1).padStart(2, '0');
-        let yyyy = today.getFullYear();
-        today = `${dd}/${mm}/${yyyy}`;
-
         var embedTicket = new discord.MessageEmbed()
             .setTitle("Ticket, " + message.channel.name)
             .setColor(process.env.COLLOR)
             .setImage(process.env.BANNER)
             .setDescription("This ticket is closed!")
-            .setField("Ticket Name: " + message.channel.name)
-            .setField("Ticket Clost By: " + message.author)
-            .setFooter("Ticket closed -" + today);
+            .addFields(
+                { name: "Ticket Name:", value: message.channel.name, inline: false },
+                { name: "Ticket Clost By:", value: message.author, inline: false }
+            )
+            .setTimestamp()
+            .setFooter("Ticket closed -");
 
         var ticketLogging = message.member.guild.channels.cache.find(channel => channel.id === process.env.ADMINLOGS);
         if (!ticketLogging) return message.reply("There is no ADMIN LOGS ID in .env yet \n Ask the dev or host to add this").then(msg => {
