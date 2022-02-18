@@ -70,10 +70,13 @@ module.exports.run = async (client, message, args) => {
 
             let embedParent = new discord.MessageEmbed()
                 .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
+                .setColor(process.env.COLLOR)
+                .setThumbnail(process.env.LOGO)
+                .setImage(process.env.BANNER)
                 .setTitle('New Ticket.')
                 .addFields(
-                    { name: "Reason:", value: reason, inline: false },
-                    { name: "Create On:", value: today, inline: false }
+                    { name: "Create On:", value: today, inline: false },
+                    { name: "Reason:", value: reason, inline: false }
                 );
 
             message.channel.send('✅ Your ticket has been created.');
