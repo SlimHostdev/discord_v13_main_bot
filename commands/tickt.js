@@ -71,7 +71,6 @@ module.exports.run = async (client, message, args) => {
             let embedParent = new discord.MessageEmbed()
                 .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
                 .setColor(process.env.COLLOR)
-                .setThumbnail(process.env.LOGO)
                 .setImage(process.env.BANNER)
                 .setTitle('New Ticket.')
                 .addFields(
