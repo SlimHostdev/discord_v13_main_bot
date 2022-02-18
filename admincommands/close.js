@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
             .setTimestamp()
             .setFooter("Ticket closed");
 
-        var ticketLogging = message.member.guild.channels.cache.find(channel => channel.id === process.env.ADMINLOGS);
+        var ticketLogging = message.member.guild.channels.cache.find(channel => channel.id === process.env.TICKETLOGS);
         if (!ticketLogging) return message.reply("There is no ADMIN LOGS ID in .env yet \n Ask the dev or host to add this").then(msg => {
             message.delete()
             setTimeout(() => msg.delete(), 10000);
