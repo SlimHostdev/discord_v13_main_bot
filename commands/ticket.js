@@ -2,14 +2,17 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    const categoryID = process.env.TICKETID
+    const categoryID = process.env.TICKETID;
 
     var userName = message.author.username;
 
     var userDiscriminator = message.author.discriminator;
 
     var reason = args.join(" ");
-    if (!reason) return message.channel.send("You must give a reason for the ticket!");
+    if (!reason) return message.channel.send("You must give a reason for the ticket!").then(msg => {
+        message.delete()
+        setTimeout(() => msg.delete(), 10000);
+    });
 
     var ticketBestaat = false;
 
@@ -17,7 +20,10 @@ module.exports.run = async (client, message, args) => {
 
         if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
 
-            message.channel.send("You already have a Ticket that is open!");
+            message.channel.send("You already have a Ticket that is open!").then(msg => {
+                message.delete()
+                setTimeout(() => msg.delete(), 10000);
+            });
 
             ticketBestaat = true;
 
@@ -80,7 +86,10 @@ module.exports.run = async (client, message, args) => {
                     { name: "Reason:", value: reason, inline: false }
                 );
 
-            message.channel.send('✅ Your ticket has been created.');
+            message.channel.send('✅ Your ticket has been created.').then(msg => {
+                message.delete()
+                setTimeout(() => msg.delete(), 10000);
+            });
 
             settedParent.send({ embeds: [embedParent] });
 
