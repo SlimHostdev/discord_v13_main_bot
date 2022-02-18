@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 
     const categoryID = process.env.TICKETID;
 
-    if (message.channel.parendId == categoryID) {
+    if (message.channel.parentId == categoryID) {
 
         message.channel.delete();
 
