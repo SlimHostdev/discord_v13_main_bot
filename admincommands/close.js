@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
                 { name: "Ticket Clost By:", value: message.author.username, inline: false }
             )
             .setTimestamp()
-            .setFooter("Ticket closed -");
+            .setFooter("Ticket closed");
 
         var ticketLogging = message.member.guild.channels.cache.find(channel => channel.id === process.env.ADMINLOGS);
         if (!ticketLogging) return message.reply("There is no ADMIN LOGS ID in .env yet \n Ask the dev or host to add this").then(msg => {
