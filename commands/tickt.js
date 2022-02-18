@@ -72,8 +72,8 @@ module.exports.run = async (client, message, args) => {
                 .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
                 .setTitle('New Ticket.')
                 .addFields(
-                    { name: "Reason:", value: reason, inline: true },
-                    { name: "Create On:", value: today, inline: true }
+                    { name: "Reason:", value: reason, inline: false },
+                    { name: "Create On:", value: today, inline: false }
                 );
 
             message.channel.send('✅ Your ticket has been created.');
