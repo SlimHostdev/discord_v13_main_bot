@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
             .setDescription("This ticket is closed!")
             .addFields(
                 { name: "Ticket Name:", value: message.channel.name, inline: false },
-//                { name: "Ticket Clost By:", value: message.author.name, inline: false }
+                { name: "Ticket Clost By:", value: message.author.username, inline: false }
             )
             .setTimestamp()
             .setFooter("Ticket closed -");
