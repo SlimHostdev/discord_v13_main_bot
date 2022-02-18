@@ -96,6 +96,6 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.help = {
     name: "ticket",
-    category: "info",
+    category: "general",
     discription: "With this command you can create a ticket."
 }
