@@ -74,8 +74,8 @@ module.exports.run = async (client, message, args) => {
                 .setImage(process.env.BANNER)
                 .setTitle('New Ticket.')
                 .addFields(
-                    { name: "Create On:", value: today, inline: true },
-                    { name: "Reason:", value: reason, inline: true }
+                    { name: "Create On:", value: today, inline: false },
+                    { name: "Reason:", value: reason, inline: false }
                 );
 
             message.channel.send('✅ Your ticket has been created.');
