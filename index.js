@@ -171,12 +171,12 @@ client.on("guildMemberAdd", member => {
 
     var welkomEmbed = new discord.MessageEmbed()
     .setTitle(`Welcom At`)
-    .setDescription(`${servername}`)
+    .setDescription(`${guild.name}`)
     .setColor(process.env.COLLOR)
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
     .setTimestamp()
-    .setFooter(`Welcom ${servername}`)
+    .setFooter(`Welcom ${guild.name}`)
     .addFields(
         { name: "Welcom", value: `${member}` }
     )
@@ -190,8 +190,6 @@ client.on("guildMemberAdd", member => {
     var welkomchannel = member.guild.channels.cache.get(process.env.WELKOM);
 
     if (!welkomchannel) return;
-
-    var servername = member.guild.get.name();
 
     welkomchannel.send({ embeds: [welkomEmbed] });
 
