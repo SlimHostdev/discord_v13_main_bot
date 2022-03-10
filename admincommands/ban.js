@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
 
-    //(prefix)kick naam reden
+    //(prefix)ban naam reden
 
     if (!message.guild.me.permissions.has("BAN_MEMBERS")) return message.reply("I have no right to Ban anyone.");
 
@@ -91,7 +91,7 @@ module.exports.run = async (client, message, args) => {
                     
                     msg.delete();
 
-                    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`))
+                    if (banUser.roles.cache.has(`${process.env.ADMINROLL}`))
                     return message.reply("You can't ban ADMIN!");
 
                     msg.delete();
