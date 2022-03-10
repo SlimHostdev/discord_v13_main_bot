@@ -176,7 +176,7 @@ client.on("guildMemberAdd", member => {
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
     .setTimestamp()
-    .setFooter(`Welcom ${member}`)
+    .setFooter(`Welcom ${servername}`)
     .addFields(
         { name: "Welcom", value: `${member}` }
     )
@@ -190,6 +190,8 @@ client.on("guildMemberAdd", member => {
     var welkomchannel = member.guild.channels.cache.get(process.env.WELKOM);
 
     if (!welkomchannel) return;
+
+    var servername = member.guild.cache.get(guildname);
 
     welkomchannel.send({ embeds: [welkomEmbed] });
 
