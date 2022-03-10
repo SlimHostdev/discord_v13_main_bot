@@ -191,7 +191,7 @@ client.on("guildMemberAdd", member => {
 
     if (!welkomchannel) return;
 
-    var servername = member.guild.cache.get(name);
+    var servername = member.guild.get.name();
 
     welkomchannel.send({ embeds: [welkomEmbed] });
 
