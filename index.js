@@ -170,8 +170,8 @@ client.once("ready", () => {
 client.on("guildMemberAdd", member => {
 
     var welkomEmbed = new discord.MessageEmbed()
-    .setTitle("Welcom")
-    .setDescription("In The Server")
+    .setTitle(`Welcom At`)
+    .setDescription(`${servername}`)
     .setColor(process.env.COLLOR)
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
