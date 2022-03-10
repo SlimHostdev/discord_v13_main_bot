@@ -174,11 +174,23 @@ client.on("guildMemberAdd", member => {
 
     member.roles.add(role);
 
-    var channel = member.guild.channels.cache.get(process.env.WELKOM);
+    var welkomchannel = member.guild.channels.cache.get(process.env.WELKOM);
 
-    if (!channel) return;
+    if (!welkomchannel) return;
 
-    channel.send(`Welcom in the server, ${member}`);
+    var welkomEmbed = new discord.MessageEmbed()
+    .setTitle("Welcom")
+    .setDescription("In The Server")
+    .setColor(process.env.COLLOR)
+    .setThumbnail(process.env.LOGO)
+    .setImage(process.env.BANNER)
+    .setTimestamp()
+    .setFooter(`Welcom ${member}`)
+    .addFields(
+        { name: "Welcom", value: `${member}` }
+    )
+
+    welkomchannel.send({ embeds: [welkomEmbed] });
 
 })
 
