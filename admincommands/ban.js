@@ -1,5 +1,8 @@
 const discord = require("discord.js");
 
+//Log chat
+const adminlog = message.member.guild.channels.cache.get(process.env.ADMINLOGS);
+
 module.exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
@@ -104,7 +107,7 @@ module.exports.run = async (client, message, args) => {
     
                     });
 
-                    return message.channel.send({ embeds: [embedBan] });
+                    return adminlog.send({ embeds: [embedBan] });
                     
                 case "No":
                     
