@@ -13,6 +13,7 @@ console.log('<------------------------------------------------------------------
 const { Console } = require("console");
 //------------------------------------Benodigt heeden------------------------------------------
 const { Client, Intents, Collection, Interaction } = require("discord.js");
+const discord = require("discord.js");
 
 //.env config
 require('dotenv-flow').config();
