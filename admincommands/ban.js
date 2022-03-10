@@ -1,10 +1,10 @@
 const discord = require("discord.js");
 
-//Log chat
-const adminlog = message.member.guild.channels.cache.get(process.env.ADMINLOGS);
-
 module.exports.run = async (client, message, args) => {
 
+    //Log chat
+    const adminlog = message.member.guild.channels.cache.get(process.env.ADMINLOGS);
+    
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
 
     //(prefix)ban naam reden
