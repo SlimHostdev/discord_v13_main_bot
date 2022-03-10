@@ -168,16 +168,6 @@ client.once("ready", () => {
 
 client.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.cache.get(process.env.JOINROLL);
-
-    if (!role) return;
-
-    member.roles.add(role);
-
-    var welkomchannel = member.guild.channels.cache.get(process.env.WELKOM);
-
-    if (!welkomchannel) return;
-
     var welkomEmbed = new discord.MessageEmbed()
     .setTitle("Welcom")
     .setDescription("In The Server")
@@ -189,6 +179,16 @@ client.on("guildMemberAdd", member => {
     .addFields(
         { name: "Welcom", value: `${member}` }
     )
+
+    var role = member.guild.roles.cache.get(process.env.JOINROLL);
+
+    if (!role) return;
+
+    member.roles.add(role);
+
+    var welkomchannel = member.guild.channels.cache.get(process.env.WELKOM);
+
+    if (!welkomchannel) return;
 
     welkomchannel.send({ embeds: [welkomEmbed] });
 
