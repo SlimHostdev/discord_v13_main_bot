@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply(`${language.cmd_kick_no_purm}`);
 
-    if (!args[0]) return message.reply(`${language.cmd_kick_no_specify}`);
+    if (!args[0]) return message.reply(`${language.not_specify}`);
 
     if (!args[1]) return message.reply(`${language.cmd_kick_no_reason}`);
 
