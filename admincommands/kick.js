@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
 
     var kickUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
 
-    if (!kickUser) return message.reply(`${language.cmd_kick_cant_find_user}`);
+    if (!kickUser) return message.reply(`${language.cant_find_user}`);
 
     if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.cmd_kick_cant_kick_admin}`);
 

@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
 
     var banUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
 
-    if (!banUser) return message.reply(`${language.cmd_ban_cant_find_user}`);
+    if (!banUser) return message.reply(`${language.cant_find_user}`);
 
     if (banUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.cmd_ban_cant_ban_admin}`);
 

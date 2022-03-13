@@ -6,17 +6,17 @@ const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.js
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
+    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
-    if (!args[0]) return message.reply("You must specify a person.");
+    if (!args[0]) return message.reply(`${language.not_specify}`);
 
-    if (!args[1]) return message.reply("You must indicate why you warn the person.");
+    if (!args[1]) return message.reply(`${language.cmd_warn_no_reason}`);
 
     var warnUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
 
     var reason = args.slice(1).join(" ");
 
-    if (!warnUser) return message.reply("I can't find anyone in the server with this name");
+    if (!warnUser) return message.reply(`${language.cant_find_user}`);
 
     if (warnUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't give a warm to an ADMIN!");
 
