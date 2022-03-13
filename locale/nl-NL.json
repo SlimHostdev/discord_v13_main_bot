@@ -80,5 +80,10 @@
     "cmd_kick_dont_kick": "Je hebt ervoor gekozen om niet te Kicken",
     "cmd_kick_disc": "Dit is een commando om mensen van de server te Kicken.",
 
-    "cmd_warn_no_reason": "Je moet aangeven waarom je de persoon wilt warne."
+    "cmd_warn_no_reason": "Je moet aangeven waarom je de persoon wilt warne.",
+    "cmd_warn_cant_warn_admin": "U kunt een ADMIN geen warn geven!",
+    "cmd_warn_warn": "Warn:",
+    "cmd_warn_by": "Warnt Door:",
+    "cmd_warn_reason": "Reden Voor De Warn:",
+    "cmd_warn_number_warn": "Aantal waarschuwingen:"
 }
