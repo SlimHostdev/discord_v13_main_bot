@@ -85,5 +85,10 @@
     "cmd_warn_warn": "Warn:",
     "cmd_warn_by": "Warnt Door:",
     "cmd_warn_reason": "Reden Voor De Warn:",
-    "cmd_warn_number_warn": "Aantal waarschuwingen:"
+    "cmd_warn_number_warn": "Aantal waarschuwingen:",
+    "cmd_warn_watch_out": "KIJK UIT",
+    "cmd_warn_msg": "Bericht",
+    "cmd_warn_one_more": "Nog een warn en je krijgt een ban!!",
+    "cmd_warn_ban": "werd verbannen door de bot voor te veel waarschuwingen!",
+    "cmd_warn_disc": "This is a warn command."
 }

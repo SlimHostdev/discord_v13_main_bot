@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!warnUser) return message.reply(`${language.cant_find_user}`);
 
-    if (warnUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't give a warm to an ADMIN!");
+    if (warnUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.cmd_warn_cant_warn_admin}`);
 
     const warns = JSON.parse(fs.readFileSync("./data/warnings.json", "UTF8"));
 
@@ -34,10 +34,10 @@ module.exports.run = async (client, message, args) => {
         .setImage(process.env.BANNER)
         .setFooter(message.member.displayName, message.author.displayAvatarURL)
         .setTimestamp()
-        .setDescription(`**Warn:** <@${warnUser.id}> (${warnUser.id})
-        **Warning by:** ${message.author}
-        **Reasons: ** ${reason}`)
-        .addField("Number of warnings", warns[warnUser.id].warns.toString());
+        .setDescription(`**${language.cmd_warn_warn}** <@${warnUser.id}> (${warnUser.id})
+        **${language.cmd_warn_by}** ${message.author}
+        **${language.cmd_warn_reason}** ${reason}`)
+        .addField(`${language.cmd_warn_number_warn} `, warns[warnUser.id].warns.toString());
 
     const channel = message.member.guild.channels.cache.get(`${process.env.MODCHAT}`);
 
@@ -50,17 +50,17 @@ module.exports.run = async (client, message, args) => {
         var mes = new discord.MessageEmbed()
             .setThumbnail(process.env.LOGO)
             .setImage(process.env.BANNER)
-            .setDescription("WATCH OUT " + warnUser.user.username)
+            .setDescription(`${language.cmd_warn_watch_out} ` + warnUser.user.username)
             .setColor(process.env.WARNCOLLOR)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
-            .addField("Message", "One more warm and you're banned!!");
+            .addField(`${language.cmd_warn_msg}`, `${language.cmd_warn_one_more}`);
 
         message.channel.send({ embeds: [mes] });
 
     } else if (warns[warnUser.id].warns == 4) {
 
         message.guild.members.ban(warnUser, { reason: reason });
-        message.channel.send(`${warnUser} got banned by the bot for too many warns`);
+        message.channel.send(`${warnUser} ${language.cmd_warn_ban}`);
 
         var banEmbed = new discord.MessageEmbed()
             .setThumbnail(process.env.LOGO)
@@ -68,9 +68,9 @@ module.exports.run = async (client, message, args) => {
             .setColor(process.env.BANCOLLOR)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
             .setTimestamp()
-            .setDescription(`**BANNED:** <@${warnUser.id}> (${warnUser.id})
-        **Reasons: ** got banned by the bot for too many warns`)
-            .addField("number of warnings", warns[warnUser.id].warns.toString());
+            .setDescription(`**${language.cmd_ban_banned_disc}** <@${warnUser.id}> (${warnUser.id})
+        **${language.cmd_ban_banned_reason}** ${language.cmd_warn_ban}`)
+            .addField(`${language.cmd_warn_number_warn}`, warns[warnUser.id].warns.toString());
 
         const banchannel = message.member.guild.channels.cache.get(`${process.env.ADMINLOGS}`);
 
@@ -90,5 +90,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "warn",
     category: "admin",
-    discription: "This is a warn command."
+    discription: language.cmd_warn_disc
 }
