@@ -1,4 +1,6 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
 
