@@ -262,7 +262,7 @@ client.on("interactionCreate", interaction => {
         }
 
         interaction.reply({
-            content: "Your choice has been well received",
+            content: `${language.dropdown}`,
             ephemeral: true
         });
 
