@@ -26,6 +26,7 @@
     "cmd_ping_name": "Bot Naam",
 
     "cmd_status_msg": "**De botstatus is gewijzigd in:**",
+    "cmd_status_disc": "Dit is een commando om de status van de bot te wijzigen.",
 
     "cmd_adminhelp_discriptions": "Admin  Beschrijving",
     "cmd_adminhelp_disc": "Hier vindt u alle ADMIN-commando's",
