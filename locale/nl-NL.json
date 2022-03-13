@@ -21,5 +21,7 @@
     "dropdown": "Uw keuze is goed ontvangen",
 
     "cmd_ping_title": "Ping !!!!!!!",
-    "cmd_ping_dic": "Dit is een commando om de bot te testen"
+    "cmd_ping_disc": "Dit is een commando om de bot te testen",
+    "cmd_ping_footer": "ping command",
+    "cmd_ping_name": "Bot Naam"
 }

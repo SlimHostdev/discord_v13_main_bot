@@ -11,14 +11,14 @@ module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle(`${language.cmd_ping_title}`)
-        .setDescription(`${language.cmd_ping_dic}`)
+        .setDescription(`${language.cmd_ping_disc}`)
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
         .setTimestamp()
-        .setFooter("ping command")
+        .setFooter(`${language.cmd_ping_footer}`)
         .addFields(
-            { name: "Bot Name", value: client.user.username }
+            { name: `${language.cmd_ping_name}`, value: client.user.username }
         )
 
     return message.channel.send({ embeds: [botEmbed] }).then(msg => {
@@ -31,5 +31,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "ping",
     category: "admin",
-    discription: "This is a command to test the bot."
+    discription: `${language.cmd_ping_disc}`
 }
