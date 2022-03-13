@@ -6,7 +6,7 @@ const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.js
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.roles.cache.has(`${process.env.TICKETSTAFF}`)) return message.reply("You're Not an Ticket Staff so you can't do this.").then(msg => {
+    if (!message.member.roles.cache.has(`${process.env.TICKETSTAFF}`)) return message.reply(`${language.no_ticket_staff}`).then(msg => {
         message.delete()
         setTimeout(() => msg.delete(), 10000);
     });
@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
     const categoryID = process.env.TICKETID;
 
     var reason = args.join(" ");
-    if (!reason) return message.channel.send("You must give a reason for closeing the ticket!").then(msg => {
+    if (!reason) return message.channel.send(`${language.cmd_close_no_reason}`).then(msg => {
         message.delete()
         setTimeout(() => msg.delete(), 10000);
     });
@@ -24,20 +24,20 @@ module.exports.run = async (client, message, args) => {
         message.channel.delete();
 
         var embedTicket = new discord.MessageEmbed()
-            .setTitle("Ticket closed!")
+            .setTitle(`${language.cmd_close_title}`)
             .setColor(process.env.COLLOR)
             .setImage(process.env.BANNER)
-            .setDescription("This ticket is closed!")
+            .setDescription(`${language.cmd_close_disc_close}`)
             .addFields(
-                { name: "Ticket Name:", value: message.channel.name, inline: false },
-                { name: "Ticket Clost By:", value: message.author.username, inline: false },
-                { name: "Reason:", value: reason, inline: false }
+                { name: `${language.cmd_close_name_close}`, value: message.channel.name, inline: false },
+                { name: `${language.cmd_close_by_close}`, value: message.author.username, inline: false },
+                { name: `${language.cmd_close_reason_close}`, value: reason, inline: false }
             )
             .setTimestamp()
-            .setFooter("Ticket closed");
+            .setFooter(`${language.cmd_close_footer_close}`);
 
         var ticketLogging = message.member.guild.channels.cache.find(channel => channel.id === process.env.TICKETLOGS);
-        if (!ticketLogging) return message.reply("There is no ADMIN LOGS ID in .env yet \n Ask the dev or host to add this").then(msg => {
+        if (!ticketLogging) return message.reply(`${language.cmd_close_no_ticketlog}`).then(msg => {
             message.delete()
             setTimeout(() => msg.delete(), 10000);
         });
@@ -45,7 +45,7 @@ module.exports.run = async (client, message, args) => {
         return ticketLogging.send({ embeds: [embedTicket] });
 
     } else {
-        return message.channel.send("You can only do this in a ticket channel!").then(msg => {
+        return message.channel.send(`${language.cmd_close_not_in_ticket}`).then(msg => {
             message.delete()
             setTimeout(() => msg.delete(), 10000);
         });
@@ -56,5 +56,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "close",
     category: "admin",
-    discription: "This is a command to close a ticket."
+    discription: language.cmd_close_disc
 }
