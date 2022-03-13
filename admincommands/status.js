@@ -1,8 +1,14 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
+    //Taal van de bot
+    const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
+
+
+    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
     var statusTxt = args.join(" ");
 
@@ -17,7 +23,7 @@ module.exports.run = async (client, message, args) => {
 
     });
 
-    return message.channel.send(`**The bot status has changed to:** ${statusTxt}`).then(msg => {
+    return message.channel.send(`${language.cmd_status_msg} ${statusTxt}`).then(msg => {
         message.delete()
         setTimeout(() => msg.delete(), 10000);
     });
