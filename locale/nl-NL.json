@@ -1,8 +1,8 @@
 {
-    "join.welkom.title": "Welkom in",
-    "join.welkom": "Welkom",
-    "no.admin": "Je ben geen ADMIN dus dit kan je niet doen.",
-    "command.ping.title": "Pong !!!!!!",
-    "command.ping.discription": "Dit is een test command om de bot te testen.",
-    "command.ping.footer": "ping command"
+    "join_welkom_title": "Welkom in",
+    "join_welkom": "Welkom",
+    "no_admin": "Je ben geen ADMIN dus dit kan je niet doen_",
+    "command_ping_title": "Pong !!!!!!",
+    "command_ping_discription": "Dit is een test command om de bot te testen_",
+    "command_ping_footer": "ping command"
 }
