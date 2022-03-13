@@ -179,9 +179,9 @@ client.on("guildMemberAdd", member => {
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
     .setTimestamp()
-    .setFooter(`Welcom ${process.env.SERVERNAME}`)
+    .setFooter(language.join_welkom `${process.env.SERVERNAME}`)
     .addFields(
-        { name: "Welcom", value: `${member}` }
+        { name: `${language.join_welkom}`, value: `${member}` }
     )
 
     var role = member.guild.roles.cache.get(process.env.JOINROLL);
