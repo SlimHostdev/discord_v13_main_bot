@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
     //Taal van de bot
     const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
 
-    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
+    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle(`${language.cmd_ping_title}`)
