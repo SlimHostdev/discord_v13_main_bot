@@ -78,7 +78,7 @@ for (const file of commandFiles) {
 
     client.commands.set(command.help.name, command);
 
-    console.log([`I have Load [${command.help.name}.js]`]);
+    console.log([`${language.cmd_load} [${command.help.name}.js]`]);
 
 }
 
@@ -93,7 +93,7 @@ for (const file of admincommandFiles) {
 
     client.commands.set(command.help.name, command);
 
-    console.log([`I have Load [${command.help.name}.js]`]);
+    console.log([`${language.cmd_load} [${command.help.name}.js]`]);
 
 }
 
@@ -108,7 +108,7 @@ for (const file of addonFiles) {
 
     client.commands.set(command.help.name, command);
 
-    console.log([`I have Load [${command.help.name}.js]`]);
+    console.log([`${language.cmd_load} [${command.help.name}.js]`]);
 
 }
 
@@ -153,18 +153,19 @@ client.once("ready", () => {
     updateStatus();
 
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log(['All commands ar load']);
+    console.log([`${language.cmd_ar_load}`]);
     console.log(`[\x1b[31m ${client.user.username} \x1b[0m]`);
     console.log(['is online']);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log([`Bot Name: ${client.user.username}`]);
-    console.log([`Bot BotID: ${process.env.BOTID}`]);
-    console.log([`Bot Preffix: ${process.env.PREFFIX}`]);
-    console.log([`Bot MySQL:`]);
-    console.log(`[\x1b[31m Data Base Host: ${process.env.DBHOST} \x1b[0m]`);
-    console.log(`[\x1b[31m Data Base User: ${process.env.DBUSER} \x1b[0m]`);
-    console.log(`[\x1b[31m Data Base Name: ${process.env.DBNAME} \x1b[0m]`);
-    console.log([`Bot Invite:`]);
+    console.log([`${language.bot_name} ${client.user.username}`]);
+    console.log([`${language.bot_id} ${process.env.BOTID}`]);
+    console.log([`${language.bot_preffix} ${process.env.PREFFIX}`]);
+    console.log([`${language.bot_language} ${process.env.LANGUAGE}`]);
+    console.log([`${language.bot_mysql}`]);
+    console.log(`[\x1b[31m ${language.mysql_host} ${process.env.DBHOST} \x1b[0m]`);
+    console.log(`[\x1b[31m ${language.mysql_user} ${process.env.DBUSER} \x1b[0m]`);
+    console.log(`[\x1b[31m ${language.mysql_name} ${process.env.DBNAME} \x1b[0m]`);
+    console.log([`${language.bot_invite}`]);
     console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
