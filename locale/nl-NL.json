@@ -1,6 +1,7 @@
 {
     "join_welkom_title": "Welkom in",
     "join_welkom": "Welkom",
+    "cmd_load": "Ik heb laden",
     "cmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
     "dropdown": "Uw keuze is goed ontvangen",
     "no_admin": "Je ben geen ADMIN dus dit kan je niet doen_",
