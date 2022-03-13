@@ -63,5 +63,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "adminhelp",
     category: "admin",
-    discription: "Here you will find all admin commands."
+    discription: language.cmd_adminhelp_disc
 }
