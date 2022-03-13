@@ -55,5 +55,8 @@
     "cmd_ban_cant_ban_admin": "U kunt een ADMIN niet verbannen!",
     "cmd_ban_sure_title": "Weet je zeker dat je deze Ban wilt doen?",
     "cmd_ban_sure_disc": "Wil je",
-    "cmd_ban_sure_disc2": "verbannen"
+    "cmd_ban_sure_disc2": "Verbannen",
+    "cmd_ban_banned_disc": "Verbannen:",
+    "cmd_ban_banned_by": "Verbannen Door:",
+    "cmd_ban_banned_reason": "Reden:"
 }

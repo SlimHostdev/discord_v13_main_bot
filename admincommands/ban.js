@@ -41,9 +41,9 @@ module.exports.run = async (client, message, args) => {
         .setThumbnail(process.env.LOGO)
         .setColor(process.env.BANCOLLOR)
         .setImage(process.env.BANNER)
-        .setDescription(`**Banned:** ${banUser} (${banUser.id})
-        **Banned By:** ${message.author}
-        **Reason:** ${reason}`)
+        .setDescription(`**${language.cmd_ban_banned_disc}** ${banUser} (${banUser.id})
+        **${language.cmd_ban_banned_by}** ${message.author}
+        **${language.cmd_ban_banned_reason}** ${reason}`)
         .setFooter(message.member.displayName)
         .setTimestamp();
 
