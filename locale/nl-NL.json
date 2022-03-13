@@ -67,18 +67,18 @@
     "cmd_ban_dont_ban": "Je hebt ervoor gekozen om niet te bannen",
     "cmd_ban_disc": "Dit is een commando om mensen van de server te verbannen.",
 
-    "cmd_kick_no_purm": "Ik heb niet het recht om iemand te verbannen.",
+    "cmd_kick_no_purm": "Ik heb niet het recht om iemand te kicken.",
     "cmd_kick_no_specify": "U moet een persoon opgeven.",
-    "cmd_kick_no_reason": "Je moet aangeven waarom je de persoon wilt verbannen.",
+    "cmd_kick_no_reason": "Je moet aangeven waarom je de persoon wilt kicken.",
     "cmd_kick_cant_find_user": "Ik kan niemand op de server vinden met deze naam",
-    "cmd_kick_cant_kick_admin": "U kunt een ADMIN niet verbannen!",
+    "cmd_kick_cant_kick_admin": "U kunt een ADMIN niet kicken!",
     "cmd_kick_sure_title": "Weet je zeker dat je deze Ban wilt doen?",
     "cmd_kick_sure_disc": "Wil je",
-    "cmd_kick_sure_disc2": "Verbannen",
-    "cmd_kick_kicken_disc": "Verbannen:",
-    "cmd_kick_kicken_by": "Verbannen Door:",
+    "cmd_kick_sure_disc2": "Kicken",
+    "cmd_kick_kicken_disc": "Kicken:",
+    "cmd_kick_kicken_by": "Ge Kickt Door:",
     "cmd_kick_kicken_reason": "Reden:",
-    "cmd_kick_err": "Er is iets fout ge gaan bij het verbannen van:",
-    "cmd_kick_dont_kick": "Je hebt ervoor gekozen om niet te bannen",
-    "cmd_kick_disc": "Dit is een commando om mensen van de server te verbannen."
+    "cmd_kick_err": "Er is iets fout ge gaan bij het Kicken van:",
+    "cmd_kick_dont_kick": "Je hebt ervoor gekozen om niet te Kicken",
+    "cmd_kick_disc": "Dit is een commando om mensen van de server te Kicken."
 }
