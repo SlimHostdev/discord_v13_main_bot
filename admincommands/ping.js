@@ -31,5 +31,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "ping",
     category: "admin",
-    discription: "This is a command to test the bot."
+    discription: language.cmd_ping_disc
 }
