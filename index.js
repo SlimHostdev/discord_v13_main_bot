@@ -6,7 +6,7 @@ console.log(`\x1b[31m Deze bot is gemaakt bij Bryan aka SlimGame. \x1b[0m`);
 console.log(`\x1b[31m https://github.com/SlimHostdev/discord_v13_main_bot \x1b[0m`);
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-console.log(['DISCORD.JS V13 Bot']);
+console.log(['DISCORD.JS V13 Bot By SlimGame']);
 console.log(['Aan het opsterten...']);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
