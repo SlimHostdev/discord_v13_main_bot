@@ -1,4 +1,9 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
+
 
 module.exports.run = async (client, message, args) => {
 
@@ -11,7 +16,7 @@ module.exports.run = async (client, message, args) => {
 
         var respons = "**Admin Help Commands**\r\n\n";
         var admin = "\n**__Admin__**\n";
-        var admind = "\n***__Admin  Description__***\n";
+        var admind = `\n***__${language.cmd_adminhelp_discriptions}__***\n`;
 
 
         client.commands.forEach(command => {
@@ -29,23 +34,23 @@ module.exports.run = async (client, message, args) => {
 
         var botEmbed = new discord.MessageEmbed()
             .setTitle(respons)
-            .setDescription("Here you will find all ADMIN commands")
+            .setDescription(`${language.cmd_adminhelp_disc}`)
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setImage(process.env.BANNER)
             .setTimestamp()
-            .setFooter("adminhelp command")
+            .setFooter(`${language.cmd_adminhelp_footer}`)
             .addField(admin, admind)
 
         var errorEmbed = new discord.MessageEmbed()
-            .setTitle("ERROR")
-            .setDescription("OEPS!!")
+            .setTitle(`${language.cmd_adminhelp_err_title}`)
+            .setDescription(`${language.cmd_adminhelp_err_disc}`)
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setImage(process.env.BANNER)
             .setTimestamp()
-            .setFooter("help command")
-            .addField("Something is going wrong!", " try again later.")
+            .setFooter(`${language.cmd_adminhelp_footer}`)
+            .addField(`${language.cmd_adminhelp_err_field1}`, `${language.cmd_adminhelp_err_field2}`)
 
         message.author.send({ embeds: [botEmbed] })
 
