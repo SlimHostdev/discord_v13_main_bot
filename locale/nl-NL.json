@@ -15,6 +15,10 @@
 
     "no_admin": "Je ben geen ADMIN dus dit kan je niet doen.",
     "no_ticket_staff": "U bent geen Ticket Staff, dus u kunt dit niet doen.",
+    "yes": "JA",
+    "no": "NEE",
+    "cant_use": "Je kan dit niet gebruiken.",
+    "no_functionality": "Dirt heeft nog geen finctie.",
 
     "join_welkom_title": "Welkom in",
     "join_welkom": "Welkom",
@@ -58,5 +62,8 @@
     "cmd_ban_sure_disc2": "Verbannen",
     "cmd_ban_banned_disc": "Verbannen:",
     "cmd_ban_banned_by": "Verbannen Door:",
-    "cmd_ban_banned_reason": "Reden:"
+    "cmd_ban_banned_reason": "Reden:",
+    "cmd_ban_err": "Er is iets fout ge gaan bij het verbannen van:",
+    "cmd_ban_dont_ban": "Je hebt ervoor gekozen om niet te bannen",
+    "cmd_ban_disc": "Dit is een commando om mensen van de server te verbannen."
 }

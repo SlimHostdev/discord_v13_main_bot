@@ -51,13 +51,13 @@ module.exports.run = async (client, message, args) => {
 
         new discord.MessageButton()
         .setCustomId("Yes")
-        .setLabel("Yes")
+        .setLabel(`${language.yes}`)
         .setStyle("SUCCESS")
         .setEmoji("✅"),
 
         new discord.MessageButton()
         .setCustomId("No")
-        .setLabel("No")
+        .setLabel(`${language.no}`)
         .setStyle("DANGER")
         .setEmoji("⚠️")
 
@@ -75,7 +75,7 @@ module.exports.run = async (client, message, args) => {
         // is die het bericht heeft aangemaakt.
         const filter = (interaction) => {
             if (interaction.user.id === authorID) return true;
-            return interaction.reply("You can't use this.");
+            return interaction.reply(`${language.cant_use}`);
         }
     
         // We maken een component collector aan die er voor zal zorgen dat we de knoppen kunnen opvangen.
@@ -99,7 +99,7 @@ module.exports.run = async (client, message, args) => {
                     msg.delete();
 
                     if (banUser.roles.cache.has(`${process.env.ADMINROLL}`))
-                    return message.reply("You can't ban ADMIN!");
+                    return message.reply(`${language.cmd_ban_cant_ban_admin}`);
 
                     msg.delete();
 
@@ -107,7 +107,7 @@ module.exports.run = async (client, message, args) => {
     
                         if (err) 
                         console.log(err);
-                        return message.channel.send(`Something went wrong with Banning ${banUser}`);
+                        return message.channel.send(`${language.cmd_ban_err} ${banUser}`);
     
                     });
 
@@ -117,14 +117,14 @@ module.exports.run = async (client, message, args) => {
                     
                     msg.delete();
 
-                    message.channel.send(`You have chosen to dont Ban ${banUser}.`).then(msg => {
+                    message.channel.send(`${language.cmd_ban_dont_ban} ${banUser}.`).then(msg => {
                         message.delete()
                         setTimeout(() => msg.delete(), 5000);
                     });
 
                     return 
                 default:
-                    return interactionButton.reply("This button has no functionality yet.");
+                    return interactionButton.reply(`${language.no_functionality}`);
             }
         });
     });
@@ -134,5 +134,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "ban",
     category: "admin",
-    discription: "This is a command to ban people from the server."
+    discription: language.cmd_ban_disc
 }
