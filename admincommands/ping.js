@@ -5,13 +5,13 @@ const fs = require("fs");
 module.exports.run = async (client, message, args) => {
 
     //Taal van de bot
-    const language_ping = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
+    const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
 
     var botEmbed = new discord.MessageEmbed()
-        .setTitle(`${language_ping.cmd_ping_title}`)
-        .setDescription(`${language_ping.cmd_ping_dic}`)
+        .setTitle(`${language.cmd_ping_title}`)
+        .setDescription(`${language.cmd_ping_dic}`)
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
