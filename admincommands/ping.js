@@ -1,12 +1,14 @@
 const discord = require("discord.js");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
 
     var botEmbed = new discord.MessageEmbed()
-        .setTitle("Pong !!!!!!")
-        .setDescription("This is a command to test the bot")
+        .setTitle(`${language.cmd_ping_title}`)
+        .setDescription(`${language.cmd_ping_dic}`)
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
