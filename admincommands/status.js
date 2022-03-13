@@ -33,5 +33,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "status",
     category: "admin",
-    discription: "This is a command to change the bot's status."
+    discription: language.cmd_ping_disc
 }
