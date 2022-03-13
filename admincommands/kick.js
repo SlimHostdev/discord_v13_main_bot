@@ -9,23 +9,23 @@ module.exports.run = async (client, message, args) => {
     //Log chat
     const adminlog = message.member.guild.channels.cache.get(process.env.ADMINLOGS);
     
-    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You're Not an ADMIN so you can't do this.");
+    if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
     //(prefix)kick naam reden
 
-    if (!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply("I have no right to kick anyone.");
+    if (!message.guild.me.permissions.has("KICK_MEMBERS")) return message.reply(`${language.cmd_kick_no_purm}`);
 
-    if (!args[0]) return message.reply("You must specify a person.");
+    if (!args[0]) return message.reply(`${language.cmd_kick_no_specify}`);
 
-    if (!args[1]) return message.reply("You have to indicate why you want to kick the person.");
+    if (!args[1]) return message.reply(`${language.cmd_kick_no_reason}`);
 
     //try catch
 
     var kickUser = message.guild.members.cache.get(message.mentions.users.first().id || message.guild.members.get(args[0]).id)
 
-    if (!kickUser) return message.reply("I can't find anyone in the server with this name");
+    if (!kickUser) return message.reply(`${language.cmd_kick_cant_find_user}`);
 
-    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply("You can't kick ADMIN!");
+    if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.cmd_kick_cant_kick_admin}`);
 
     var reason = args.slice(1).join(" ");
 
@@ -33,17 +33,17 @@ module.exports.run = async (client, message, args) => {
         .setColor(process.env.WARNCOLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
-        .setTitle("Are you sure you want to perform this kick?")
-        .setDescription(`Do you want to kick ${kickUser} ?`)
+        .setTitle(`${language.cmd_kick_sure_title}`)
+        .setDescription(`${language.cmd_kick_sure_disc} ${kickUser} ${language.cmd_kick_sure_disc2}?`)
         .setTimestamp()
 
     var embedKick = new discord.MessageEmbed()
         .setColor(process.env.BANCOLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
-        .setDescription(`**kicked:** ${kickUser} (${kickUser.id})
-        **Kicked By:** ${message.author}
-        **Reason:** ${reason}`)
+        .setDescription(`**${language.cmd_kick_kicken_disc}** ${kickUser} (${kickUser.id})
+        **${language.cmd_kick_kicken_by}** ${message.author}
+        **${language.cmd_kick_kicken_reason}** ${reason}`)
         .setFooter(message.member.displayName)
         .setTimestamp();
 
@@ -51,13 +51,13 @@ module.exports.run = async (client, message, args) => {
 
         new discord.MessageButton()
         .setCustomId("Yes")
-        .setLabel("Yes")
+        .setLabel(`${language.yes}`)
         .setStyle("SUCCESS")
         .setEmoji("✅"),
 
         new discord.MessageButton()
         .setCustomId("No")
-        .setLabel("No")
+        .setLabel(`${language.no}`)
         .setStyle("DANGER")
         .setEmoji("⚠️")
 
@@ -75,7 +75,7 @@ module.exports.run = async (client, message, args) => {
         // is die het bericht heeft aangemaakt.
         const filter = (interaction) => {
             if (interaction.user.id === authorID) return true;
-            return interaction.reply("You can't use this.");
+            return interaction.reply(`${language.cant_use}`);
         }
     
         // We maken een component collector aan die er voor zal zorgen dat we de knoppen kunnen opvangen.
@@ -99,13 +99,13 @@ module.exports.run = async (client, message, args) => {
                     msg.delete();
 
                     if (kickUser.roles.cache.has(`${process.env.ADMINROLL}`))
-                    return message.reply("You can't kick ADMIN!");
+                    return message.reply(`${language.cmd_kick_cant_kick_admin}`);
 
                     kickUser.kick(reason).catch(err => {
 
                         if (err) 
                         console.log(err);
-                        return message.channel.send(`Something went wrong while kicking ${kickUser}`).then(msg => {
+                        return message.channel.send(`${language.cmd_kick_err} ${kickUser}`).then(msg => {
                             message.delete()
                             setTimeout(() => msg.delete(), 5000);
                         });
@@ -118,14 +118,14 @@ module.exports.run = async (client, message, args) => {
                     
                     msg.delete();
 
-                    message.channel.send(`You have chosen to dont Kick ${kickUser} .`).then(msg => {
+                    message.channel.send(`${language.cmd_kick_dont_kick} ${kickUser} .`).then(msg => {
                         message.delete()
                         setTimeout(() => msg.delete(), 5000);
                     });
 
                     return 
                 default:
-                    return interactionButton.reply("This button has no functionality yet.");
+                    return interactionButton.reply(`${language.no_functionality}`);
             }
         });
     });
@@ -135,5 +135,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "kick",
     category: "admin",
-    discription: "This is a command to kick people out of the server."
+    discription: language.cmd_kick_disc
 }
