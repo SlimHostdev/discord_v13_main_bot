@@ -33,5 +33,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "status",
     category: "admin",
-    discription: language.cmd_ping_disc
+    discription: language.cmd_status_disc
 }
