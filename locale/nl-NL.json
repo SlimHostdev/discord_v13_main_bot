@@ -20,19 +20,19 @@
 
     "dropdown": "Uw keuze is goed ontvangen",
 
-    "cmd_ping_title": "Ping !!!!!!!",
-    "cmd_ping_disc": "Dit is een commando om de bot te testen",
-    "cmd_ping_footer": "ping command",
-    "cmd_ping_name": "Bot Naam",
-
-    "cmd_status_msg": "**De botstatus is gewijzigd in:**",
-    "cmd_status_disc": "Dit is een commando om de status van de bot te wijzigen.",
-
     "cmd_adminhelp_discriptions": "Admin  Beschrijving",
     "cmd_adminhelp_disc": "Hier vindt u alle ADMIN-commando's",
     "cmd_adminhelp_footer": "adminhelp command",
     "cmd_adminhelp_err_title": "ERROR",
     "cmd_adminhelp_err_disc": "OEPS!!",
     "cmd_adminhelp_err_field1": "Er gaat iets mis!",
-    "cmd_adminhelp_err_field2": "Probeer het later opnieuw."
+    "cmd_adminhelp_err_field2": "Probeer het later opnieuw.",
+    
+    "cmd_ping_title": "Ping !!!!!!!",
+    "cmd_ping_disc": "Dit is een commando om de bot te testen",
+    "cmd_ping_footer": "ping command",
+    "cmd_ping_name": "Bot Naam",
+
+    "cmd_status_msg": "**De botstatus is gewijzigd in:**",
+    "cmd_status_disc": "Dit is een commando om de status van de bot te wijzigen."
 }
