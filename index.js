@@ -179,7 +179,7 @@ client.on("guildMemberAdd", member => {
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
     .setTimestamp()
-    .setFooter(`${language.join_welkom}`, `${process.env.SERVERNAME}`)
+    .setFooter(`${language.join_welkom} ${process.env.SERVERNAME}`)
     .addFields(
         { name: `${language.join_welkom}`, value: `${member}` }
     )
