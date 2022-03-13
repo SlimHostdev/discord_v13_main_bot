@@ -1,12 +1,11 @@
 const discord = require("discord.js");
 //File server
 const fs = require("fs");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
+
 
 module.exports.run = async (client, message, args) => {
-
-    //Taal van de bot
-    const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
-
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
