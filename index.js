@@ -51,6 +51,9 @@ const DB = mysql.createConnection({
 //File server
 const fs = require("fs");
 
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
+
 //Flags regchten van de bot
 const client = new Client({
     intents: [
@@ -170,7 +173,7 @@ client.once("ready", () => {
 client.on("guildMemberAdd", member => {
 
     var welkomEmbed = new discord.MessageEmbed()
-    .setTitle(`Welcom At`)
+    .setTitle(`${language.join.welkom}`)
     .setDescription(`${process.env.SERVERNAME}`)
     .setColor(process.env.COLLOR)
     .setThumbnail(process.env.LOGO)
