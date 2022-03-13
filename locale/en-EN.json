@@ -23,5 +23,7 @@
     "cmd_ping_title": "Ping !!!!!!!",
     "cmd_ping_disc": "This is a command to test the bot",
     "cmd_ping_footer": "ping command",
-    "cmd_ping_name": "Bot name"
+    "cmd_ping_name": "Bot name",
+
+    "cmd_status_msg": "**The bot status has changed to:**"
 }
