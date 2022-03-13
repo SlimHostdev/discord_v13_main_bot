@@ -13,7 +13,7 @@
     "cmd_ar_load": "Alle commando's zijn geladen",
     "cmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
 
-    "no_admin": "Je ben geen ADMIN dus dit kan je niet doen_",
+    "no_admin": "Je ben geen ADMIN dus dit kan je niet doen.",
 
     "join_welkom_title": "Welkom in",
     "join_welkom": "Welkom",
@@ -23,5 +23,7 @@
     "cmd_ping_title": "Ping !!!!!!!",
     "cmd_ping_disc": "Dit is een commando om de bot te testen",
     "cmd_ping_footer": "ping command",
-    "cmd_ping_name": "Bot Naam"
+    "cmd_ping_name": "Bot Naam",
+
+    "cmd_status_msg": "**De botstatus is gewijzigd in:**"
 }
