@@ -173,7 +173,7 @@ client.once("ready", () => {
 client.on("guildMemberAdd", member => {
 
     var welkomEmbed = new discord.MessageEmbed()
-    .setTitle(`${language.join.welkom.title}`)
+    .setTitle(language.join_welkom_title)
     .setDescription(`${process.env.SERVERNAME}`)
     .setColor(process.env.COLLOR)
     .setThumbnail(process.env.LOGO)
