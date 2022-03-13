@@ -228,7 +228,7 @@ client.on("messageCreate", async message => {
 
         console.log(`\x1b[31m ERROR \x1b[0m`);
         console.log(error);
-        await message.reply("Something went wrong **Look in the console for the ERROR!**");
+        await message.reply(`${language.cmd_err}`);
 
     }
 
