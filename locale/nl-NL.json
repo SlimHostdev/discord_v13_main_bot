@@ -1,11 +1,22 @@
 {
+    "bot_name": "Bot Naam:",
+    "bot_id": "Bot ID:",
+    "bot_preffix": "Bot Preffix:",
+    "bot_language": "Bot Taal:",
+    "bot_mysql": "Bot DataBase:",
+    "mysql_host": "Database-host:",
+    "mysql_user": "Databasegebruiker:",
+    "mysql_name": "Database naam:",
+    "bot_invite": "Bot Invite:",
+
+    "cmd_load": "Ik heb laden",
+    "cmd_ar_load": "Alle commando's zijn geladen",
+    "cmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
+
+    "no_admin": "Je ben geen ADMIN dus dit kan je niet doen_",
+
     "join_welkom_title": "Welkom in",
     "join_welkom": "Welkom",
-    "cmd_load": "Ik heb laden",
-    "cmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
-    "dropdown": "Uw keuze is goed ontvangen",
-    "no_admin": "Je ben geen ADMIN dus dit kan je niet doen_",
-    "command_ping_title": "Pong !!!!!!",
-    "command_ping_discription": "Dit is een test command om de bot te testen_",
-    "command_ping_footer": "ping command"
+
+    "dropdown": "Uw keuze is goed ontvangen"
 }
