@@ -48,15 +48,17 @@ const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
 
 //Eigenaars Rechten Van https://Slimhost.nl
+const rechten = JSON.parse(fs.readFileSync(`./scr/${process.env.LANGUAGE}.json`, "utf-8"));
+
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
-console.log(`\x1b[31m Dit is de officiële source code van de ${packege.slimhost} \x1b[0m`);
-console.log(`\x1b[31m Het door geven van deze files of verkopen is van zijn strengste verboden! \x1b[0m`);
-console.log(`\x1b[31m Deze bot is gemaakt door ${packege.author} \x1b[0m`);
+console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
+console.log(`\x1b[31m ${rechten.bot_rechten_2} \x1b[0m`);
+console.log(`\x1b[31m ${rechten.bot_rechten_3} ${packege.author} \x1b[0m`);
 console.log(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-console.log([`${packege.name} By ${packege.slimhost}`]);
-console.log(['Aan het opsterten...']);
+console.log([`${packege.name} ${rechten.bot_rechten_4} ${packege.slimhost}`]);
+console.log([`${rechten.bot_rechten_5}`]);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
 //Flags regchten van de bot
