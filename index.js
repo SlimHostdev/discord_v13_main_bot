@@ -49,7 +49,7 @@ const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.js
 
 //Eigenaars Rechten Van https://Slimhost.nl
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
-console.log(`\x1b[31m Dit is de officiële source code van de ${packege.slimhost}. \x1b[0m`);
+console.log(`\x1b[31m Dit is de officiële source code van de ${packege.slimhost} \x1b[0m`);
 console.log(`\x1b[31m Het door geven van deze files of verkopen is van zijn strengste verboden! \x1b[0m`);
 console.log(`\x1b[31m Deze bot is gemaakt door ${packege.author} \x1b[0m`);
 console.log(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
