@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
         .setTimestamp()
-        .setFooter("exsempel addon command")
+        .setFooter("example addon command")
 
     return message.channel.send({ embeds: [botEmbed] }).then(msg => {
         message.delete()
@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "exsempel",
+    name: "example",
     category: "add ons",
     discription: "Dist is an example code for addons."
 }
