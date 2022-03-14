@@ -42,7 +42,7 @@ const DB = mysql.createConnection({
 const fs = require("fs");
 
 //Main Data
-const packege = JSON.parse(fs.readFileSync(`packege.json`, "utf-8"));
+const packege = JSON.parse(fs.readFileSync("packege.json", "utf-8"));
 
 //Taal van de bot
 const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
