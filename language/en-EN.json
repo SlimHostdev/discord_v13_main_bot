@@ -21,6 +21,12 @@
     "no_functionality": "Dirt heeft nog geen finctie.",
     "not_specify": "U moet een persoon opgeven.",
     "cant_find_user": "Ik kan niemand op de server vinden met deze naam",
+    "disc": "Beschrijving",
+
+    "err_title": "ERROR",
+    "err_disc": "OEPS!!",
+    "err_field1": "Er gaat iets mis!",
+    "err_field2": "Probeer het later opnieuw.",
 
     "join_welkom_title": "Welkom in",
     "join_welkom": "Welkom",
@@ -30,10 +36,6 @@
     "cmd_adminhelp_discriptions": "Admin  Beschrijving",
     "cmd_adminhelp_disc": "Hier vindt u alle ADMIN-commando's",
     "cmd_adminhelp_footer": "adminhelp command",
-    "cmd_adminhelp_err_title": "ERROR",
-    "cmd_adminhelp_err_disc": "OEPS!!",
-    "cmd_adminhelp_err_field1": "Er gaat iets mis!",
-    "cmd_adminhelp_err_field2": "Probeer het later opnieuw.",
     
     "cmd_ping_title": "Ping !!!!!!!",
     "cmd_ping_disc": "Dit is een commando om de bot te testen",
@@ -90,5 +92,8 @@
     "cmd_warn_msg": "Bericht",
     "cmd_warn_one_more": "Nog een warn en je krijgt een ban!!",
     "cmd_warn_ban": "werd verbannen door de bot voor te veel waarschuwingen!",
-    "cmd_warn_disc": "This is a warn command."
+    "cmd_warn_disc": "This is a warn command.",
+
+    "cmd_help_disc": "Hier vindje alle commands van de bot.",
+    "cmd_help_footer": "help command"
 }

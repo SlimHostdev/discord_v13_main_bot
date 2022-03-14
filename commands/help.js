@@ -1,4 +1,8 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
@@ -14,9 +18,9 @@ module.exports.run = async (client, message, args) => {
         var addons = "\n**__Addons Commands__**\n";
 
         //Discription
-        var generald = "***__General  Description__***\n";
-        var infod = "\n***__Info Description__***\n";
-        var addonsd = "\n***___Addons Description__***\n"
+        var generald = `***__General  ${language.disc}__***\n`;
+        var infod = `\n***__Info ${language.disc}__***\n`;
+        var addonsd = `\n***___Addons ${language.disc}__***\n`;
 
 
         client.commands.forEach(command => {
@@ -42,26 +46,26 @@ module.exports.run = async (client, message, args) => {
         //Main Embed
         var botEmbed = new discord.MessageEmbed()
             .setTitle(respons)
-            .setDescription("Here you will find many commands of the bot")
+            .setDescription(`${language.cmd_help_disc}`)
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setImage(process.env.BANNER)
             .setTimestamp()
-            .setFooter("help command")
+            .setFooter(`${language.cmd_help_footer}`)
             .addField(info, infod)
             .addField(general, generald)
             .addField(addons, addonsd)
 
         //Error Embed
         var errorEmbed = new discord.MessageEmbed()
-            .setTitle("ERROR")
-            .setDescription("OEPS!!")
+            .setTitle(`${language.err_title}`)
+            .setDescription(`${language.err_disc}`)
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setImage(process.env.BANNER)
             .setTimestamp()
-            .setFooter("help command")
-            .addField("Something went wrong", " try again later.")
+            .setFooter(`${language.cmd_help_footer}`)
+            .addField(`${language.err_field1}`, `${language.err_field2}`)
 
         message.channel.send({ embeds: [botEmbed] }).then(msg => {
             message.delete()
@@ -77,5 +81,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "help",
     category: "info",
-    discription: "Here you will find all commands."
+    discription: language.cmd_help_disc
 }
