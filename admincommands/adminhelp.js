@@ -43,14 +43,14 @@ module.exports.run = async (client, message, args) => {
             .addField(admin, admind)
 
         var errorEmbed = new discord.MessageEmbed()
-            .setTitle(`${language.cmd_adminhelp_err_title}`)
-            .setDescription(`${language.cmd_adminhelp_err_disc}`)
+            .setTitle(`${language.err_title}`)
+            .setDescription(`${language.err_disc}`)
             .setColor(process.env.COLLOR)
             .setThumbnail(process.env.LOGO)
             .setImage(process.env.BANNER)
             .setTimestamp()
             .setFooter(`${language.cmd_adminhelp_footer}`)
-            .addField(`${language.cmd_adminhelp_err_field1}`, `${language.cmd_adminhelp_err_field2}`)
+            .addField(`${language.err_field1}`, `${language.err_field2}`)
 
         message.author.send({ embeds: [botEmbed] })
 
