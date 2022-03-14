@@ -1,6 +1,6 @@
 {
   "name": "discord_bot_v13",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "testen van discord bot v13",
   "main": "index.js",
   "scripts": {
