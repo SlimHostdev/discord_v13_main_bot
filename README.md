@@ -43,7 +43,7 @@
 
 ### Partner
 
-- [SlimGame](https://slimgame.eu)
+- [Slimhost](https://slimhost.nl)
 
 <br />
 
