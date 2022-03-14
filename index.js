@@ -48,7 +48,7 @@ const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 //Eigenaars Rechten Van https://Slimhost.nl
-const rechten = JSON.parse(fs.readFileSync(`./scr/${process.env.LANGUAGE}.json`, "utf-8"));
+const rechten = JSON.parse(fs.readFileSync(`./src/${process.env.LANGUAGE}.json`, "utf-8"));
 
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
