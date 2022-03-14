@@ -1,12 +1,12 @@
 console.log("slimgame");
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
-console.log(`\x1b[31m Dit is de officiële source code van de SlimGame. \x1b[0m`);
+console.log(`\x1b[31m Dit is de officiële source code van de ${packege.slimhost}. \x1b[0m`);
 console.log(`\x1b[31m Het door geven van deze files of verkopen is van zijn strengste verboden! \x1b[0m`);
-console.log(`\x1b[31m Deze bot is gemaakt bij Bryan aka SlimGame. \x1b[0m`);
-console.log(`\x1b[31m https://github.com/SlimHostdev/discord_v13_main_bot \x1b[0m`);
+console.log(`\x1b[31m Deze bot is gemaakt door ${packege.author} \x1b[0m`);
+console.log(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-console.log(['DISCORD.JS V13 Bot By SlimGame']);
+console.log([`${packege.name} By ${packege.slimhost}`]);
 console.log(['Aan het opsterten...']);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
@@ -50,6 +50,9 @@ const DB = mysql.createConnection({
 
 //File server
 const fs = require("fs");
+
+//Main Data
+const packege = JSON.parse(fs.readFileSync(`./packege.json`, "utf-8"));
 
 //Taal van de bot
 const language = JSON.parse(fs.readFileSync(`./locale/${process.env.LANGUAGE}.json`, "utf-8"));
