@@ -1,4 +1,10 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
+//Main Data
+const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
@@ -13,8 +19,8 @@ module.exports.run = async (client, message, args) => {
         .addField("Bot Naam", client.user.username)
         .addFields(
             { name: "Bot Prefix", value: process.env.PREFFIX },
-            { name: "Bot Dev", value: "𝕭𝖗𝖞𝖆𝖓#6694" },
-            { name: "Bot Host", value: 'https://Slimgame.nl' }
+            { name: "Bot Dev", value: `${packege.author}` },
+            { name: "Bot Host", value: `${packege.slimhost}` }
         )
 
         const row = new discord.MessageActionRow().addComponents(
@@ -23,7 +29,7 @@ module.exports.run = async (client, message, args) => {
             .setLabel("Host")
             .setStyle("LINK")
             .setEmoji("📡")
-            .setURL("https://slimgame.nl")
+            .setURL(`${packege.slimhost}`)
     
         );
 
