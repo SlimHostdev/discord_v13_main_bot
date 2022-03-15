@@ -114,5 +114,12 @@
     "cmd_review_tnx": "Bedankt voor je recensie! 🎉",
     "cmd_review_footer": "review command",
     "cmd_review_channel": "Beoordeel kanaal:",
-    "cmd_review_disc": "Dit is een command om een recensie te geven."
+    "cmd_review_disc": "Dit is een command om een recensie te geven.",
+
+    "cmd_serverinfo_title": "Server Info command",
+    "cmd_serverinfo_disc": "Hier vindt u veel informatie over deze server",
+    "cmd_serverinfo_footer": "serverinfo command",
+    "cmd_serverinfo_bot_name": "Bot Naam:",
+    "cmd_serverinfo_joint": "Je bent lid geworden van de server op:",
+    "cmd_serverinfo_members": "Totaal aantal leden:"
 }

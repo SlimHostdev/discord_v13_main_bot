@@ -1,19 +1,23 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
     var botEmbed = new discord.MessageEmbed()
-        .setTitle("Server Info command")
-        .setDescription("Here you will find a lot of information about this server")
+        .setTitle(`${language.cmd_serverinfo_title}`)
+        .setDescription(`${language.cmd_serverinfo_disc}`)
         .setColor(process.env.COLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
         .setTimestamp()
-        .setFooter("serverinfo command")
+        .setFooter(`${language.cmd_serverinfo_footer}`)
         .addFields(
-            { name: "Bot Name", value: client.user.username },
-            { name: "You have joined the server on", value: message.member.joinedAt.toString() },
-            { name: "Total members", value: message.guild.memberCount.toString() }
+            { name: `${language.cmd_serverinfo_bot_name}`, value: client.user.username },
+            { name: `${language.cmd_serverinfo_joint}`, value: message.member.joinedAt.toString() },
+            { name: `${language.cmd_serverinfo_members}`, value: message.guild.memberCount.toString() }
         )
 
     return message.channel.send({ embeds: [botEmbed] }).then(msg => {
@@ -26,5 +30,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "serverinfo",
     category: "info",
-    discription: "Here you will find a lot of information about this server."
+    discription: language.cmd_serverinfo_disc
 }
