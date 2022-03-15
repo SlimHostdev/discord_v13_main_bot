@@ -103,5 +103,16 @@
     "cmd_info_bot_name": "Bot Naam:",
     "cmd_info_bot_prefix": "Bot Prefix:",
     "cmd_info_bot_author": "Bot Author:",
-    "cmd_info_bot_host": "Bot Host:"
+    "cmd_info_bot_host": "Bot Host:",
+
+    "cmd_review_no_stars": "Geef a.u.b. een aantal sterren aan van 1 t/m 5",
+    "cmd_review_no_msg": "Geen bericht opgegeven",
+    "cmd_review_no_channel": "No Review Channel has been set up yet. \n ask a ADMIN to set it up",
+    "cmd_review_title": "'s recensie! 🎉",
+    "cmd_review_stars": "sterren:",
+    "cmd_review_msg": "Recensie:",
+    "cmd_review_tnx": "Bedankt voor je recensie! 🎉",
+    "cmd_review_footer": "review command",
+    "cmd_review_channel": "Beoordeel kanaal:",
+    "cmd_review_disc": "Dit is een command om een recensie te geven."
 }

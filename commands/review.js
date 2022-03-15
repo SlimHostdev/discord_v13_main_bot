@@ -1,4 +1,8 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
@@ -6,13 +10,13 @@ module.exports.run = async (client, message, args) => {
 
     const amountStarts = args[0];
 
-    if(!amountStarts || amountStarts < 1 || amountStarts > 5) return message.reply("Please indicate a number of stars from 1 to 5");
+    if(!amountStarts || amountStarts < 1 || amountStarts > 5) return message.reply(`${language.cmd_review_no_stars}`);
 
-    const messageReview = args.splice(1,args.length).join(" ") || `**No Message Provided**`;
+    const messageReview = args.splice(1,args.length).join(" ") || `**${language.cmd_review_no_msg}**`;
 
     const reviewChannel = message.member.guild.channels.cache.get(process.env.REVIEWCHAT);
 
-    if(!reviewChannel) return message.reply("No Review Channel has been set up yet.");
+    if(!reviewChannel) return message.reply(`${language.cmd_review_no_channel}`);
 
     var stars = "";
 
@@ -25,24 +29,24 @@ module.exports.run = async (client, message, args) => {
     message.delete();
 
     const review = new discord.MessageEmbed()
-    .setTitle(`${message.member.displayName}'s review! 🎉`)
+    .setTitle(`${message.member.displayName}${language.cmd_review_title}`)
     .setFooter(message.member.displayName, message.author.displayAvatarURL)
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
     .setTimestamp()
-    .addField("Stars:", `${stars}`)
-    .addField("Review:", `${messageReview}`);
+    .addField(`${language.cmd_review_stars}`, `${stars}`)
+    .addField(`${language.cmd_review_msg}`, `${messageReview}`);
 
     const sucsesEmbed = new discord.MessageEmbed()
-    .setTitle(`${message.member.displayName} Thank you for your review! 🎉`)
+    .setTitle(`${message.member.displayName} ${language.cmd_review_tnx}`)
     .setFooter(message.member.displayName, message.author.displayAvatarURL)
     .setColor(process.env.REVIEWCOLLOR)
     .setThumbnail(process.env.LOGO)
     .setImage(process.env.BANNER)
     .setTimestamp()
-    .setFooter("review command")
-    .addField("Review Chat:", `<#${process.env.REVIEWCHAT}>`)
+    .setFooter(`${language.cmd_review_footer}`)
+    .addField(`${language.cmd_review_channel}`, `<#${process.env.REVIEWCHAT}>`)
 
     message.channel.send({ embeds: [sucsesEmbed] }).then(msg => {
         message.delete()
@@ -56,5 +60,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "review",
     category: "general",
-    discription: "This is a command to give a review."
+    discription: language.cmd_review_disc
 }
