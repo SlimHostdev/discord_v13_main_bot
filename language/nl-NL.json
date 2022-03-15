@@ -121,5 +121,14 @@
     "cmd_serverinfo_footer": "serverinfo command",
     "cmd_serverinfo_bot_name": "Bot Naam:",
     "cmd_serverinfo_joint": "Je bent lid geworden van de server op:",
-    "cmd_serverinfo_members": "Totaal aantal leden:"
+    "cmd_serverinfo_members": "Totaal aantal leden:",
+
+    "cmd_ticket_no_msg": "Je moet een reden voor het ticket geven!",
+    "cmd_ticket_open_ticket": "Je hebt al een Ticket dat open is!",
+    "cmd_ticket_new": "Niewe Ticket.",
+    "cmd_ticket_create_at": "Gemaakt Op:",
+    "cmd_ticket_msg": "Reden:",
+    "cmd_ticket_create": "✅ Je ticket is aangemaakt.",
+    "cmd_ticket_err": "❌ Er is een fout opgetreden bij het aanmaken van uw Ticket. **Neem contact op met een ADMIN**",
+    "cmd_ticket_disc": "Met dit commando kun je een ticket aanmaken."
 }

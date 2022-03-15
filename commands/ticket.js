@@ -1,4 +1,8 @@
 const discord = require("discord.js");
+//File server
+const fs = require("fs");
+//Taal van de bot
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
@@ -9,7 +13,7 @@ module.exports.run = async (client, message, args) => {
     var userDiscriminator = message.author.discriminator;
 
     var reason = args.join(" ");
-    if (!reason) return message.channel.send("You must give a reason for the ticket!").then(msg => {
+    if (!reason) return message.channel.send(`${language.cmd_ticket_no_msg}`).then(msg => {
         message.delete()
         setTimeout(() => msg.delete(), 10000);
     });
@@ -20,7 +24,7 @@ module.exports.run = async (client, message, args) => {
 
         if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
 
-            message.channel.send("You already have a Ticket that is open!").then(msg => {
+            message.channel.send(`${language.cmd_ticket_open_ticket}`).then(msg => {
                 message.delete()
                 setTimeout(() => msg.delete(), 10000);
             });
@@ -80,13 +84,13 @@ module.exports.run = async (client, message, args) => {
                 .setAuthor(message.author.username, message.author.displayAvatarURL({ size: 4096 }))
                 .setColor(process.env.COLLOR)
                 .setImage(process.env.BANNER)
-                .setTitle('New Ticket.')
+                .setTitle(`${language.cmd_ticket_new}`)
                 .addFields(
-                    { name: "Create On:", value: today, inline: false },
-                    { name: "Reason:", value: reason, inline: false }
+                    { name: `${language.cmd_ticket_create_at}`, value: today, inline: false },
+                    { name: `${language.cmd_ticket_msg}`, value: reason, inline: false }
                 );
 
-            message.channel.send('✅ Your ticket has been created.').then(msg => {
+            message.channel.send(`${language.cmd_ticket_create}`).then(msg => {
                 message.delete()
                 setTimeout(() => msg.delete(), 10000);
             });
@@ -94,11 +98,11 @@ module.exports.run = async (client, message, args) => {
             settedParent.send({ embeds: [embedParent] });
 
         }).catch(err => {
-            message.channel.send('❌ There is an error when creating your Ticket. **Contact an ADMIN**')
+            message.channel.send(`${language.cmd_ticket_err}`)
         })
 
     }).catch(err => {
-        message.channel.send('❌ There is an error when creating your Ticket. **Contact an ADMIN**')
+        message.channel.send(`${language.cmd_ticket_err}`)
     });
 
 }
@@ -106,5 +110,5 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
     name: "ticket",
     category: "general",
-    discription: "With this command you can create a ticket."
+    discription: language.cmd_ticket_disc
 }
