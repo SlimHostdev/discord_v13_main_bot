@@ -95,5 +95,13 @@
     "cmd_warn_disc": "This is a warn command.",
 
     "cmd_help_disc": "Hier vindje alle commands van de bot.",
-    "cmd_help_footer": "help command"
+    "cmd_help_footer": "help command",
+
+    "cmd_info_title": "Info command",
+    "cmd_info_disc": "Hier vind je veel info van de bot",
+    "cmd_info_footer": "info command",
+    "cmd_info_bot_name": "Bot Naam:",
+    "cmd_info_bot_prefix": "Bot Prefix:",
+    "cmd_info_bot_author": "Bot Author:",
+    "cmd_info_bot_host": "Bot Host:"
 }
