@@ -47,7 +47,7 @@
 - add language nl-NL (dutch) 
 - - IF U WANA HELP WHIT LAGUAGE DM ME ON DISCORD 𝕭𝖗𝖞𝖆𝖓#6694
 - Dutch (nl-NL) ✅100% done by: 𝕭𝖗𝖞𝖆𝖓#6694
-- English (en-EN) ❌0% done by: [KimonoKat](https://www.twitch.tv/kimonokat)
+- English (en-EN) ✅100% done by: [KimonoKat](https://www.twitch.tv/kimonokat) | [KCUF_AM](https://www.twitch.tv/kcuf_am)
 
 ### Partner
 
