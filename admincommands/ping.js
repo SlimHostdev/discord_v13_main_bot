@@ -9,10 +9,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
-    const m = await message.channel.send("Ping?").then(msg => {
-        message.delete()
-        setTimeout(() => msg.delete(), 100);
-    });
+    const m = await message.channel.send("Ping?")
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle(`${language.cmd_ping_title}`)
@@ -28,7 +25,8 @@ module.exports.run = async (client, message, args) => {
         )
 
     return message.channel.send({ embeds: [botEmbed] }).then(msg => {
-//        message.delete()
+        message.delete()
+        m.delete()
         setTimeout(() => msg.delete(), 10000);
     });
 
