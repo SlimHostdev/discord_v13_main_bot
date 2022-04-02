@@ -1,8 +1,11 @@
 {
+    "bot_online": "System Is Online",
     "bot_name": "Bot Naam:",
     "bot_id": "Bot ID:",
     "bot_preffix": "Bot Preffix:",
     "bot_language": "Bot Taal:",
+    "bot_users": "Gebruiker's:",
+    "bot_channels": "Kanalen:",
     "bot_mysql": "Bot DataBase:",
     "mysql_host": "Database-host:",
     "mysql_user": "Databasegebruiker:",
@@ -41,6 +44,7 @@
     "cmd_ping_disc": "Dit is een commando om de bot te testen",
     "cmd_ping_footer": "ping command",
     "cmd_ping_name": "Bot Naam",
+    "cmd_ping_latency": "Latency:",
 
     "cmd_status_msg": "**De botstatus is gewijzigd in:**",
     "cmd_status_disc": "Dit is een commando om de status van de bot te wijzigen.",

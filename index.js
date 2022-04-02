@@ -161,17 +161,21 @@ client.once("ready", () => {
 
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log([`${language.cmd_ar_load}`]);
-    console.log(`[\x1b[31m ${client.user.username} \x1b[0m]`);
-    console.log(['is online']);
+    console.log([`${language.bot_online}`]);
+    console.log(`[\x1b[31m ${language.bot_name} ${client.user.username} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log([`${language.bot_name} ${client.user.username}`]);
+//    console.log([`${language.bot_name} ${client.user.username}`]);
     console.log([`${language.bot_id} ${process.env.BOTID}`]);
     console.log([`${language.bot_preffix} ${process.env.PREFFIX}`]);
     console.log([`${language.bot_language} ${process.env.LANGUAGE}`]);
+    console.log([`${language.bot_users} ${client.users.cache.size}`]);
+    console.log([`${language.bot_channels} ${client.channels.cache.size}`]);
+    console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log([`${language.bot_mysql}`]);
     console.log(`[\x1b[31m ${language.mysql_host} ${process.env.DBHOST} \x1b[0m]`);
     console.log(`[\x1b[31m ${language.mysql_user} ${process.env.DBUSER} \x1b[0m]`);
     console.log(`[\x1b[31m ${language.mysql_name} ${process.env.DBNAME} \x1b[0m]`);
+    console.log('<---------------------------------------------------------------------------------------------------------------------->',);
     console.log([`${language.bot_invite}`]);
     console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);

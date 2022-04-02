@@ -1,8 +1,11 @@
 {
+    "bot_online": "System Is Online",
     "bot_name": "Bot Name:",
     "bot_id": "Bot ID:",
     "bot_preffix": "Bot Preffix:",
     "bot_language": "Bot Language:",
+    "bot_users": "Users:",
+    "bot_channels": "Channels:",
     "bot_mysql": "Bot Database:",
     "mysql_host": "Database-host:",
     "mysql_user": "DatabaseUser:",
@@ -41,6 +44,7 @@
     "cmd_ping_disc": "This is a command to test the bot",
     "cmd_ping_footer": "ping command",
     "cmd_ping_name": "Bot Name",
+    "cmd_ping_latency": "Latency:",
 
     "cmd_status_msg": "**The bot status has been changed to:**",
     "cmd_status_disc": "This is a command to change the bot's status.",

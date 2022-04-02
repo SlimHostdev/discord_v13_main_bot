@@ -9,6 +9,8 @@ module.exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
+    const m = await message.channel.send("Ping?")
+
     var botEmbed = new discord.MessageEmbed()
         .setTitle(`${language.cmd_ping_title}`)
         .setDescription(`${language.cmd_ping_disc}`)
@@ -18,7 +20,8 @@ module.exports.run = async (client, message, args) => {
         .setTimestamp()
         .setFooter(`${language.cmd_ping_footer}`)
         .addFields(
-            { name: `${language.cmd_ping_name}`, value: client.user.username }
+            { name: `${language.cmd_ping_name}`, value: client.user.username },
+            { name: `${language.cmd_ping_latency}`, value: `${m.createdTimestamp - message.createdTimestamp}ms.`}
         )
 
     return message.channel.send({ embeds: [botEmbed] }).then(msg => {
