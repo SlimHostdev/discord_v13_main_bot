@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
 
     if (!message.member.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.no_admin}`);
 
-    const m = await message.channel.send("Ping?")
+    const m = await message.channel.send()
 
     var botEmbed = new discord.MessageEmbed()
         .setTitle(`${language.cmd_ping_title}`)
