@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
 
     if (warnUser.roles.cache.has(`${process.env.ADMINROLL}`)) return message.reply(`${language.cmd_warn_cant_warn_admin}`);
 
-    const warns = JSON.parse(fs.readFileSync("./data/warnings.json", "UTF8"));
+    const warns = JSON.parse(fs.readFileSync("./src/data/warnings.json", "UTF8"));
 
     if (!warns[warnUser.id]) warns[warnUser.id] = {
         warns: 0
@@ -80,7 +80,7 @@ module.exports.run = async (client, message, args) => {
 
     }
 
-    fs.writeFile("./data/warnings.json", JSON.stringify(warns), (err) => {
+    fs.writeFile("./src/data/warnings.json", JSON.stringify(warns), (err) => {
         if (err) console.log(err);
     });
 

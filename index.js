@@ -48,7 +48,7 @@ const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 //Eigenaars Rechten Van https://Slimhost.nl
-const rechten = JSON.parse(fs.readFileSync(`./src/${process.env.LANGUAGE}.json`, "utf-8"));
+const rechten = JSON.parse(fs.readFileSync(`./src/language/${process.env.LANGUAGE}.json`, "utf-8"));
 
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
@@ -75,13 +75,13 @@ const client = new Client({
 client.commands = new Collection();
 
 //Ophaalen van commandos uit map commands
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith(".js"));
+const commandFiles = fs.readdirSync('./cmd/commands').filter(file => file.endsWith(".js"));
 
 console.log(`[\x1b[31m COMMANDS \x1b[0m]`);
 
 for (const file of commandFiles) {
 
-    const command = require(`./commands/${file}`);
+    const command = require(`./cmd/commands/${file}`);
 
     client.commands.set(command.help.name, command);
 
@@ -90,13 +90,13 @@ for (const file of commandFiles) {
 }
 
 //Ophaalen van commandos uit map admincommands
-const admincommandFiles = fs.readdirSync('./admincommands').filter(file => file.endsWith(".js"));
+const admincommandFiles = fs.readdirSync('./cmd/admincommands').filter(file => file.endsWith(".js"));
 
 console.log(`[\x1b[31m ADMIN COMMANDS \x1b[0m]`);
 
 for (const file of admincommandFiles) {
 
-    const command = require(`./admincommands/${file}`);
+    const command = require(`./cmd/admincommands/${file}`);
 
     client.commands.set(command.help.name, command);
 
@@ -105,13 +105,13 @@ for (const file of admincommandFiles) {
 }
 
 //Ophaalen van commandos uit map addons
-const addonFiles = fs.readdirSync('./addons').filter(file => file.endsWith(".js"));
+const addonFiles = fs.readdirSync('./cmd/addons').filter(file => file.endsWith(".js"));
 
 console.log(`[\x1b[31m ADDONS \x1b[0m]`);
 
 for (const file of addonFiles) {
 
-    const command = require(`./addons/${file}`);
+    const command = require(`./cmd/addons/${file}`);
 
     client.commands.set(command.help.name, command);
 
