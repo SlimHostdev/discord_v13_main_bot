@@ -16,28 +16,11 @@
 > [[WELCOME CHAT ID]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/a37a0f83831beee2e8a1c060fff166f3a6fb9fef/.env-EXSEMPEL#L20)
 > [[REVIEW CHAT ID]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/a37a0f83831beee2e8a1c060fff166f3a6fb9fef/.env-EXSEMPEL#L22)
 
-- Look at The [[UPDATE LOG]](https://github.com/orgs/SlimHostdev/projects/1/views/1)
 - Run the bot
 
-### Beta v0.0.2
-- commands
-> help
-> info
-> serverinfo
-> serverregels (need to be edit to yor server rules)
-> review
-- admin commands
-> adminhelp
-> ping
-> warn (auto ban on 4t warn)
-> kick
-> ban
-- addon support
-> i add addon support for custom commands 
-> DEV [[EXAMPLE]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/main/addons/example-addon.js)
->- [[Replase Name]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/a37a0f83831beee2e8a1c060fff166f3a6fb9fef/addons/example-addon.js#L22)
->- [[Replase Discription]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/a37a0f83831beee2e8a1c060fff166f3a6fb9fef/addons/example-addon.js#L24)
->- [[Replase Command out put]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/a37a0f83831beee2e8a1c060fff166f3a6fb9fef/addons/example-addon.js#L5-L19)
+### addon list
+[[addon list]](https://github.com/SlimHostdev/discord_v13_main_bot/blob/main/addon-list.md)
+
 
 <br />
 
@@ -63,5 +46,4 @@
 
 <img align="left" alt="Json" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/json/json.png" />
 
-<br />
 <br />
