@@ -38,7 +38,7 @@
 
 <br />
 
-**Full Changelog**: https://github.com/SlimHostdev/discord_v13_main_bot/compare/v0.0.1...v0.2.0
+[[**Full Changelog**]] (https://github.com/SlimHostdev/discord_v13_main_bot/compare/v0.0.1...v0.2.0)
 
 ### Languages:
 
