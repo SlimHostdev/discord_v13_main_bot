@@ -32,10 +32,10 @@
 - Dutch (nl-NL) ✅100% done by: 𝕭𝖗𝖞𝖆𝖓#6694
 - English (en-EN) ✅100% done by: [KimonoKat](https://www.twitch.tv/kimonokat) | [KCUF_AM](https://www.twitch.tv/kcuf_am)
 
-### Partner
-
-- [Slimhost](https://slimhost.nl)
-
+### Dev's
+<p align="center" dir="auto">
+<a href="https://github.com/L3G3CLAN"><img width="420" src="https://github-readme-stats.vercel.app/api?username=L3G3CLAN&amp;count_private=true&amp;show_icons=true&amp;title_color=dc143c&amp;text_color=ffffff&amp;icon_color=dc143c&amp;hide_border=true&amp;bg_color=282a36&amp;layout=compact&amp;hide_title=false&amp;hide_rank=false" style="max-width: 100%;"></a>
+</p>
 <br />
 
 [[**Full Changelog**]](https://github.com/SlimHostdev/discord_v13_main_bot/compare/v0.0.1...v0.2.0)
