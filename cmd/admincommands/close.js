@@ -2,7 +2,7 @@ const discord = require("discord.js");
 //File server
 const fs = require("fs");
 //Taal van de bot
-const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 

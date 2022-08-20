@@ -45,10 +45,10 @@ const fs = require("fs");
 const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
 //Taal van de bot
-const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
 
 //Eigenaars Rechten Van https://Slimhost.nl
-const rechten = JSON.parse(fs.readFileSync(`./src/language/${process.env.LANGUAGE}.json`, "utf-8"));
+const rechten = JSON.parse(fs.readFileSync(`./src/language/${process.env.LANGUAGES}.json`, "utf-8"));
 
 console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
@@ -167,7 +167,7 @@ client.once("ready", () => {
 //    console.log([`${language.bot_name} ${client.user.username}`]);
     console.log([`${language.bot_id} ${process.env.BOTID}`]);
     console.log([`${language.bot_preffix} ${process.env.PREFFIX}`]);
-    console.log([`${language.bot_language} ${process.env.LANGUAGE}`]);
+    console.log([`${language.bot_language} ${process.env.LANGUAGES}`]);
     console.log([`${language.bot_users} ${client.users.cache.size}`]);
     console.log([`${language.bot_channels} ${client.channels.cache.size}`]);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);

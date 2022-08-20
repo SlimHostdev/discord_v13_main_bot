@@ -4,7 +4,7 @@ const fs = require("fs");
 //Main Data
 const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 //Taal van de bot
-const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGE}.json`, "utf-8"));
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
 
 module.exports.run = async (client, message, args) => {
 
