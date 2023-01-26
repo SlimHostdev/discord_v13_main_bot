@@ -180,6 +180,22 @@ client.once("ready", () => {
     console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
+    //nieuwe comando functie
+    const guild = client.guilds.cache.get(`${process.env.SERVERID}`);
+
+    let commands;
+
+    if(guild){
+        commands = guild.commands;
+    }else{
+        commands = client.application.commands;
+    }
+
+    commands.create({
+        name: "ping",
+        description: "Dit is een test command."
+    });
+
 });
 
 client.on("guildMemberAdd", member => {
@@ -248,36 +264,50 @@ client.on("messageCreate", async message => {
 
 client.on("interactionCreate", interaction => {
 
-    if(!interaction.isSelectMenu()){
+    if(interaction.isSelectMenu()){
+        const { customId, values, member } = interaction;
+
+        if(customId === 'dropdown'){
+    
+            const component = interaction.component;
+            
+            //filter van wat er wel en niet is gekoozen
+            const removed = component.options.filter((option) => {
+                return !values.includes(option.value)
+            });
+    
+            //roll verwijderen all hij niet is ge selecteerd.
+            for (var id of removed){
+                member.roles.remove(id.value)
+            }
+    
+            //roll toevoegen
+            for (var id of values){
+                member.roles.add(id)
+            }
+    
+            interaction.reply({
+                content: `${language.dropdown}`,
+                ephemeral: true
+            });
+    
+        }
+    
+    }else if (interaction.isCommand()){
+
+        const {commandName, options} = interaction;
+
+        if(commandName === 'ping') {
+
+            interaction.reply({
+                content: "ping",
+                ephemeral: true
+            });
+
+        }
+
+    }else{
         return;
-    }
-
-    const { customId, values, member } = interaction;
-
-    if(customId === 'dropdown'){
-
-        const component = interaction.component;
-        
-        //filter van wat er wel en niet is gekoozen
-        const removed = component.options.filter((option) => {
-            return !values.includes(option.value)
-        });
-
-        //roll verwijderen all hij niet is ge selecteerd.
-        for (var id of removed){
-            member.roles.remove(id.value)
-        }
-
-        //roll toevoegen
-        for (var id of values){
-            member.roles.add(id)
-        }
-
-        interaction.reply({
-            content: `${language.dropdown}`,
-            ephemeral: true
-        });
-
     }
 
 });
