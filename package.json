@@ -8,13 +8,16 @@
     "start": "nodemon"
   },
   "keywords": [
-    "discord", "ADMIN"
+    "discord",
+    "ADMIN"
   ],
   "author": "L3G3-_-ViPeR#1622",
   "slimhost": "https://l3g3clan.nl",
   "gitrepo": "https://github.com/SlimHostdev/discord_v13_main_bot",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "discord-api-types": "^0.24.0",
     "discord.js": "^13.3.1",
     "dotenv-flow": "^3.2.0",
     "mysql": "^2.18.1"
