@@ -4,6 +4,8 @@ const { Console } = require("console");
 //------------------------------------Benodigt heeden------------------------------------------
 const { Client, Intents, Collection, Interaction } = require("discord.js");
 const discord = require("discord.js");
+const { REST } = require("@discordjs/rest");
+const { Routes } = require("discord-api-types/v9");
 
 //.env config
 require('dotenv-flow').config();
@@ -74,6 +76,10 @@ const client = new Client({
 //Command handler
 client.commands = new Collection();
 
+//Command handler
+client.slachCommands = new Collection();
+const slachCommands = [];
+
 //Ophaalen van commandos uit map commands
 const commandFiles = fs.readdirSync('./cmd/commands').filter(file => file.endsWith(".js"));
 
@@ -86,6 +92,22 @@ for (const file of commandFiles) {
     client.commands.set(command.help.name, command);
 
     console.log([`${language.cmd_load} [${command.help.name}.js]`]);
+
+}
+
+//Ophaalen van slachCommands uit map slachCommands
+const commandSlashFiles = fs.readdirSync('./cmd/slashCommands').filter(file => file.endsWith(".js"));
+
+console.log(`[\x1b[31m slashCommands \x1b[0m]`);
+
+for (const fileSlash of commandSlashFiles) {
+
+    const commandSlash = require(`./cmd/slashCommands/${fileSlash}`);
+
+    client.slachCommands.set(commandSlash.data.name, commandSlash);
+    slachCommands.push(commandSlash.data.toJSON());
+
+    console.log([`${language.cmd_load} [${commandSlash.data.name}.js]`]);
 
 }
 
@@ -180,21 +202,30 @@ client.once("ready", () => {
     console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
-    //nieuwe comando functie
-    const guild = client.guilds.cache.get(`${process.env.SERVERID}`);
+    //nieuwe commandSlash functie
+    let guildId = `${process.env.SERVERID}`;
+    let clientId = `${process.env.BOTID}`;
+    
+    const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 
-    let commands;
+    (async () => {
+        try {
+            console.log('<---------------------------------------------------------------------------------------------------------------------->',);
+            console.log(`${language.Slashcmd_load}`,);
+            console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
-    if(guild){
-        commands = guild.commands;
-    }else{
-        commands = client.application.commands;
-    }
+            await rest.put(
+                Routes.applicationGuildCommands(clientId, guildId),
+                { body: commandSlash},
+            );
 
-    commands.create({
-        name: "ping",
-        description: "Dit is een test command."
-    });
+            console.log('<---------------------------------------------------------------------------------------------------------------------->',);
+            console.log(`${language.Slashcmd_ar_load}`,);
+            console.log('<---------------------------------------------------------------------------------------------------------------------->',);
+        } catch (error) {
+            console.error(error);
+        }
+    })();
 
 });
 
@@ -262,7 +293,7 @@ client.on("messageCreate", async message => {
 
 });
 
-client.on("interactionCreate", interaction => {
+client.on("interactionCreate", async interaction => {
 
     if(interaction.isSelectMenu()){
         const { customId, values, member } = interaction;
@@ -295,15 +326,15 @@ client.on("interactionCreate", interaction => {
     
     }else if (interaction.isCommand()){
 
-        const {commandName, options} = interaction;
+        const slachCommand = client.slachCommands.get(interaction.commandName);
+        if(!slachCommand) return;
 
-        if(commandName === 'ping') {
+        try {
 
-            interaction.reply({
-                content: "ping",
-                ephemeral: true
-            });
+            await slachCommand.execute(client, interaction);
 
+        } catch (err) {
+            await interaction.reply({content: `${language.Slashcmd_err}`, ephemeral: true});
         }
 
     }else{

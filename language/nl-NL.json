@@ -12,9 +12,13 @@
     "mysql_name": "Database naam:",
     "bot_invite": "Bot Invite:",
 
-    "cmd_load": "Ik heb laden",
+    "cmd_load": "Ik laad alle commando's in!",
     "cmd_ar_load": "Alle commando's zijn geladen",
     "cmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
+
+    "Slashcmd_load": "Ik laad alle SlashCommando's in!",
+    "Slashcmd_ar_load": "Alle SlashCommando's zijn geladen",
+    "Slashcmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
 
     "no_admin": "Je ben geen ADMIN dus dit kan je niet doen.",
     "no_ticket_staff": "U bent geen Ticket Staff, dus u kunt dit niet doen.",

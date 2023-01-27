@@ -16,6 +16,10 @@
     "cmd_ar_load": "All commands have been loaded",
     "cmd_err": "Something went wrong **Check the console for the ERROR!**",
 
+    "Slashcmd_load": "load all the SlashCommands",
+    "Slashcmd_ar_load": "All SlashCommands have been loaded",
+    "Slashcmd_err": "Something went wrong **Check the console for the ERROR!**",
+
     "no_admin": "You're not ADMIN so you can't do this.",
     "no_ticket_staff": "You're not a Ticket Staff, so you can't do this.",
     "yes": "YES",
