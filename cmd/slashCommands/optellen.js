@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
  
     data: new SlashCommandBuilder()
-        .setName("reken")
+        .setName("optellen")
         .setDescription("Geef twee cijvers mee.")
         .addIntegerOption(option =>
             option.setName("nummer1")
