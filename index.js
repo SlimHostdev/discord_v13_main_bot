@@ -203,7 +203,7 @@ client.once("ready", () => {
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
         //nieuwe comando functie
-        if (process.env.TEST === true) {
+        if (process.env.TEST === false) {
             return;
         } else {
             let guild = client.guilds.cache.get(`${process.env.TESTSERVERID}`);
