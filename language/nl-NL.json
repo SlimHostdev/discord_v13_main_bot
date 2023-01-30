@@ -20,6 +20,8 @@
     "Slashcmd_ar_load": "Alle SlashCommando's zijn geladen",
     "Slashcmd_err": "Er is iets misgegaan **Kijk in de console naar de FOUT!**",
 
+    "Slashcmd_ping_msg": "Pong!!!",
+
     "no_admin": "Je ben geen ADMIN dus dit kan je niet doen.",
     "no_ticket_staff": "U bent geen Ticket Staff, dus u kunt dit niet doen.",
     "yes": "JA",

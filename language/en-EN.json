@@ -20,6 +20,8 @@
     "Slashcmd_ar_load": "All SlashCommands have been loaded",
     "Slashcmd_err": "Something went wrong **Check the console for the ERROR!**",
 
+    "Slashcmd_ping_msg": "Pong!!!",
+
     "no_admin": "You're not ADMIN so you can't do this.",
     "no_ticket_staff": "You're not a Ticket Staff, so you can't do this.",
     "yes": "YES",
