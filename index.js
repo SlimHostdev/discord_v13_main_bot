@@ -202,6 +202,28 @@ client.once("ready", () => {
     console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
+        //nieuwe comando functie
+        if (process.env.TEST === true) {
+            return;
+        } else {
+            let guild = client.guilds.cache.get(`${process.env.TESTSERVERID}`);
+        }
+
+        //const guild = client.guilds.cache.get(`${process.env.TESTSERVERID}`);
+
+        let commands;
+    
+        if(guild){
+            commands = guild.commands;
+        }else{
+            commands = client.application.commands;
+        }
+    
+        commands.create({
+            name: "discord-v13",
+            description: "Deze CMD heeft geen functie!"
+        });
+
     //nieuwe commandSlash functie
     let guildId = `${process.env.SERVERID}`;
     let clientId = `${process.env.BOTID}`;
