@@ -1,4 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require('discord.js');
+
+const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -22,6 +25,18 @@ module.exports = {
         }
 
         // Voer de rest van de logica uit voor het waarschuwen van de gebruiker
+
+        const embed = new MessageEmbed()
+        .setColor(process.env.WARNCOLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
+        .setFooter(message.member.displayName, message.author.displayAvatarURL)
+        .setTimestamp()
+        .setDescription(`**${language.cmd_warn_warn}** <@${warnUser.id}> (${warnUser.id})
+        **${language.cmd_warn_reason}** ${reason}`)
+        .addField(`${language.cmd_warn_number_warn} `, warns[warnUser.id].warns.toString());
+
+        interaction.reply({ embeds: [embed], ephemeral: true });
 
         interaction.reply(`Gebruiker ${warnUser.username} is gewaarschuwd. Reden: ${reason}`);
     },
