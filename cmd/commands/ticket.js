@@ -4,6 +4,18 @@ const fs = require("fs");
 //Taal van de bot
 const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
 
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName('ticket')
+    .setDescription('Maakt een supportticket aan.'),
+  async execute(interaction) {
+    // Voeg hier de code toe die de supportticket aanmaakt
+    await interaction.reply('Supportticket aangemaakt!');
+  },
+};
+
 module.exports.run = async (client, message, args) => {
 
     const categoryID = process.env.TICKETID;
