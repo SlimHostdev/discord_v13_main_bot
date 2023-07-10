@@ -8,7 +8,7 @@ module.exports = {
   async execute(interaction) {
     // Controleren of de gebruiker de categorie kan beheren
     const categoryPermissions = interaction.guild.roles.cache
-      .find(role => role.id === ${process.env.TICKETSTAFF}`)
+      .find(role => role.id === `${process.env.TICKETSTAFF}`)
       .permissions
       .has(Permissions.FLAGS.MANAGE_CHANNELS);
     
