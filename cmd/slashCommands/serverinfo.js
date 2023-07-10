@@ -15,8 +15,7 @@ module.exports = {
             .setTimestamp()
             .setFooter('Bedankt voor het gebruik van het commando.')
             .addField('Bot Naam', interaction.client.user.username)
-            .addField('Lid sinds', interaction.member.joinedAt.toString())
-            .addField('Aantal leden', interaction.guild.memberCount.toString());
+            .addField('Lid sinds', interaction.member.joinedAt.toString());
 
         return interaction.reply({ embeds: [botEmbed] });
     },
