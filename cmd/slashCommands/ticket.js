@@ -6,17 +6,6 @@ module.exports = {
     .setName('ticket')
     .setDescription('Maakt een supportticket aan.'),
   async execute(interaction) {
-    // Controleren of de gebruiker de categorie kan beheren
-    const categoryPermissions = interaction.guild.roles.cache
-      .find(role => role.name === 'Tester')
-      .permissions
-      .has(Permissions.FLAGS.MANAGE_CHANNELS);
-    
-    if (!categoryPermissions) {
-      return await interaction.reply('Je hebt geen toestemming om een kanaal in deze categorie te maken.');
-    }
-
-    // Ticketkanaal maken
     const category = interaction.guild.channels.cache.find(channel => channel.name === 'Support Tickets' && channel.type === 'GUILD_CATEGORY');
     if (!category) {
       return await interaction.reply('Categorie "Support Tickets" niet gevonden.');
@@ -28,7 +17,7 @@ module.exports = {
       permissionOverwrites: [
         {
           id: interaction.guild.roles.everyone,
-          deny: [Permissions.FLAGS.VIEW_CHANNEL],
+          allow: [Permissions.FLAGS.VIEW_CHANNEL],
         },
         {
           id: interaction.member,
