@@ -16,10 +16,6 @@ module.exports = {
             .setImage(process.env.BANNER)
             .setTimestamp()
             .setFooter('Bedankt voor het gebruik van het commando.')
-            .addFields(
-                { name: 'Bot Naam', value: interaction.client.user.username },
-                { name: 'Latency', value: `${m.createdTimestamp - interaction.createdTimestamp}ms` }
-            );
 
         await interaction.editReply({ embeds: [pingEmbed] });
     },
