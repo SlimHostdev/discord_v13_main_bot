@@ -14,9 +14,17 @@ module.exports = {
         .setDescription("Dit is een Test CMD."),
     async execute(client, interaction) {
         const embed = new MessageEmbed()
-            .setTitle('Ping')
-            .setDescription(`${language.Slashcmd_ping_msg} ${client.ws.ping} ms.`)
-            .setColor('#0099ff');
+        .setTitle(`${language.cmd_ping_title}`)
+        .setDescription(`${language.cmd_ping_disc}`)
+        .setColor(process.env.COLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
+        .setTimestamp()
+        .setFooter(`${language.cmd_ping_footer}`)
+        .addFields(
+            { name: `${language.cmd_ping_name}`, value: client.user.username },
+            { name: `${language.cmd_ping_latency}`, value: `${m.createdTimestamp - message.createdTimestamp}ms.`}
+        );
 
         interaction.reply({ embeds: [embed], ephemeral: true });
     }
