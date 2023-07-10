@@ -351,7 +351,8 @@ client.on("interactionCreate", async interaction => {
             await slachCommand.execute(client, interaction);
 
         } catch (err) {
-            await interaction.reply({content: `${language.Slashcmd_err}`, ephemeral: true});
+            await interaction.reply({content: `${language.Slashcmd_err}`, ephemeral: true})
+            console.log(err);
         }
 
     }else{
