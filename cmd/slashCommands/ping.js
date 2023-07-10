@@ -8,23 +8,24 @@ const fs = require("fs");
 const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, 'utf-8'));
 
 module.exports = {
-
     data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription("Dit is een Test CMD."),
     async execute(client, interaction) {
+        // Controleren of de gebruiker een serverbeheerder is
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+            interaction.reply({ content: 'Alleen serverbeheerders kunnen dit commando gebruiken!', ephemeral: true });
+            return;
+        }
+
         const embed = new MessageEmbed()
-        .setTitle(`${language.cmd_ping_title}`)
-        .setDescription(`${language.cmd_ping_disc}`)
-        .setColor(process.env.COLLOR)
-        .setThumbnail(process.env.LOGO)
-        .setImage(process.env.BANNER)
-        .setTimestamp()
-        .setFooter(`${language.cmd_ping_footer}`)
-        .addFields(
-            { name: `${language.cmd_ping_name}`, value: client.user.username },
-            { name: `${language.cmd_ping_latency}`, value: `${m.createdTimestamp - message.createdTimestamp}ms.`}
-        );
+            .setTitle(`${language.cmd_ping_title}`)
+            .setDescription(`${language.Slashcmd_ping_msg} ${client.ws.ping} ms.`)
+            .setColor(process.env.COLLOR)
+            .setThumbnail(process.env.LOGO)
+            .setImage(process.env.BANNER)
+            .setTimestamp()
+            .setFooter(`${language.cmd_ping_footer}`);
 
         interaction.reply({ embeds: [embed], ephemeral: true });
     }
