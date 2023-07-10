@@ -10,7 +10,7 @@ const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}
 module.exports = {
 
     data: new SlashCommandBuilder()
-        .setName('ping2')
+        .setName('ping')
         .setDescription("Dit is een Test CMD."),
     async execute(client, interaction) {
         const embed = new MessageEmbed()
