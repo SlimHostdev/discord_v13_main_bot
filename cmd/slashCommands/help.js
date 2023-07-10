@@ -50,6 +50,8 @@ module.exports = {
                 .addField(general, generald)
                 .addField(addons, addonsd)
 
+            botEmbed.setDescription("Dit is een voorbeeldbeschrijving voor de embed.")
+
             //Error Embed
             var errorEmbed = new discord.MessageEmbed()
                 .setTitle(`${language.err_title}`)
