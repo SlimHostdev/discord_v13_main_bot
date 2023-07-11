@@ -16,7 +16,7 @@ module.exports = {
         .setRequired(false)
     ),
   async execute(interaction) {
-    const memberToKick = interaction.options.getMember('lid');
+    const memberToKick = interaction.options.getUser('lid');
     const reason = interaction.options.getString('reden') || 'Geen reden opgegeven.';
 
     if (!interaction.member.permissions.has('KICK_MEMBERS')) {
@@ -39,7 +39,7 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setTitle('Lid Gekickt')
-      .setDescription(`Het lid ${memberToKick.user.tag} is gekickt uit de server.`)
+      .setDescription(`Het lid ${memberToKick.tag} is gekickt uit de server.`)
       .addField('Gekickt door', interaction.user.tag)
       .addField('Reden', reason)
       .setColor('#FF0000');
