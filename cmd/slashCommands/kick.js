@@ -16,7 +16,7 @@ module.exports = {
         .setRequired(false)
     ),
   async execute(interaction) {
-    const memberToKick = interaction.options.getMember('lid');
+    const memberToKick = interaction.options.getUser('lid');
     const reason = interaction.options.getString('reden') || 'Geen reden opgegeven.';
 
     if (!interaction.member.permissions.has('KICK_MEMBERS')) {
@@ -24,16 +24,22 @@ module.exports = {
       return;
     }
 
-    if (!memberToKick.kickable) {
+    if (!memberToKick) {
+      interaction.reply('Je moet een lid noemen om hem te kicken.');
+      return;
+    }
+
+    const member = interaction.guild.members.cache.get(memberToKick.id);
+    if (!member.kickable) {
       interaction.reply('Ik kan dit lid niet kicken. Controleer mijn rechten en volgorde in de serverinstellingen.');
       return;
     }
 
-    await memberToKick.kick(reason);
+    await member.kick(reason);
 
     const embed = new MessageEmbed()
       .setTitle('Lid Gekickt')
-      .setDescription(`Het lid ${memberToKick.user.tag} is gekickt uit de server.`)
+      .setDescription(`Het lid ${memberToKick.tag} is gekickt uit de server.`)
       .addField('Gekickt door', interaction.user.tag)
       .addField('Reden', reason)
       .setColor('#FF0000');
