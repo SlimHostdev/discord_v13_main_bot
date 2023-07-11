@@ -6,7 +6,7 @@ module.exports = {
     .setName('botinfo')
     .setDescription('Toont informatie over de bot.'),
   async execute(interaction) {
-    const botUser = interaction.client;
+    const botUser = interaction.client.user;
 
     const embed = new MessageEmbed()
       .setTitle('Botinformatie')
