@@ -4,44 +4,44 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('kick')
-    .setDescription('Kick een lid van de server.')
+    .setDescription('Kick a member from the server.')
     .addUserOption(option =>
-      option.setName('lid')
-        .setDescription('Het lid dat je wilt kicken.')
+      option.setName('member')
+        .setDescription('The member you want to kick.')
         .setRequired(true)
     )
     .addStringOption(option =>
-      option.setName('reden')
-        .setDescription('De reden voor de kick.')
+      option.setName('reason')
+        .setDescription('The reason for the kick.')
         .setRequired(false)
     ),
   async execute(interaction) {
-    const memberToKick = interaction.options.getUser('lid');
-    const reason = interaction.options.getString('reden') || 'Geen reden opgegeven.';
+    const memberToKick = interaction.options.getMember('member');
+    const reason = interaction.options.getString('reason') || 'No reason provided.';
 
     if (!interaction.member.permissions.has('KICK_MEMBERS')) {
-      interaction.reply('Je hebt geen toestemming om leden te kicken.');
+      interaction.reply('You do not have permission to kick members.');
       return;
     }
 
     if (!memberToKick) {
-      interaction.reply('Je moet een lid noemen om hem te kicken.');
+      interaction.reply('You need to specify a member to kick.');
       return;
     }
 
     const member = interaction.guild.members.cache.get(memberToKick.id);
     if (!member.kickable) {
-      interaction.reply('Ik kan dit lid niet kicken. Controleer mijn rechten en volgorde in de serverinstellingen.');
+      interaction.reply('I cannot kick this member. Please check my permissions and role hierarchy.');
       return;
     }
 
     await member.kick(reason);
 
     const embed = new MessageEmbed()
-      .setTitle('Lid Gekickt')
-      .setDescription(`Het lid ${memberToKick.tag} is gekickt uit de server.`)
-      .addField('Gekickt door', interaction.user.tag)
-      .addField('Reden', reason)
+      .setTitle('Member Kicked')
+      .setDescription(`The member ${memberToKick.user.tag} has been kicked from the server.`)
+      .addField('Kicked by', interaction.user.tag)
+      .addField('Reason', reason)
       .setColor('#FF0000');
 
     await interaction.reply({ embeds: [embed] });
