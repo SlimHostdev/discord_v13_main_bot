@@ -214,10 +214,10 @@ client.once("ready", () => {
             commands = client.application.commands;
         }
     
-        commands.create({
-            name: "discord-v13",
-            description: "Deze CMD heeft geen functie!"
-        });
+        // commands.create({
+        //     name: "discord-v13",
+        //     description: "Deze CMD heeft geen functie!"
+        // });
 
     //nieuwe commandSlash functie
     let guildId = `${process.env.SERVERID}`;
