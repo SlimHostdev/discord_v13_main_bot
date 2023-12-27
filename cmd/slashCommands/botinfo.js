@@ -19,8 +19,8 @@ module.exports = {
       .setTitle('Botinformatie')
       .setDescription('Hier is wat informatie over de bot:')
       .setColor('#0099ff')
-      .addField('Naam', client.user.username)
-      .addField('Bot ID', `${process.env.BOTID}`)
+      .addField('Name', `<@${process.env.BOTID}>`)
+      .addField('ID', `${process.env.BOTID}`)
       .addField(`${language.Slashcmd_ping_msg}`, `${client.ws.ping} ms.`)
 
     await interaction.reply({ embeds: [embed], ephemeral: true });
