@@ -18,7 +18,7 @@ module.exports = {
       .setDescription('Hier is wat informatie over de bot:')
       .setColor('#0099ff')
       .addField('Naam', client.user.username)
-      .addField(`${language.Slashcmd_ping_msg}, ${client.ws.ping} ms.`)
+      .addField(`${language.Slashcmd_ping_msg}`, `${client.ws.ping} ms.`)
       .addField('Gemaakt op', botUser.createdAt.toDateString());
 
     await interaction.reply({ embeds: [embed] });
