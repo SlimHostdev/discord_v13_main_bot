@@ -30,7 +30,7 @@ module.exports = {
         .setColor(process.env.WARNCOLLOR)
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
-        .setFooter(interaction.member.displayName, interaction.author.displayAvatarURL)
+        .setFooter(interaction.member.displayName, interaction.member.displayAvatarURL)
         .setTimestamp()
         .setDescription(`**${language.cmd_warn_warn}** <@${warnUser.id}> (${warnUser.id})
         **${language.cmd_warn_reason}** ${reason}`)
