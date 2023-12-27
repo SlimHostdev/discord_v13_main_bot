@@ -5,7 +5,7 @@ const discord = require("discord.js");
 // Bestandssysteem
 const fs = require("fs");
 //.env config
-require('dotenv-flow').config();
+//require('dotenv-flow').config();
 // Taal van de bot
 const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, 'utf-8'));
 
