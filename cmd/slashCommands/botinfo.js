@@ -20,6 +20,6 @@ module.exports = {
       .addField('Naam', client.user.username)
       .addField(`${language.Slashcmd_ping_msg}`, `${client.ws.ping} ms.`)
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed], ephemeral: true });
   },
 };
