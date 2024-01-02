@@ -24,6 +24,9 @@
 
 <br />
 
+[![Download now](https://github.com/SlimHostdev/discord_v13_main_bot/blob/main/src/download-button.png)](https://github.com/SlimHostdev/discord_v13_main_bot/tree/main.zip)
+
+
 ## Language Progres!!
 
 - All of the cmd's ar multie language (dutch is the only language for now)
