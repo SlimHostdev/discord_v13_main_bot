@@ -47,7 +47,7 @@ module.exports = {
         .setThumbnail(process.env.LOGO)
         .setImage(process.env.BANNER)
         .setTimestamp()
-        .setFooter(`${language.cmd_ping_footer}`);
+        .setFooter(`Reken command`);
 
       interaction.reply({ embeds: [embed], ephemeral: true });
     }
