@@ -40,7 +40,7 @@ module.exports = {
          
         const embed = new MessageEmbed()
         .setTitle('Reken.')
-        .setDescription(`Hallo ${interaction.user.tag} ik heb je som uit ge rekend.`)
+        .setDescription(`Hallo ${interaction.user.name} ik heb je som uit ge rekend.`)
         .addField('De som was:', `${numer1} ${operator} ${numer2}`)
         .addField('Uitkomst:', `${uitkomst}`)
         .setColor('#FF0000');
