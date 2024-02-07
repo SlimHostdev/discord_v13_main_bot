@@ -10,7 +10,7 @@ module.exports = {
                 .setDescription("Het eerste nummer")
                 .setRequired(true)
         )
-        .addIntegerOption(option =>
+        .addStringOption(option =>
             option.setName("operator")
                 .setDescription("Operator. (+ or - or / or x)")
                 .setRequired(true)
