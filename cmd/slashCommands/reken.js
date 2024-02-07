@@ -23,7 +23,7 @@ module.exports = {
     async execute(client, interaction) {
         const nummer1 = interaction.options.getInteger('nummer1');
         const nummer2 = interaction.options.getInteger('nummer2');
-        const operator = interaction.options.get('operator');
+        const operator = interaction.options.getString('operator');
 
         let uitkomst = reken(parseFloat(numer1), parseFloat(numer2) );
     
