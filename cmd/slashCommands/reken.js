@@ -27,7 +27,6 @@ module.exports = {
         const operator = interaction.options.getString('operator');
 
         let uitkomst = reken(parseFloat(numer1), parseFloat(numer2) );
-        let som = `${numer1} ${operator} ${numer2}`;
     
         function reken(num1, num2) {
             if(operator == `+`) return num1 + num2;
