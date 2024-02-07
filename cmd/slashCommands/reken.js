@@ -4,7 +4,7 @@ module.exports = {
  
     data: new SlashCommandBuilder()
         .setName("reken")
-        .setDescription("Geef twee cijvers mee.")
+        .setDescription("Geef je som op!")
         .addIntegerOption(option =>
             option.setName("nummer1")
                 .setDescription("Het eerste nummer")
