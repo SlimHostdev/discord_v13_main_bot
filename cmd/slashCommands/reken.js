@@ -27,6 +27,7 @@ module.exports = {
         const operator = interaction.options.getString('operator');
 
         let uitkomst = reken(parseFloat(numer1), parseFloat(numer2) );
+        let som = `${numer1} ${operator} ${numer2}`;
     
         function reken(num1, num2) {
             if(operator == `+`) return num1 + num2;
@@ -41,7 +42,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setTitle('Reken.')
         .setDescription(`Hallo ${interaction.user.tag} ik heb je som uit ge rekend.`)
-        .addField('De som was:', numer1, operator, numer2)
+        .addField('De som was:', som)
         .addField('Uitkomst:',  uitkomst)
         .setColor('#FF0000');
 
