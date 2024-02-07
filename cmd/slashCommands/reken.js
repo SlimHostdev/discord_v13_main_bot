@@ -43,7 +43,11 @@ module.exports = {
         .setDescription(`<@${interaction.user.id}> ik heb je som uit ge rekend.`)
         .addField('De som was:', `${numer1} ${operator} ${numer2}`)
         .addField('Uitkomst:', `${uitkomst}`)
-        .setColor(process.env.COLLOR);
+        .setColor(process.env.COLLOR)
+        .setThumbnail(process.env.LOGO)
+        .setImage(process.env.BANNER)
+        .setTimestamp()
+        .setFooter(`${language.cmd_ping_footer}`);
 
       interaction.reply({ embeds: [embed], ephemeral: true });
     }
