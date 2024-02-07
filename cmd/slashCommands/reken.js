@@ -37,9 +37,13 @@ module.exports = {
             else return console.log(`[${operator}] Is geen geldige operator mee gegeven dit kunnen zijn [+] of [-] of [/] of [*] of [x]`);
         }
          
-        interaction.reply({
-            content: `${uitkomst}`,
-            ephemeral: true
-        });
+        const embed = new MessageEmbed()
+        .setTitle('Reken.')
+        .setDescription(`Hallo ${interaction.user.tag} ik heb je som uit ge rekend.`)
+        .addField('De som was:', numer1, operator, numer2)
+        .addField('Uitkomst:',  uitkomst)
+        .setColor('#FF0000');
+
+      interaction.reply({ embeds: [embed], ephemeral: true });
     }
 }
