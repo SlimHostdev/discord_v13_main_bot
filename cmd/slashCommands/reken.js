@@ -43,7 +43,7 @@ module.exports = {
         .setDescription(`<@${interaction.user.id}> ik heb je som uit ge rekend.`)
         .addField('De som was:', `${numer1} ${operator} ${numer2}`)
         .addField('Uitkomst:', `${uitkomst}`)
-        .setColor('#FF0000');
+        .setColor(process.env.COLLOR);
 
       interaction.reply({ embeds: [embed], ephemeral: true });
     }
