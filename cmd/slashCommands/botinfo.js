@@ -8,6 +8,7 @@ const fs = require("fs");
 //require('dotenv-flow').config();
 // Taal van de bot
 const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, 'utf-8'));
+const package = JSON.parse(fs.readFileSync(`./package.json`, 'utf-8'));
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -21,6 +22,7 @@ module.exports = {
       .setColor('#0099ff')
       .addField('Name', `<@${process.env.BOTID}>`)
       .addField('ID', `${process.env.BOTID}`)
+      .addField('ID', `${package.gitrepo}`)
       .addField(`${language.Slashcmd_ping_msg}`, `${client.ws.ping} ms.`)
 
     await interaction.reply({ embeds: [embed], ephemeral: true });
