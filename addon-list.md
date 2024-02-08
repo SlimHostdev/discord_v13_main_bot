@@ -4,3 +4,6 @@
 - > [[Suggestion Addon By: 𝕭𝖗𝖞𝖆𝖓#6694]](https://github.com/L3G3CLAN/suggestion-addon)
 - > [[Notification Addon By: 𝕭𝖗𝖞𝖆𝖓#6694]](https://github.com/L3G3CLAN/notification-addon)
 
+## SlashCammand Addons!!
+- > Calculator (COMING SOON)
+
