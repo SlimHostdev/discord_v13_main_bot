@@ -24,7 +24,7 @@ module.exports = {
       .addField('ID', `${process.env.BOTID}`)
       .addField('Author', `${package.author}`)
       .addField('GitHub', `${package.gitrepo}`)
-      .addField(`${language.Slashcmd_ping_msg}`, `${client.ws.ping} ms.`)
+      .addField(`Bot Speed`, `${client.ws.ping} ms.`)
 
     await interaction.reply({ embeds: [embed], ephemeral: true });
   },
