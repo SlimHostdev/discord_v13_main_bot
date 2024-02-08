@@ -4,7 +4,7 @@
   "description": "discord bot v13",
   "main": "index.js",
   "scripts": {
-    "test": "ping",
+    "test": "node index.js",
     "start": "nodemon"
   },
   "keywords": [
