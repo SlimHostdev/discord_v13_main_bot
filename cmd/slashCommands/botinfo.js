@@ -22,6 +22,7 @@ module.exports = {
       .setColor('#0099ff')
       .addField('Name', `<@${process.env.BOTID}>`)
       .addField('ID', `${process.env.BOTID}`)
+      .addField('Author', `${package.author}`)
       .addField('GitHub', `${package.gitrepo}`)
       .addField(`${language.Slashcmd_ping_msg}`, `${client.ws.ping} ms.`)
 
