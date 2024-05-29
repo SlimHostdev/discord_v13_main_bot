@@ -1,0 +1,7 @@
+{
+    "name": "Kies jou kleur!!!",
+    "disc": "Hier kan je jou kleur mee kiezen. \n Door hier onder in het dropdown menu een kleur te kiesen kijg jij de kleur in de discord",
+    
+    "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de kleur rollen.",
+    "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
+}
