@@ -340,6 +340,34 @@ client.on("interactionCreate", async interaction => {
             });
     
         }
+
+        //Kleuren menu keuzen
+        if(customId === 'kleur-menu'){
+    
+            const component = interaction.component;
+            
+            //filter van wat er wel en niet is gekoozen
+            const removed = component.options.filter((option) => {
+                return !values.includes(option.value)
+            });
+    
+            //roll verwijderen all hij niet is ge selecteerd.
+            for (var id of removed){
+                member.roles.remove(id.value)
+            }
+    
+            //roll toevoegen
+            for (var id of values){
+                member.roles.add(id)
+            }
+    
+            interaction.reply({
+                content: 'You got the Color Roll.',
+                ephemeral: true
+            });
+    
+        }
+
     
     }else if (interaction.isCommand()){
 
