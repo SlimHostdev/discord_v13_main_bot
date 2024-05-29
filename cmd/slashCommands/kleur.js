@@ -68,6 +68,6 @@ module.exports = {
             .setTimestamp()
             .setFooter(setings.name)
 
-        interaction.reply({ embeds: [embed], components: [row], ephemeral: true });
+        interaction.reply({ embeds: [embed], components: [row] });
     }
 }
