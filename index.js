@@ -1,4 +1,4 @@
-console.log("slimgame");
+console.log("online");
 
 const { Console } = require("console");
 //------------------------------------Benodigt heeden------------------------------------------
