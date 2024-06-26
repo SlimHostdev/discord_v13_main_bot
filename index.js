@@ -90,13 +90,13 @@ const slachCommands = [];
 
 //Ophaalen van commandos uit map commands
 const commandFiles = fs
-  .readdirSync("./cmd/commands")
+  .readdirSync("./cmd/user/commands")
   .filter((file) => file.endsWith(".js"));
 
 console.log(`[\x1b[31m COMMANDS \x1b[0m]`);
 
 for (const file of commandFiles) {
-  const command = require(`./cmd/commands/${file}`);
+  const command = require(`./cmd/user/commands/${file}`);
 
   client.commands.set(command.help.name, command);
 
@@ -105,13 +105,13 @@ for (const file of commandFiles) {
 
 //Ophaalen van slachCommands uit map slachCommands
 const commandSlashFiles = fs
-  .readdirSync("./cmd/slashCommands")
+  .readdirSync("./cmd/user/userSlashCommands")
   .filter((file) => file.endsWith(".js"));
 
-console.log(`[\x1b[31m slashCommands \x1b[0m]`);
+console.log(`[\x1b[31m UserSlashCommands \x1b[0m]`);
 
 for (const fileSlash of commandSlashFiles) {
-  const commandSlash = require(`./cmd/slashCommands/${fileSlash}`);
+  const commandSlash = require(`./cmd/user/userSlashCommands/${fileSlash}`);
 
   client.slachCommands.set(commandSlash.data.name, commandSlash);
   slachCommands.push(commandSlash.data.toJSON());
@@ -119,15 +119,31 @@ for (const fileSlash of commandSlashFiles) {
   console.log([`${language.cmd_load} [${commandSlash.data.name}.js]`]);
 }
 
+//Ophaalen van slachCommands uit map slachCommands
+const commandAdminSlashFiles = fs
+  .readdirSync("./cmd/admin/adminSlashCommands")
+  .filter((file) => file.endsWith(".js"));
+
+console.log(`[\x1b[31m adminSlashCommands \x1b[0m]`);
+
+for (const fileSlash of commandAdminSlashFiles) {
+  const adminSlash = require(`./cmd/admin/adminSlashCommands/${fileSlash}`);
+
+  client.slachCommands.set(adminSlash.data.name, adminSlash);
+  slachCommands.push(adminSlash.data.toJSON());
+
+  console.log([`${language.cmd_load} [${adminSlash.data.name}.js]`]);
+}
+
 //Ophaalen van commandos uit map admincommands
 const admincommandFiles = fs
-  .readdirSync("./cmd/admincommands")
+  .readdirSync("./cmd/admin/admincommands")
   .filter((file) => file.endsWith(".js"));
 
 console.log(`[\x1b[31m ADMIN COMMANDS \x1b[0m]`);
 
 for (const file of admincommandFiles) {
-  const command = require(`./cmd/admincommands/${file}`);
+  const command = require(`./cmd/admin/admincommands/${file}`);
 
   client.commands.set(command.help.name, command);
 
