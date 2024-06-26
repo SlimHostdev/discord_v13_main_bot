@@ -1,8 +1,8 @@
 {
-    "name": "Kies jou kleur!!!",
-    "disc": "Hier kan je jou kleur rolle mee kiezen. \n Door hier onder in het dropdown menu jou kleurs te kiesen krijg je die rollen waar door je ook ik de daar voor bestemde chats kan kijken en praaten.",
-    "field": "kleur rollen waar je uit kunt kiezen.",
-    
-    "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de kleur rollen.",
-    "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
+  "name": "Kies jou kleur!!!",
+  "disc": "Hier kan je jou kleur rolle mee kiezen. \n Door hier onder in het dropdown menu jou kleurs te kiesen krijg je die rollen waar door je ook ik de daar voor bestemde chats kan kijken en praaten.",
+  "field": "kleur rollen waar je uit kunt kiezen.",
+
+  "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de kleur rollen.",
+  "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
 }

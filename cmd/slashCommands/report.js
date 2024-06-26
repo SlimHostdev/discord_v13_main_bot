@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
 
 const discord = require("discord.js");
 // Bestandssysteem
@@ -8,63 +8,77 @@ const fs = require("fs");
 const report = JSON.parse(fs.readFileSync(`./src/addons/report.json`, "utf-8"));
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('report')
-        .setDescription('Hier mee kan je een report stuuren.')
-        .addStringOption(option =>
-            option.setName("user")
-                    .setDescription("wie wil je reporten?")
-                    .setRequired(true)
-            )
-            .addStringOption(option =>
-                option.setName("reson")
-                    .setDescription("reden van report?")
-                    .setRequired(true)
-            ),
-    
-    async execute(client, interaction) {
-        // Check if interaction object and author ID are valid
-        if (!interaction || !interaction.member || !interaction.member.user || !interaction.member.user.id) {
-            console.error("Invalid interaction object or missing author ID.");
-            return;
-        }
+  data: new SlashCommandBuilder()
+    .setName("report")
+    .setDescription("Hier mee kan je een report stuuren.")
+    .addStringOption((option) =>
+      option
+        .setName("user")
+        .setDescription("wie wil je reporten?")
+        .setRequired(true)
+    )
+    .addStringOption((option) =>
+      option
+        .setName("reson")
+        .setDescription("reden van report?")
+        .setRequired(true)
+    ),
 
-        const authorID = interaction.member.user.id;
+  async execute(client, interaction) {
+    // Check if interaction object and author ID are valid
+    if (
+      !interaction ||
+      !interaction.member ||
+      !interaction.member.user ||
+      !interaction.member.user.id
+    ) {
+      console.error("Invalid interaction object or missing author ID.");
+      return;
+    }
 
-        // Extract user and msg_report options from interaction
-        const userOption = interaction.options.getString('user');
-        const userId = userOption.replace(/\D/g, ''); // Extracting the user ID from the mention or ID
-        const msg_report = interaction.options.getString('reson');
+    const authorID = interaction.member.user.id;
 
-		const reportChannel = interaction.member.guild.channels.cache.get(report.channel);
-        const logChannel = interaction.member.guild.channels.cache.get(report.log_channel);
+    // Extract user and msg_report options from interaction
+    const userOption = interaction.options.getString("user");
+    const userId = userOption.replace(/\D/g, ""); // Extracting the user ID from the mention or ID
+    const msg_report = interaction.options.getString("reson");
 
-        if(!reportChannel) return interaction.reply(`${report.no_channel}`)
+    const reportChannel = interaction.member.guild.channels.cache.get(
+      report.channel
+    );
+    const logChannel = interaction.member.guild.channels.cache.get(
+      report.log_channel
+    );
 
-        const Embed = new discord.MessageEmbed()
-        .setTitle(`${report.title} ${interaction.member.displayName}`)
-        .setFooter(interaction.member.displayName, process.env.LOGO)
-        .setColor(process.env.COLLOR)
-        .setThumbnail(process.env.LOGO)
-        .setImage(process.env.BANNER)
-        .setTimestamp()
-        .addField(`Report tegen:`, `<@${userId}>\n ID:\n ${userId}`)
-        .addField(`Reden van report:`, `${msg_report}`);
+    if (!reportChannel) return interaction.reply(`${report.no_channel}`);
 
-        const sucsesEmbed = new discord.MessageEmbed()
-        .setTitle(`Report`)
-        .setFooter(interaction.member.displayName, process.env.LOGO)
-        .setColor(process.env.COLLOR)
-        .setThumbnail(process.env.LOGO)
-        .setImage(process.env.BANNER)
-        .setTimestamp()
-        .setFooter(`${report.footer}`)
-        .addField(` `, `report is Send to staf.`)
+    const Embed = new discord.MessageEmbed()
+      .setTitle(`${report.title} ${interaction.member.displayName}`)
+      .setFooter(interaction.member.displayName, process.env.LOGO)
+      .setColor(process.env.COLLOR)
+      .setThumbnail(process.env.LOGO)
+      .setImage(process.env.BANNER)
+      .setTimestamp()
+      .addField(`Report tegen:`, `<@${userId}>\n ID:\n ${userId}`)
+      .addField(`Reden van report:`, `${msg_report}`);
 
-        interaction.reply({ embeds: [sucsesEmbed] })
+    const sucsesEmbed = new discord.MessageEmbed()
+      .setTitle(`Report`)
+      .setFooter(interaction.member.displayName, process.env.LOGO)
+      .setColor(process.env.COLLOR)
+      .setThumbnail(process.env.LOGO)
+      .setImage(process.env.BANNER)
+      .setTimestamp()
+      .setFooter(`${report.footer}`)
+      .addField(` `, `report is Send to staf.`);
 
-        return reportChannel.send({ embeds: [Embed] }) && logChannel.send({ embeds: [Embed] });
-        /*
+    interaction.reply({ embeds: [sucsesEmbed] });
+
+    return (
+      reportChannel.send({ embeds: [Embed] }) &&
+      logChannel.send({ embeds: [Embed] })
+    );
+    /*
         return reportChannel.send({ embeds: [Embed] }).then(async msg => {
         
             let reactions = ["✅", "❌"];
@@ -75,7 +89,6 @@ module.exports = {
             }
         
         });
-        */		
-
-    },
+        */
+  },
 };

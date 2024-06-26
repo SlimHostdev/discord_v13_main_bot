@@ -1,8 +1,8 @@
 {
-    "name": "Kies jou extra!!!",
-    "disc": "Hier kan je jou extra rolle mee kiezen. \n Door hier onder in het dropdown menu jou extras te kiesen krijg je die rollen waar door je ook ik de daar voor bestemde chats kan kijken en praaten.",
-    "field": "extra rollen die je kan krijgen.",
-    
-    "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de extra rollen.",
-    "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
+  "name": "Kies jou extra!!!",
+  "disc": "Hier kan je jou extra rolle mee kiezen. \n Door hier onder in het dropdown menu jou extras te kiesen krijg je die rollen waar door je ook ik de daar voor bestemde chats kan kijken en praaten.",
+  "field": "extra rollen die je kan krijgen.",
+
+  "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de extra rollen.",
+  "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
 }

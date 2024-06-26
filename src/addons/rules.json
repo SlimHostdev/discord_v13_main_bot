@@ -1,14 +1,14 @@
 {
-    "name": "Regels!!!",
-    "disc": "De volgende regels zijn voor iedereen:",
-    "rule_1": "- Als je iets ziet dat in strijd is met de regels of iets waarvan jij een onveilig gevoel krijgt, laat het de leiding dan weten. We willen dat iedereen zich welkom voelt op deze server.",
-	"rule_2": "- Behandel iedereen met respect. Geen enkele vorm van lastigvallen, heksenjachten, seksisme, racisme of haatuitingen wordt getolereerd.",
-	"rule_3": "- Plaats geen spam of zelfpromotie (server uitnodigingen, advertenties, enz.) zonder toestemming van de leiding. Hieronder valt ook het sturen van privéberichten naar andere leden.",
-	"rule_4": "- Bot commando's alleen in de betreffende chat",
-	"rule_5": "- !! LET OP !! Het is mogelijk dat je stem word OPGENOMEN / GESTREAMT word. (wij zijn niet verantwoordelijk)",
+  "name": "Regels!!!",
+  "disc": "De volgende regels zijn voor iedereen:",
+  "rule_1": "- Als je iets ziet dat in strijd is met de regels of iets waarvan jij een onveilig gevoel krijgt, laat het de leiding dan weten. We willen dat iedereen zich welkom voelt op deze server.",
+  "rule_2": "- Behandel iedereen met respect. Geen enkele vorm van lastigvallen, heksenjachten, seksisme, racisme of haatuitingen wordt getolereerd.",
+  "rule_3": "- Plaats geen spam of zelfpromotie (server uitnodigingen, advertenties, enz.) zonder toestemming van de leiding. Hieronder valt ook het sturen van privéberichten naar andere leden.",
+  "rule_4": "- Bot commando's alleen in de betreffende chat",
+  "rule_5": "- !! LET OP !! Het is mogelijk dat je stem word OPGENOMEN / GESTREAMT word. (wij zijn niet verantwoordelijk)",
 
-	"info": "*Je kan een REPORT doen via een COMMANDO* ``/report [Naam persoon.] (redden van report.)``\n \n**!! LET OP !! Bans zijn permanent.**\n \n> You can now also choose your own roles, go to <#495784507488600065>",
-    
-    "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de de regels.",
-    "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
+  "info": "*Je kan een REPORT doen via een COMMANDO* ``/report [Naam persoon.] (redden van report.)``\n \n**!! LET OP !! Bans zijn permanent.**\n \n> You can now also choose your own roles, go to <#495784507488600065>",
+
+  "cmd_disc": "Dit is een CMD die er voor zorgt dat je een embed krijgt voor de de regels.",
+  "cmd_no_admin": "Alleen serverbeheerders kunnen dit commando gebruiken!"
 }

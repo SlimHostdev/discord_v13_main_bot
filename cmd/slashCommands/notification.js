@@ -1,58 +1,68 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
 
 const discord = require("discord.js");
 // Bestandssysteem
 const fs = require("fs");
 //Setings of the addon
-const notification = JSON.parse(fs.readFileSync(`./src/addons/notification.json`, "utf-8"));
+const notification = JSON.parse(
+  fs.readFileSync(`./src/addons/notification.json`, "utf-8")
+);
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('notification')
-        .setDescription('Hier mee kan je een notification stuuren.')
-        .addStringOption(option =>
-            option.setName('notification_msg')
-                .setDescription('De gewenste notification')
-                .setRequired(true)),
-    
-    async execute(client, interaction) {
-        // Controleren of de gebruiker een serverbeheerder is
-        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
-            interaction.reply({ content: 'Alleen serverbeheerders kunnen dit commando gebruiken!', ephemeral: true });
-            return;
-        }
+  data: new SlashCommandBuilder()
+    .setName("notification")
+    .setDescription("Hier mee kan je een notification stuuren.")
+    .addStringOption((option) =>
+      option
+        .setName("notification_msg")
+        .setDescription("De gewenste notification")
+        .setRequired(true)
+    ),
 
-        const { options } = interaction;
-        const msg_notification = options.getString('notification_msg');
+  async execute(client, interaction) {
+    // Controleren of de gebruiker een serverbeheerder is
+    if (!interaction.member.permissions.has("ADMINISTRATOR")) {
+      interaction.reply({
+        content: "Alleen serverbeheerders kunnen dit commando gebruiken!",
+        ephemeral: true,
+      });
+      return;
+    }
 
-		const notificationChannel = interaction.member.guild.channels.cache.get(notification.channel);
+    const { options } = interaction;
+    const msg_notification = options.getString("notification_msg");
 
-        if(!notificationChannel) return interaction.reply(`${notification.no_channel}`)
+    const notificationChannel = interaction.member.guild.channels.cache.get(
+      notification.channel
+    );
 
-        const Embed = new discord.MessageEmbed()
-        .setTitle(`${notification.title} ${interaction.member.displayName}`)
-        .setFooter(interaction.member.displayName, process.env.LOGO)
-        .setColor(process.env.COLLOR)
-        .setThumbnail(process.env.LOGO)
-        .setImage(process.env.BANNER)
-        .setTimestamp()
-        .addField(`${notification.msg}`, `${msg_notification}`);
+    if (!notificationChannel)
+      return interaction.reply(`${notification.no_channel}`);
 
-        const sucsesEmbed = new discord.MessageEmbed()
-        .setTitle(`${notification.title} ${interaction.member.displayName}`)
-        .setFooter(interaction.member.displayName, process.env.LOGO)
-        .setColor(process.env.COLLOR)
-        .setThumbnail(process.env.LOGO)
-        .setImage(process.env.BANNER)
-        .setTimestamp()
-        .setFooter(`${notification.footer}`)
-        .addField(` `, `notification Send: ${notificationChannel}`)
+    const Embed = new discord.MessageEmbed()
+      .setTitle(`${notification.title} ${interaction.member.displayName}`)
+      .setFooter(interaction.member.displayName, process.env.LOGO)
+      .setColor(process.env.COLLOR)
+      .setThumbnail(process.env.LOGO)
+      .setImage(process.env.BANNER)
+      .setTimestamp()
+      .addField(`${notification.msg}`, `${msg_notification}`);
 
-        interaction.reply({ embeds: [sucsesEmbed] })
+    const sucsesEmbed = new discord.MessageEmbed()
+      .setTitle(`${notification.title} ${interaction.member.displayName}`)
+      .setFooter(interaction.member.displayName, process.env.LOGO)
+      .setColor(process.env.COLLOR)
+      .setThumbnail(process.env.LOGO)
+      .setImage(process.env.BANNER)
+      .setTimestamp()
+      .setFooter(`${notification.footer}`)
+      .addField(` `, `notification Send: ${notificationChannel}`);
 
-        return notificationChannel.send({ embeds: [Embed] })
-        /*
+    interaction.reply({ embeds: [sucsesEmbed] });
+
+    return notificationChannel.send({ embeds: [Embed] });
+    /*
         return notificationChannel.send({ embeds: [Embed] }).then(async msg => {
         
             let reactions = ["✅", "❌"];
@@ -63,7 +73,6 @@ module.exports = {
             }
         
         });
-        */		
-
-    },
+        */
+  },
 };
