@@ -13,7 +13,7 @@ module.exports = {
         )
         .addStringOption(option =>
             option.setName("operator")
-                .setDescription("Operator. (+ or - or / or x)")
+                .setDescription("Operator. (+ or - or / or x or %)")
                 .setRequired(true)
         )
         .addIntegerOption(option =>
@@ -35,7 +35,8 @@ module.exports = {
             else if (operator == `*`) return num1 * num2;
             else if (operator == `x`) return num1 * num2;
             else if (operator == `X`) return num1 * num2;
-            else return console.log(`[${operator}] Is geen geldige operator mee gegeven dit kunnen zijn [+] of [-] of [/] of [*] of [x]`);
+			else if (operator == `%`) return num1 % num2;
+            else return console.log(`[${operator}] Is geen geldige operator mee gegeven dit kunnen zijn [+] of [-] of [/] of [*] of [x] of %`);
         }
          
         const embed = new MessageEmbed()

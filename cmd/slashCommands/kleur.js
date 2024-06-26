@@ -44,6 +44,11 @@ module.exports = {
                 label: "Rolze",
                 value: "838811881363210280",
                 emoji: "🟪"
+            },
+            {
+              label: "Paars",
+              value: "1246579076651679835",
+              emoji: "🟪"
             }
         ];
     

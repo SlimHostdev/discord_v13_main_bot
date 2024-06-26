@@ -1,0 +1,35 @@
+{
+    "channel": "1247228407738273944",
+	"log_channel": "401048127160975370",
+
+    "no_admin": "You're not ADMIN so you can't do this.",
+    "no_chaanel": "No report Chat Found!",
+    "report_chat": "You can find your message in:",
+    "no_msg": "No Message Provided!",
+    "title": "report by:",
+    "msg": "report:",
+    "footer": "report addon",
+    "cmd_report_disc": "Allows you to send a report",
+
+    "nl-NL": {
+        "no_admin": "U bent geen ADMIN, dus u kunt dit niet doen.",
+        "no_chaanel": "Geen Melding Chat Gevonden!",
+        "report_chat": "U vindt uw bericht in:",
+        "no_msg": "Geen bericht opgegeven!",
+        "title": "Melding door:",
+        "msg": "Melding:",
+        "footer": "melding addon",
+        "cmd_report_disc": "Hiermee kunt u een melding verzenden"
+    },
+
+    "en-EN": {
+        "no_admin": "You're not ADMIN so you can't do this.",
+        "no_chaanel": "No report Chat Found!",
+        "report_chat": "You can find your message in:",
+        "no_msg": "No Message Provided!",
+        "title": "report by:",
+        "msg": "report:",
+        "footer": "report addon",
+        "cmd_report_disc": "Allows you to send a report"
+    }
+}

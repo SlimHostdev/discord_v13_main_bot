@@ -2,7 +2,7 @@ console.log("online");
 
 const { Console } = require("console");
 //------------------------------------Benodigt heeden------------------------------------------
-const { Client, Intents, Collection, Interaction } = require("discord.js");
+const { Client, Intents, Collection, Interaction, ActivityType, PresenceUpdateStatus } = require("discord.js");
 const discord = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
@@ -52,14 +52,7 @@ const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}
 //Eigenaars Rechten Van https://Slimhost.nl
 const rechten = JSON.parse(fs.readFileSync(`./src/language/${process.env.LANGUAGES}.json`, "utf-8"));
 
-console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
-console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
-console.log(`\x1b[31m ${rechten.bot_rechten_2} \x1b[0m`);
-console.log(`\x1b[31m ${rechten.bot_rechten_3} ${packege.author} \x1b[0m`);
-console.log(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
-console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-console.log([`${packege.name} ${rechten.bot_rechten_4} ${packege.slimhost}`]);
 console.log([`${rechten.bot_rechten_5}`]);
 console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
@@ -147,25 +140,33 @@ const admins = [process.env.ADMINROLL];
 //Start op info
 client.once("ready", () => {
 
-    client.user.setActivity(`${process.env.STATUS}`, { type: "DND" });
+	//client.user.setUsername(`${process.env.BOTNAME}`);
+
+	//client.user.setAvatar(`./src/img/${process.env.BOTIMG}`);
 
     const statusOptions = [
         `${process.env.STATUS}`,
-        "-help",
-        "-info",
-        "-serverinfo",
-        "-review"
+        "/suggestion",
+        "/botinfo",
+        "/report",
+        "/review"
     ]
 
-    let counter =0;
+	const onlineStatusOptions = [
+        "dnd",
+        "idle",
+        "online"
+    ]
+
+    let counter = 0;
 
     let time = 1 * 60 * 1000; //1000 = 1 Minut
 
     const updateStatus = () => {
-
+        
         client.user.setPresence({
-
-            status: "dnd",
+			
+			status: onlineStatusOptions[counter],
             activities: [
                 {
                     name: statusOptions[counter]
@@ -181,25 +182,44 @@ client.once("ready", () => {
     }
     updateStatus();
 
+	const preffix = process.env.PREFFIX || 'Not In Use 🚫- to use this feature you need to set it up in'
+	const botid = process.env.BOTID || 'Not In Use 🚫- to use this feature you need to set it up in'
+	const dbhost_status = process.env.DBHOST || '\x1b[31m Not In Use 🚫- to use this feature you need to set it up in  \x1b[0m'
+	const dbuser_status = process.env.DBUSER || '\x1b[31m Not In Use 🚫- to use this feature you need to set it up in  \x1b[0m'
+	const dbname_status = process.env.DBNAME || '\x1b[31m Not In Use 🚫- to use this feature you need to set it up in  \x1b[0m'
+	const invite = process.env.INVITE || '\x1b[31m  Not In Use 🚫- This is a Private Bot for more info see https://github.com/SlimHostdev/discord_v13_main_bot \x1b[0m'
+    const botname = client.user.username;
+    const servers = client.guilds.cache.size;
+
+    var d = new Date();
+    //datum
+    const dag = d.getDate();
+    const maand = d.getMonth() + 1;
+    const jaar = d.getFullYear();
+    //Tijd
+    const uur = d.getHours();
+    const minuten = d.getMinutes();
+    const seconden = d.getSeconds();
+
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log([`${language.cmd_ar_load}`]);
-    console.log([`${language.bot_online}`]);
-    console.log(`[\x1b[31m ${language.bot_name} ${client.user.username} \x1b[0m]`);
+	console.log(['All commands ar load ✅']);
+    console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
+    console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
+    console.log(`\x1b[31m ${rechten.bot_rechten_2} \x1b[0m`);
+    console.log(`\x1b[31m ${rechten.bot_rechten_3} ${packege.author} \x1b[0m`);
+    console.log(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
+    console.log(`\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`);
+    console.log(`[\x1b[31m ${botname} \x1b[0m]`);
+    console.log(['is online 🟢  sinds:'], `-> [ ${dag}-${maand}-${jaar}`, `~`, `${uur}:${minuten}:${seconden} ]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-//    console.log([`${language.bot_name} ${client.user.username}`]);
-    console.log([`${language.bot_id} ${process.env.BOTID}`]);
-    console.log([`${language.bot_preffix} ${process.env.PREFFIX}`]);
-    console.log([`${language.bot_language} ${process.env.LANGUAGES}`]);
-    console.log([`${language.bot_users} ${client.users.cache.size}`]);
-    console.log([`${language.bot_channels} ${client.channels.cache.size}`]);
-    console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log([`${language.bot_mysql}`]);
-    console.log(`[\x1b[31m ${language.mysql_host} ${process.env.DBHOST} \x1b[0m]`);
-    console.log(`[\x1b[31m ${language.mysql_user} ${process.env.DBUSER} \x1b[0m]`);
-    console.log(`[\x1b[31m ${language.mysql_name} ${process.env.DBNAME} \x1b[0m]`);
-    console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-    console.log([`${language.bot_invite}`]);
-    console.log(`[\x1b[31m ${process.env.INVITE} \x1b[0m]`);
+    console.log([`Bot BotID:`], `-> [ ${botid} ]`);
+    console.log([`Bot Preffix:`], `-> [ ${preffix} ]`);
+    console.log(['Servers:'], `-> [ ${servers} ]`);
+    console.log(`[\x1b[31m Bot MySQL: \x1b[0m]`); 
+    console.log([`Data Base Host:`], `-> [ ${dbhost_status} ]`);
+    console.log([`Data Base User:`], `-> [ ${dbuser_status} ]`);
+    console.log([`Data Base Name:`], `-> [ ${dbname_status} ]`);
+    console.log([`Bot Invite:`], `-> [ ${invite} ]`);
     console.log('<---------------------------------------------------------------------------------------------------------------------->',);
 
         //nieuwe comando functie
@@ -227,18 +247,23 @@ client.once("ready", () => {
 
     (async () => {
         try {
+            /*
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
             console.log(`${language.Slashcmd_load}`,);
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
+            */
 
             await rest.put(
                 Routes.applicationGuildCommands(clientId, guildId),
                 { body: slachCommands},
             );
 
+            /*
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
             console.log(`${language.Slashcmd_ar_load}`,);
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
+            */
+
         } catch (error) {
             console.error(error);
         }
@@ -257,7 +282,8 @@ client.on("guildMemberAdd", member => {
     .setTimestamp()
     .setFooter(`${language.join_welkom} ${process.env.SERVERNAME}`)
     .addFields(
-        { name: `${language.join_welkom}`, value: `${member}` }
+        { name: `${language.join_welkom}`, value: `${member}` },
+		{name: ` `, value: `${process.env.WELKOMMSG}` }
     )
 
     var role = member.guild.roles.cache.get(process.env.JOINROLL);
@@ -363,6 +389,33 @@ client.on("interactionCreate", async interaction => {
     
             interaction.reply({
                 content: 'You got the Color Roll.',
+                ephemeral: true
+            });
+    
+        }
+
+        //Regels menu keuzen
+        if(customId === 'rules-menu'){
+    
+            const component = interaction.component;
+            
+            //filter van wat er wel en niet is gekoozen
+            const removed = component.options.filter((option) => {
+                return !values.includes(option.value)
+            });
+    
+            //roll verwijderen all hij niet is ge selecteerd.
+            for (var id of removed){
+                member.roles.remove(id.value)
+            }
+    
+            //roll toevoegen
+            for (var id of values){
+                member.roles.add(id)
+            }
+    
+            interaction.reply({
+                content: 'You accept the rules.\nHave fun in the server.',
                 ephemeral: true
             });
     
