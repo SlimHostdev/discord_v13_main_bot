@@ -14,22 +14,22 @@ module.exports = {
     const dobelsteen_1 = (randomNumber1) => {
       switch (randomNumber1) {
         case 0:
-          return "⚀";
+          return "<:1:1255831494807523390>";
           break;
         case 1:
-          return "⚁";
+          return "<:2:1255831496225325169>";
           break;
         case 2:
-          return "⚂";
+          return "<:3:1255831497357922415>";
           break;
         case 3:
-          return "⚃";
+          return "<:4:1255831498372808754>";
           break;
         case 4:
-          return "⚄";
+          return "<:5:1255831499282841662>";
           break;
         case 5:
-          return "⚅";
+          return "<:6:1255831501187317861>";
           break;
       }
     };
@@ -42,22 +42,22 @@ module.exports = {
     const dobelsteen_2 = (randomNumber2) => {
       switch (randomNumber2) {
         case 0:
-          return "⚀";
+          return "<:1:1255831494807523390>";
           break;
         case 1:
-          return "⚁";
+          return "<:2:1255831496225325169>";
           break;
         case 2:
-          return "⚂";
+          return "<:3:1255831497357922415>";
           break;
         case 3:
-          return "⚃";
+          return "<:4:1255831498372808754>";
           break;
         case 4:
-          return "⚄";
+          return "<:5:1255831499282841662>";
           break;
         case 5:
-          return "⚅";
+          return "<:6:1255831501187317861>";
           break;
       }
     };
@@ -72,7 +72,7 @@ module.exports = {
       .setDescription(`Lets see yor luk.`)
       .addField(`Dobbelsteen 1:`, `**${stone_1} ${stone_number_1}**`)
       .addField(`Dobbelsteen 2:`, `**${stone_2} ${stone_number_2}**`)
-      .addField(`Total:`, `${total}`)
+      .addField(`Total:`, `${total} ${stone_1} ${stone_2}`)
       .setColor(process.env.COLLOR)
       .setThumbnail(process.env.LOGO)
       .setImage(process.env.BANNER)
