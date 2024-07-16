@@ -327,7 +327,8 @@ tempChannels.registerChannel(process.env.TEMP_VC_MAIN_ID, {
   childCategory: process.env.TEMP_VC_CATEGORY_ID,
   childAutoDeleteIfEmpty: true,
   childMaxUsers: 99,
-  childFormat: (member, count) => `Open VC #${count} | ${member.user.username}`,
+  childFormat: (member, count) =>
+    `┊✅Open VC #${count} | ${member.user.username}`,
 });
 
 client.on("guildMemberAdd", (member) => {
