@@ -320,7 +320,7 @@ client.once("ready", () => {
 });
 
 /*Temp VC*/
-/*const TempChannels = require("discord-temp-channels");
+const TempChannels = require("discord-temp-channels");
 const tempChannels = new TempChannels(client);
 var maxUsers = process.env.TEMP_VC_MAX_USERS;
 // Register a new main channel
@@ -330,8 +330,9 @@ tempChannels.registerChannel(process.env.TEMP_VC_MAIN_ID, {
   childMaxUsers: maxUsers,
   childFormat: (member, count) =>
     `┊✅Open VC #${count} | ${member.user.username}`,
-});*/
+});
 
+/*
 const tempvcdb = require("quick.db");
 
 client.on("ready", () => {
@@ -340,6 +341,7 @@ client.on("ready", () => {
     tempChannels.registerChannel(channelData.channelID, channelData.options);
   });
 });
+*/
 
 client.on("guildMemberAdd", (member) => {
   var welkomEmbed = new discord.MessageEmbed()
