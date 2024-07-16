@@ -322,11 +322,19 @@ client.once("ready", () => {
 /*Temp VC*/
 const TempChannels = require("discord-temp-channels");
 const tempChannels = new TempChannels(client);
+var maxUsers = 0;
+
+if (!process.env.TEMP_VC_MAX_VCUSERS == true) {
+  maxUsers = process.env.TEMP_VC_MAX_USERS;
+} else {
+  maxUsers;
+}
+
 // Register a new main channel
 tempChannels.registerChannel(process.env.TEMP_VC_MAIN_ID, {
   childCategory: process.env.TEMP_VC_CATEGORY_ID,
   childAutoDeleteIfEmpty: true,
-  childMaxUsers: 99,
+  childMaxUsers: maxUsers,
   childFormat: (member, count) =>
     `┊✅Open VC #${count} | ${member.user.username}`,
 });
