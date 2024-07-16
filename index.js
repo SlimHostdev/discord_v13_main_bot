@@ -47,10 +47,6 @@ const DB = mysql.createConnection({
 
 //});
 
-/*Temp VC*/
-const TempChannels = require("discord-temp-channels");
-const tempChannels = new TempChannels(client);
-
 //File server
 const fs = require("fs");
 
@@ -321,12 +317,14 @@ client.once("ready", () => {
   })();
 });
 
-//Temp VC
+/*Temp VC*/
+const TempChannels = require("discord-temp-channels");
+const tempChannels = new TempChannels(client);
 // Register a new main channel
 tempChannels.registerChannel("1262566560413913199", {
   childCategory: "1262566444026171464",
   childAutoDeleteIfEmpty: true,
-  childMaxUsers: 3,
+  childMaxUsers: 99,
   childFormat: (member, count) =>
     `#${count} | ${member.user.username}'s lounge`,
 });
