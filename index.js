@@ -323,12 +323,11 @@ client.once("ready", () => {
 const TempChannels = require("discord-temp-channels");
 const tempChannels = new TempChannels(client);
 // Register a new main channel
-tempChannels.registerChannel("1262566560413913199", {
-  childCategory: "1262566444026171464",
+tempChannels.registerChannel(process.env.TEMP_VC_MAIN_ID, {
+  childCategory: process.env.TEMP_VC_CATEGORY_ID,
   childAutoDeleteIfEmpty: true,
   childMaxUsers: 99,
-  childFormat: (member, count) =>
-    `#${count} | ${member.user.username}'s lounge`,
+  childFormat: (member, count) => `Open VC #${count} | ${member.user.username}`,
 });
 
 client.on("guildMemberAdd", (member) => {
