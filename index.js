@@ -545,18 +545,5 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-const githubURL = "https://api.github.com/users/SlimHostdev/received_events";
-const githubEvent = githubURL.payload;
-
-console.log(`Received ${githubURL.type} event for ${githubURL.repo}`);
-
-if (githubURL.type === "PushEvent") {
-  console.log(
-    `Received ${githubEvent.type} event for ${githubEvent.repo.name}`,
-    `By ${githubAuthor}}`,
-    `Commit message: ${githubMsg}`
-  );
-}
-
 //Bot Login
 client.login(process.env.TOKEN);
