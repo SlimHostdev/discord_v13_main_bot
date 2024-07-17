@@ -546,21 +546,16 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 const githubURL = "https://api.github.com/users/SlimHostdev/received_events";
+const githubEvent = githubURL.payload;
+
+console.log(`Received ${githubURL.type} event for ${githubURL.repo}`);
 
 if (githubURL.type === "PushEvent") {
-  const githubEvent = githubURL.payload;
-
   console.log(
-    `Received ${githubEvent.type} event for ${githubEvent.repo.name}`
+    `Received ${githubEvent.type} event for ${githubEvent.repo.name}`,
+    `By ${githubAuthor}}`,
+    `Commit message: ${githubMsg}`
   );
-
-  if (githubEvent.type === "PushEvent") {
-    const commits = githubEvent.payload.commits;
-
-    for (const commit of commits) {
-      console.log(`Committed by ${commit.author.username}: ${commit.message}`);
-    }
-  }
 }
 
 //Bot Login
