@@ -29,10 +29,12 @@ module.exports.run = async (client, message, args) => {
       }
     );
 
-  let ms = value;
-
   return message.channel.send({ embeds: [botEmbed] }).then((msg) => {
-    console.log(`Ping command is gebruikt\n ${ms}ms.`);
+    console.log(
+      `Ping command is gebruikt\n ${
+        m.createdTimestamp - message.createdTimestamp
+      }ms.`
+    );
     message.delete();
     m.delete();
     setTimeout(() => msg.delete(), 10000);
