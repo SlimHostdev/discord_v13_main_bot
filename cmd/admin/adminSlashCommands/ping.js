@@ -42,7 +42,9 @@ module.exports = {
       );
 
     interaction.reply({ embeds: [embed], ephemeral: true }).then((ms) => {
-      log.success(`Ping command is gebruikt [ ${client.ws.ping}ms ]`);
+      log.success(
+        `Ping command is gebruikt door ${interaction.member.name} de bot heeft [ ${client.ws.ping}ms ] ping!`
+      );
     });
   },
 };
