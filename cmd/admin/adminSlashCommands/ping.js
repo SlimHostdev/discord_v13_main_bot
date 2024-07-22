@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 
+const log = require("../../../src/function/log/util");
+
 const discord = require("discord.js");
 // Bestandssysteem
 const fs = require("fs");
@@ -33,7 +35,7 @@ module.exports = {
       .setFooter(`${language.cmd_ping_footer}`);
 
     interaction.reply({ embeds: [embed], ephemeral: true }).then((ms) => {
-      console.log(`Ping command is gebruikt [ ${client.ws.ping}ms ]`);
+      log.success(`Ping command is gebruikt [ ${client.ws.ping}ms ]`);
     });
   },
 };
