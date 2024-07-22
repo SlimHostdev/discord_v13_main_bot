@@ -247,14 +247,14 @@ client.once("ready", () => {
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
-  log.info(`Bot BotID:`, `-> [ ${botid} ]`);
-  log.info(`Bot Preffix:`, `-> [ ${preffix} ]`);
-  log.info("Servers:", `-> [ ${servers} ]`);
+  log.info(`Bot BotID: -> [ ${botid} ]`);
+  log.info(`Bot Preffix: -> [ ${preffix} ]`);
+  log.info(`Servers: -> [ ${servers} ]`);
   log.updated(`[ Bot MySQL: ]`);
-  log.info(`Data Base Host:`, `-> [ ${dbhost_status} ]`);
-  log.info(`Data Base User:`, `-> [ ${dbuser_status} ]`);
-  log.info(`Data Base Name:`, `-> [ ${dbname_status} ]`);
-  log.info(`Bot Invite:`, `-> [ ${invite} ]`);
+  log.info(`Data Base Host: -> [ ${dbhost_status} ]`);
+  log.info(`Data Base User: -> [ ${dbuser_status} ]`);
+  log.info(`Data Base Name: -> [ ${dbname_status} ]`);
+  log.info(`Bot Invite: -> [ ${invite} ]`);
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
