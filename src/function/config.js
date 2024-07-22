@@ -1,5 +1,5 @@
 // config.js
-let mainLanguages = "eng";
+let mainLanguages = "";
 
 if (process.env.LANGUAGES === "en-EN") {
   mainLanguages = "eng";

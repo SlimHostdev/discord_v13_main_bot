@@ -1,5 +1,5 @@
 const { inspect } = require("node:util");
-const { LANGUAGES } = require("./src/function/config");
+const { LANGUAGES } = require("./config");
 
 const fs = require("fs");
 const language = JSON.parse(
