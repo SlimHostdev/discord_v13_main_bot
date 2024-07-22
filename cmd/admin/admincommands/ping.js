@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
     );
 
   return message.channel.send({ embeds: [botEmbed] }).then((msg) => {
-    log.success(
+    log.info(
       `Ping command is gebruikt [ ${
         m.createdTimestamp - message.createdTimestamp
       }ms ]`
