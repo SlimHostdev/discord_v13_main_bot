@@ -44,7 +44,7 @@ module.exports = {
     interaction.reply({ embeds: [embed], ephemeral: true }).then((ms) => {
       let cmdUserName = interaction.user.tag;
       let cmdUserId = interaction.user.id;
-      log.success(
+      log.info(
         `Ping cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}] de bot heeft [ ${client.ws.ping}ms ] ping!`
       );
     });
