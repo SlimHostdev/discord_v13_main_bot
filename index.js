@@ -1,4 +1,8 @@
-const { log } = require("./src/function/handlers");
+//const { log } = require("./src/function/handlers");
+
+//const request = { id: 1, content: "Sample request" };
+
+const log = require("./src/function/log/util");
 
 log.updated("online");
 
