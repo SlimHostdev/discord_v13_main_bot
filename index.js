@@ -228,20 +228,10 @@ client.once("ready", () => {
   const botname = client.user.username;
   const servers = client.guilds.cache.size;
 
-  var d = new Date();
-  //datum
-  const dag = d.getDate();
-  const maand = d.getMonth() + 1;
-  const jaar = d.getFullYear();
-  //Tijd
-  const uur = d.getHours();
-  const minuten = d.getMinutes();
-  const seconden = d.getSeconds();
-
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
-  log.info(["All commands ar load ✅"]);
+  log.updated("All commands ar load ✅");
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
@@ -252,8 +242,8 @@ client.once("ready", () => {
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
-  log.info(`[ ${botname} ]`);
-  log.updated("[ is online 🟢 ]");
+  log.info(`${botname}`);
+  log.updated("is online 🟢");
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
