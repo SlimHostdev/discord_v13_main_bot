@@ -1,6 +1,8 @@
 console.log("online");
 
 const { Console } = require("console");
+
+const log = require("./src/function/util");
 //------------------------------------Benodigt heeden------------------------------------------
 const {
   Client,
@@ -29,7 +31,8 @@ const DB = mysql.createConnection({
 
 DB.connect(function (err) {
   if (err) throw err;
-  console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
+  //console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
+  log.info(`Connected To DataBase!`);
 
   //Table Create
   // var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
