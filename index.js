@@ -1,4 +1,4 @@
-const { log } = require("../src/function/handlers");
+const { log } = require("./src/function/handlers");
 
 log.updated("online");
 
