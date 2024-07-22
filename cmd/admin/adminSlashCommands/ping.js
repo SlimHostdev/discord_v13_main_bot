@@ -34,7 +34,7 @@ module.exports = {
       .setTimestamp()
       .setFooter(`${language.cmd_ping_footer}`)
       .addFields(
-        { name: `${language.cmd_ping_name}`, value: client.user.name },
+        { name: `${language.cmd_ping_name}`, value: `${client.user.name}` },
         {
           name: `${language.cmd_ping_latency}`,
           value: `${client.ws.ping}ms`,
