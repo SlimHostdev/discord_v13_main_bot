@@ -1,8 +1,7 @@
-console.log("online");
-
-const { Console } = require("console");
-
 const log = require("./src/function/util");
+
+log.updated("online");
+
 //------------------------------------Benodigt heeden------------------------------------------
 const {
   Client,
