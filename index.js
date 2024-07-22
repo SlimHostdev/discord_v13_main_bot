@@ -27,25 +27,24 @@ const DB = mysql.createConnection({
   database: process.env.DBNAME,
 });
 
-//DB.connect(function(err) {
-//    if (err) throw err;
-//    console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
+DB.connect(function (err) {
+  if (err) throw err;
+  console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
 
-//Table Create
-// var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
+  //Table Create
+  // var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
 
-// DB.query(sql, function (err, result) {
-//   if (err) throw err;
-//   console.log(`[\x1b[31m Create Table! \x1b[0m]`);
-// });
+  // DB.query(sql, function (err, result) {
+  //   if (err) throw err;
+  //   console.log(`[\x1b[31m Create Table! \x1b[0m]`);
+  //});
 
-//Select Form Table
-//    DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
-//        if (err) throw err;
-//        console.log(joinrollid);
-//    });
-
-//});
+  //Select Form Table
+  //    DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
+  //        if (err) throw err;
+  //        console.log(joinrollid);
+  //    });
+});
 
 //File server
 const fs = require("fs");
@@ -332,9 +331,10 @@ tempChannels.registerChannel(process.env.TEMP_VC_MAIN_ID, {
     `┊✅Open VC #${count} | ${member.user.username}`,
 });
 
-/*
+/* automatically temporary vc channels */
 const tempvcdb = require("quick.db");
 
+/*
 client.on("ready", () => {
   if (!tempvcdb.get("temp-channels")) tempvcdb.set("temp-channels", []);
   tempvcdb.get("temp-channels").forEach((channelData) => {
@@ -542,19 +542,6 @@ client.on("interactionCreate", async (interaction) => {
     }
   } else {
     return;
-  }
-
-  const githubURL = "https://api.github.com/users/SlimHostdev/received_events";
-  const githubEvent = githubURL.payload;
-
-  console.log(`Received ${githubURL.type} event for ${githubURL.repo}`);
-
-  if (githubURL.type === "PushEvent") {
-    console.log(
-      `Received ${githubEvent.type} event for ${githubEvent.repo.name}`,
-      `By ${githubAuthor}}`,
-      `Commit message: ${githubMsg}`
-    );
   }
 });
 
