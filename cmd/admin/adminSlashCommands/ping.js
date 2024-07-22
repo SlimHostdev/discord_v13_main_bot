@@ -43,7 +43,7 @@ module.exports = {
 
     interaction.reply({ embeds: [embed], ephemeral: true }).then((ms) => {
       log.success(
-        `Ping command is gebruikt door ${interaction.member.name} de bot heeft [ ${client.ws.ping}ms ] ping!`
+        `Ping command is gebruikt door ${interaction.member.username} de bot heeft [ ${client.ws.ping}ms ] ping!`
       );
     });
   },
