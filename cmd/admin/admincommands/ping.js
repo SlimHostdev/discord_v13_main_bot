@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
       }
     );
 
-  let ms = m.setTimestamp - message.createdTimestamp;
+  let ms = value;
 
   return message.channel.send({ embeds: [botEmbed] }).then((msg) => {
     console.log(`Ping command is gebruikt\n ${ms}ms.`);
