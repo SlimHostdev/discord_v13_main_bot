@@ -27,12 +27,19 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setTitle(`${language.cmd_ping_title}`)
-      .setDescription(`${language.Slashcmd_ping_msg} ${client.ws.ping} ms.`)
+      .setDescription(`${language.cmd_ping_disc}`)
       .setColor(process.env.COLLOR)
       .setThumbnail(process.env.LOGO)
       .setImage(process.env.BANNER)
       .setTimestamp()
-      .setFooter(`${language.cmd_ping_footer}`);
+      .setFooter(`${language.cmd_ping_footer}`)
+      .addFields(
+        { name: `${language.cmd_ping_name}`, value: client.user.name },
+        {
+          name: `${language.cmd_ping_latency}`,
+          value: `${client.ws.ping}ms`,
+        }
+      );
 
     interaction.reply({ embeds: [embed], ephemeral: true }).then((ms) => {
       log.success(`Ping command is gebruikt [ ${client.ws.ping}ms ]`);
