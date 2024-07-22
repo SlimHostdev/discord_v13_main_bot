@@ -245,15 +245,15 @@ client.once("ready", () => {
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
-  log.warn(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
-  log.warn(`\x1b[31m ${rechten.bot_rechten_2} \x1b[0m`);
-  log.warn(`\x1b[31m ${rechten.bot_rechten_3} ${packege.author} \x1b[0m`);
-  log.warn(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
+  log.warn(`${rechten.bot_rechten_1} ${packege.slimhost}`);
+  log.warn(`${rechten.bot_rechten_2}`);
+  log.warn(`${rechten.bot_rechten_3} ${packege.author}`);
+  log.warn(`${packege.gitrepo}`);
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
-  log.info(`[\x1b[31m ${botname} \x1b[0m]`);
-  log.updated(["is online 🟢"]);
+  log.info(`[ ${botname} ]`);
+  log.updated("[ is online 🟢 ]");
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
