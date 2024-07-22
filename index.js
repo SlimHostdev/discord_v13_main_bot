@@ -103,7 +103,7 @@ for (const file of commandFiles) {
 
   client.commands.set(command.help.name, command);
 
-  log.success([`${language.cmd_load} [${command.help.name}.js]`]);
+  log.success(`${language.cmd_load} [ ${command.help.name}.js ]`);
 }
 
 //Ophaalen van slachCommands uit map slachCommands
@@ -119,7 +119,7 @@ for (const fileSlash of commandSlashFiles) {
   client.slachCommands.set(commandSlash.data.name, commandSlash);
   slachCommands.push(commandSlash.data.toJSON());
 
-  log.success([`${language.cmd_load} [${commandSlash.data.name}.js]`]);
+  log.success(`${language.cmd_load} [ ${commandSlash.data.name}.js ]`);
 }
 
 //Ophaalen van slachCommands uit map slachCommands
@@ -135,7 +135,7 @@ for (const fileSlash of commandAdminSlashFiles) {
   client.slachCommands.set(adminSlash.data.name, adminSlash);
   slachCommands.push(adminSlash.data.toJSON());
 
-  log.success([`${language.cmd_load} [${adminSlash.data.name}.js]`]);
+  log.success(`${language.cmd_load} [ ${adminSlash.data.name}.js ]`);
 }
 
 //Ophaalen van commandos uit map admincommands
@@ -150,7 +150,7 @@ for (const file of admincommandFiles) {
 
   client.commands.set(command.help.name, command);
 
-  log.success([`${language.cmd_load} [${command.help.name}.js]`]);
+  log.success(`${language.cmd_load} [ ${command.help.name}.js ]`);
 }
 
 //Ophaalen van commandos uit map addons
@@ -165,7 +165,7 @@ for (const file of addonFiles) {
 
   client.commands.set(command.help.name, command);
 
-  log.success([`${language.cmd_load} [${command.help.name}.js]`]);
+  log.success(`${language.cmd_load} [ ${command.help.name}.js ]`);
 }
 
 //----------------------------------------ADMINS-----------------------------------------------
