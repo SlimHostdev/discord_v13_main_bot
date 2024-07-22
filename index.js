@@ -38,7 +38,7 @@ DB.connect(function (err) {
 
   // DB.query(sql, function (err, result) {
   //   if (err) throw err;
-  //   log.info(`[\x1b[31m Create Table! \x1b[0m]`);
+  //   log.created(`[\x1b[31m Create Table! \x1b[0m]`);
   //});
 
   //Select Form Table
