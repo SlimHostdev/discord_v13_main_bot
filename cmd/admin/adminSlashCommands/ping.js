@@ -45,7 +45,7 @@ module.exports = {
       let cmdUserName = interaction.user.tag;
       let cmdUserId = interaction.user.id;
       log.info(
-        `${date.setName} cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}]`
+        `${data.setName} cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}]`
       );
     });
   },
