@@ -3,7 +3,7 @@ const { LANGUAGES } = require("./config");
 
 const fs = require("fs");
 const language = JSON.parse(
-  fs.readFileSync(`./language/${LANGUAGES}.json`, "utf-8")
+  fs.readFileSync(`../src/function/language/${LANGUAGES}.json`, "utf-8")
 );
 
 const color = {
