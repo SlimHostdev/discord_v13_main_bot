@@ -30,7 +30,7 @@ const DB = mysql.createConnection({
 
 DB.connect(function (err) {
   //if (err) throw err;
-  //console.log(`[\x1b[31m Connected To DataBase! \x1b[0m]`);
+
   log.info(`Connected To DataBase!`);
 
   //Table Create
@@ -38,13 +38,13 @@ DB.connect(function (err) {
 
   // DB.query(sql, function (err, result) {
   //   if (err) throw err;
-  //   console.log(`[\x1b[31m Create Table! \x1b[0m]`);
+  //   log.info(`[\x1b[31m Create Table! \x1b[0m]`);
   //});
 
   //Select Form Table
   //    DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
   //        if (err) throw err;
-  //        console.log(joinrollid);
+  //        log.info(joinrollid);
   //    });
 });
 
@@ -67,7 +67,7 @@ const rechten = JSON.parse(
 console.log(
   "<---------------------------------------------------------------------------------------------------------------------->"
 );
-log.info([`${rechten.bot_rechten_5}`]);
+log.updated(`${rechten.bot_rechten_5}`);
 console.log(
   "<---------------------------------------------------------------------------------------------------------------------->"
 );
@@ -247,14 +247,14 @@ client.once("ready", () => {
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
-  console.log([`Bot BotID:`], `-> [ ${botid} ]`);
-  console.log([`Bot Preffix:`], `-> [ ${preffix} ]`);
-  console.log(["Servers:"], `-> [ ${servers} ]`);
-  console.log(`[\x1b[31m Bot MySQL: \x1b[0m]`);
-  console.log([`Data Base Host:`], `-> [ ${dbhost_status} ]`);
-  console.log([`Data Base User:`], `-> [ ${dbuser_status} ]`);
-  console.log([`Data Base Name:`], `-> [ ${dbname_status} ]`);
-  console.log([`Bot Invite:`], `-> [ ${invite} ]`);
+  log.info(`Bot BotID:`, `-> [ ${botid} ]`);
+  log.info(`Bot Preffix:`, `-> [ ${preffix} ]`);
+  log.info("Servers:", `-> [ ${servers} ]`);
+  log.updated(`[ Bot MySQL: ]`);
+  log.info(`Data Base Host:`, `-> [ ${dbhost_status} ]`);
+  log.info(`Data Base User:`, `-> [ ${dbuser_status} ]`);
+  log.info(`Data Base Name:`, `-> [ ${dbname_status} ]`);
+  log.info(`Bot Invite:`, `-> [ ${invite} ]`);
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
@@ -286,7 +286,7 @@ client.once("ready", () => {
     try {
       /*
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-            console.log(`${language.Slashcmd_load}`,);
+            log.updated(`${language.Slashcmd_load}`,);
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
             */
 
@@ -296,11 +296,11 @@ client.once("ready", () => {
 
       /*
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
-            console.log(`${language.Slashcmd_ar_load}`,);
+            log.updated(`${language.Slashcmd_ar_load}`,);
             console.log('<---------------------------------------------------------------------------------------------------------------------->',);
             */
     } catch (error) {
-      console.error(error);
+      log.error(error);
     }
   })();
 });
@@ -381,8 +381,8 @@ client.on("messageCreate", async (message) => {
   try {
     await commandData.run(client, message, arguments);
   } catch (error) {
-    console.log(`\x1b[31m ERROR \x1b[0m`);
-    console.log(error);
+    log.warn(`[ ERROR ]`);
+    log.error(error);
     await message.reply(`${language.cmd_err}`);
   }
 });
@@ -525,7 +525,7 @@ client.on("interactionCreate", async (interaction) => {
         content: `${language.Slashcmd_err}`,
         ephemeral: true,
       });
-      console.log(err);
+      log.error(err);
     }
   } else {
     return;
