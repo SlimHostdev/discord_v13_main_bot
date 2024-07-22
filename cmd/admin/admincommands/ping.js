@@ -12,7 +12,6 @@ module.exports.run = async (client, message, args) => {
     return message.reply(`${language.no_admin}`);
 
   const m = await message.channel.send("Ping?");
-  let ms = m.setTimestamp - message.createdTimestamp;
 
   var botEmbed = new discord.MessageEmbed()
     .setTitle(`${language.cmd_ping_title}`)
@@ -26,10 +25,11 @@ module.exports.run = async (client, message, args) => {
       { name: `${language.cmd_ping_name}`, value: client.user.username },
       {
         name: `${language.cmd_ping_latency}`,
-        value: `${ms}ms.`,
-        //value: `${m.createdTimestamp - message.createdTimestamp}ms.`,
+        value: `${m.createdTimestamp - message.createdTimestamp}ms.`,
       }
     );
+
+  let ms = m.setTimestamp - message.createdTimestamp;
 
   return message.channel.send({ embeds: [botEmbed] }).then((msg) => {
     console.log(`Ping command is gebruikt\n ${ms}ms.`);
