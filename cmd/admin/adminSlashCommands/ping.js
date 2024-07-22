@@ -11,9 +11,11 @@ const language = JSON.parse(
   fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8")
 );
 
+const cmdName = "ping"; // Verander dit naar het naam van je commando.
+
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("ping")
+    .setName(`${cmdName}`)
     .setDescription("Dit is een Test CMD."),
   async execute(client, interaction) {
     // Controleren of de gebruiker een serverbeheerder is
@@ -45,7 +47,7 @@ module.exports = {
       let cmdUserName = interaction.user.tag;
       let cmdUserId = interaction.user.id;
       log.info(
-        `${data.setName} cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}]`
+        `${cmdName} cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}]`
       );
     });
   },
