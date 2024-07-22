@@ -216,20 +216,20 @@ client.once("ready", () => {
     "Not In Use 🚫- to use this feature you need to set it up in";
 
   const dbhost_status =
-    log.info(`Data Base Host: -> [ ${process.env.DBHOST} ]`) ||
-    log.warn("Not In Use 🚫- to use this feature you need to set it up in");
+    process.env.DBHOST ||
+    "Not In Use 🚫- to use this feature you need to set it up in";
 
   const dbuser_status =
     process.env.DBUSER ||
-    "\x1b[31m Not In Use 🚫- to use this feature you need to set it up in  \x1b[0m";
+    "Not In Use 🚫- to use this feature you need to set it up in";
 
   const dbname_status =
     process.env.DBNAME ||
-    "\x1b[31m Not In Use 🚫- to use this feature you need to set it up in  \x1b[0m";
+    "Not In Use 🚫- to use this feature you need to set it up in";
 
   const invite =
     process.env.INVITE ||
-    "\x1b[31m  Not In Use 🚫- This is a Private Bot for more info see https://github.com/SlimHostdev/discord_v13_main_bot \x1b[0m";
+    `https://discord.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions=6466948424`;
 
   const botname = client.user.username;
 
@@ -258,7 +258,7 @@ client.once("ready", () => {
   log.info(`Bot Preffix: -> [ ${preffix} ]`);
   log.info(`Servers: -> [ ${servers} ]`);
   log.updated(`[ Bot MySQL: ]`);
-  `${dbhost_status}`;
+  log.info(`Data Base Host: -> [ ${dbhost_status} ]`);
   log.info(`Data Base User: -> [ ${dbuser_status} ]`);
   log.info(`Data Base Name: -> [ ${dbname_status} ]`);
   log.info(`Bot Invite: -> [ ${invite} ]`);
