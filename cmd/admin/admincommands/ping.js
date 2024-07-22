@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-//const log = require("./src/function/util");
+const log = require("../../../src/function/log/util");
 //File server
 const fs = require("fs");
 //Taal van de bot
@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
     );
 
   return message.channel.send({ embeds: [botEmbed] }).then((msg) => {
-    console.log(
+    log.custom(
       `Ping command is gebruikt [ ${
         m.createdTimestamp - message.createdTimestamp
       }ms ]`
