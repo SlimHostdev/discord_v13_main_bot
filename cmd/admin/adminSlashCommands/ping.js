@@ -32,10 +32,8 @@ module.exports = {
       .setTimestamp()
       .setFooter(`${language.cmd_ping_footer}`);
 
-    let ms = client.ws.ping;
-
     interaction.reply({ embeds: [embed], ephemeral: true }).then((ms) => {
-      console.log(`Ping command is gebruikt [ ${ms}ms ]`);
+      console.log(`Ping command is gebruikt [ ${client.ws.ping}ms ]`);
     });
   },
 };
