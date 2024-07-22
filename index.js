@@ -67,7 +67,7 @@ const rechten = JSON.parse(
 console.log(
   "<---------------------------------------------------------------------------------------------------------------------->"
 );
-console.log([`${rechten.bot_rechten_5}`]);
+log.info([`${rechten.bot_rechten_5}`]);
 console.log(
   "<---------------------------------------------------------------------------------------------------------------------->"
 );
@@ -96,14 +96,14 @@ const commandFiles = fs
   .readdirSync("./cmd/user/commands")
   .filter((file) => file.endsWith(".js"));
 
-console.log(`[\x1b[31m COMMANDS \x1b[0m]`);
+log.updated(`[ COMMANDS ]`);
 
 for (const file of commandFiles) {
   const command = require(`./cmd/user/commands/${file}`);
 
   client.commands.set(command.help.name, command);
 
-  console.log([`${language.cmd_load} [${command.help.name}.js]`]);
+  log.success([`${language.cmd_load} [${command.help.name}.js]`]);
 }
 
 //Ophaalen van slachCommands uit map slachCommands
@@ -111,7 +111,7 @@ const commandSlashFiles = fs
   .readdirSync("./cmd/user/userSlashCommands")
   .filter((file) => file.endsWith(".js"));
 
-console.log(`[\x1b[31m UserSlashCommands \x1b[0m]`);
+log.updated(`[ UserSlashCommands ]`);
 
 for (const fileSlash of commandSlashFiles) {
   const commandSlash = require(`./cmd/user/userSlashCommands/${fileSlash}`);
@@ -119,7 +119,7 @@ for (const fileSlash of commandSlashFiles) {
   client.slachCommands.set(commandSlash.data.name, commandSlash);
   slachCommands.push(commandSlash.data.toJSON());
 
-  console.log([`${language.cmd_load} [${commandSlash.data.name}.js]`]);
+  log.success([`${language.cmd_load} [${commandSlash.data.name}.js]`]);
 }
 
 //Ophaalen van slachCommands uit map slachCommands
@@ -127,7 +127,7 @@ const commandAdminSlashFiles = fs
   .readdirSync("./cmd/admin/adminSlashCommands")
   .filter((file) => file.endsWith(".js"));
 
-console.log(`[\x1b[31m adminSlashCommands \x1b[0m]`);
+log.updated(`[ adminSlashCommands ]`);
 
 for (const fileSlash of commandAdminSlashFiles) {
   const adminSlash = require(`./cmd/admin/adminSlashCommands/${fileSlash}`);
@@ -135,7 +135,7 @@ for (const fileSlash of commandAdminSlashFiles) {
   client.slachCommands.set(adminSlash.data.name, adminSlash);
   slachCommands.push(adminSlash.data.toJSON());
 
-  console.log([`${language.cmd_load} [${adminSlash.data.name}.js]`]);
+  log.success([`${language.cmd_load} [${adminSlash.data.name}.js]`]);
 }
 
 //Ophaalen van commandos uit map admincommands
@@ -143,14 +143,14 @@ const admincommandFiles = fs
   .readdirSync("./cmd/admin/admincommands")
   .filter((file) => file.endsWith(".js"));
 
-console.log(`[\x1b[31m ADMIN COMMANDS \x1b[0m]`);
+log.updated(`[ ADMIN COMMANDS ]`);
 
 for (const file of admincommandFiles) {
   const command = require(`./cmd/admin/admincommands/${file}`);
 
   client.commands.set(command.help.name, command);
 
-  console.log([`${language.cmd_load} [${command.help.name}.js]`]);
+  log.success([`${language.cmd_load} [${command.help.name}.js]`]);
 }
 
 //Ophaalen van commandos uit map addons
@@ -158,14 +158,14 @@ const addonFiles = fs
   .readdirSync("./cmd/addons")
   .filter((file) => file.endsWith(".js"));
 
-console.log(`[\x1b[31m ADDONS \x1b[0m]`);
+log.updated(`[ ADDONS ]`);
 
 for (const file of addonFiles) {
   const command = require(`./cmd/addons/${file}`);
 
   client.commands.set(command.help.name, command);
 
-  console.log([`${language.cmd_load} [${command.help.name}.js]`]);
+  log.success([`${language.cmd_load} [${command.help.name}.js]`]);
 }
 
 //----------------------------------------ADMINS-----------------------------------------------
@@ -241,24 +241,19 @@ client.once("ready", () => {
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
-  console.log(["All commands ar load ✅"]);
+  log.info(["All commands ar load ✅"]);
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
-  console.log(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
-  console.log(`\x1b[31m ${rechten.bot_rechten_2} \x1b[0m`);
-  console.log(`\x1b[31m ${rechten.bot_rechten_3} ${packege.author} \x1b[0m`);
-  console.log(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
+  log.warn(`\x1b[31m ${rechten.bot_rechten_1} ${packege.slimhost} \x1b[0m`);
+  log.warn(`\x1b[31m ${rechten.bot_rechten_2} \x1b[0m`);
+  log.warn(`\x1b[31m ${rechten.bot_rechten_3} ${packege.author} \x1b[0m`);
+  log.warn(`\x1b[31m ${packege.gitrepo} \x1b[0m`);
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
-  console.log(`[\x1b[31m ${botname} \x1b[0m]`);
-  console.log(
-    ["is online 🟢  sinds:"],
-    `-> [ ${dag}-${maand}-${jaar}`,
-    `~`,
-    `${uur}:${minuten}:${seconden} ]`
-  );
+  log.info(`[\x1b[31m ${botname} \x1b[0m]`);
+  log.updated(["is online 🟢"]);
   console.log(
     "<---------------------------------------------------------------------------------------------------------------------->"
   );
