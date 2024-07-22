@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const log = require("/src/function/util");
+const log = require("util.js");
 //File server
 const fs = require("fs");
 //Taal van de bot
