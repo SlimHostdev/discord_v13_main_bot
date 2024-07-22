@@ -45,7 +45,7 @@ module.exports = {
       let cmdUserName = interaction.user.tag;
       let cmdUserId = interaction.user.id;
       log.info(
-        `Ping cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}] de bot heeft [ ${client.ws.ping}ms ] ping!`
+        `${interaction.name} cmd is gedaan door [ USER: ${cmdUserName} ID: ${cmdUserId}]`
       );
     });
   },
