@@ -1,0 +1,11 @@
+{
+  "util_info": "INFO",
+  "util_warn": "WARN",
+  "util_error": "ERROR",
+  "util_success": "SUCCESS",
+  "util_debug": "DEBUG",
+  "util_deleted": "DELETED",
+  "util_updated": "UPDATED",
+  "util_created": "CREATED",
+  "util_custom": "CUSTOM"
+}
