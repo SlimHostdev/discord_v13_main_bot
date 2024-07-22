@@ -28,7 +28,7 @@ function getTimestamp() {
   let hours = date.getHours();
   let minutes = date.getMinutes();
   let seconds = date.getSeconds();
-  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  return `${hours}:${minutes}:${seconds} ~ ${year}-${month}-${day}`;
 }
 
 function parse(message) {
