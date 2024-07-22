@@ -52,3 +52,11 @@ module.exports = {
     });
   },
 };
+
+module.exports.help = {
+  name: cmdName,
+  category: "admin",
+  description: language.cmd_ping_disc,
+};
+
+// Het commando is nu geïmplementeerd in Discord.js v13.
