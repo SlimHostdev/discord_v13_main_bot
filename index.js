@@ -216,7 +216,11 @@ client.once("ready", () => {
   };
   updateStatus();
 
-  DBHOST = "https://" + DBHOST + ":" + 3306;
+  if (process.env.DBHOST === true) {
+    DBHOST = "https://" + DBHOST + ":" + 3306;
+  } else {
+    DBHOST = "Not In Use 🚫- to use this feature you need to set it up in";
+  }
 
   const preffix =
     process.env.PREFFIX ||
