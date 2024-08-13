@@ -25,10 +25,15 @@ require("dotenv-flow").config();
 //MySQL
 const mysql = require("mysql");
 
+// Decoders
+let DBHOST = atob(process.env.DBHOST);
+let DBUSER = atob(process.env.DBUSER);
+let DBPW = atob(process.env.DBPW);
+
 const DB = mysql.createConnection({
-  host: process.env.DBHOST,
-  user: process.env.DBUSER,
-  password: process.env.DBPW,
+  host: DBHOST,
+  user: DBUSER,
+  password: DBPW,
   database: process.env.DBNAME,
 });
 
