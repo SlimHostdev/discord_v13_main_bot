@@ -15,11 +15,7 @@ module.exports = {
   async execute(client, interaction) {
     const Input = interaction.options.getString("input");
 
-    const getUserChoice = (userInput) => {
-      var base64_encode = btoa(userInput);
-
-      return base64_encode;
-    };
+    var base64_encode = btoa(Input);
 
     let encode = getUserChoice(base64_encode);
 
