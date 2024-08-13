@@ -230,8 +230,7 @@ client.once("ready", () => {
     process.env.BOTID ||
     "Not In Use 🚫- to use this feature you need to set it up in";
 
-  const dbhost_status =
-    DBHOST || "Not In Use 🚫- to use this feature you need to set it up in";
+  const dbhost_status = DBHOST;
 
   const dbuser_status =
     DBUSER || "Not In Use 🚫- to use this feature you need to set it up in";
