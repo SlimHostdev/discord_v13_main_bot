@@ -8,7 +8,7 @@ module.exports = {
     .addStringOption((option) =>
       option
         .setName("input")
-        .setDescription("Wat will je encode?")
+        .setDescription("Wat wil je encrypten?")
         .setRequired(true)
     ),
 
@@ -21,9 +21,9 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setTitle("Encode Base64.")
-      .setDescription(`Hier is je Encode verzie van je input.`)
+      .setDescription(`Dit is het encrypted bericht`)
       .addField(
-        `${interaction.user.username} Je encorde bericht: `,
+        `${interaction.user.username} Je encrypted bericht:`,
         `${encode}`
       )
       .setColor(process.env.COLLOR)
