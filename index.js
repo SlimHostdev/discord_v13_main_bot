@@ -216,6 +216,8 @@ client.once("ready", () => {
   };
   updateStatus();
 
+  DBHOST = DBHOST + ":" + 3306;
+
   const preffix =
     process.env.PREFFIX ||
     "Not In Use 🚫- to use this feature you need to set it up in";
@@ -225,8 +227,7 @@ client.once("ready", () => {
     "Not In Use 🚫- to use this feature you need to set it up in";
 
   const dbhost_status =
-    process.env.DBHOST ||
-    "Not In Use 🚫- to use this feature you need to set it up in";
+    DBHOST || "Not In Use 🚫- to use this feature you need to set it up in";
 
   const dbuser_status =
     process.env.DBUSER ||
