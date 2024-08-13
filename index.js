@@ -216,9 +216,9 @@ client.once("ready", () => {
   };
   updateStatus();
 
-  if (process.env.DBHOST === " ") {
+  if (process.env.DBHOST) {
     DBHOST = "https://" + DBHOST + ":" + 3306;
-  } else {
+  } else if (!process.env.DBHOST) {
     DBHOST = "Not In Use 🚫- to use this feature you need to set it up in";
   }
 
