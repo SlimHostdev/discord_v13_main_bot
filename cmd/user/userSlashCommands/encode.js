@@ -17,7 +17,7 @@ module.exports = {
 
     var base64_encode = btoa(Input);
 
-    let encode = getUserChoice(base64_encode);
+    let encode = base64_encode;
 
     const embed = new MessageEmbed()
       .setTitle("Encode Base64.")
