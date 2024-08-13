@@ -15,7 +15,7 @@ module.exports = {
   async execute(client, interaction) {
     const Input = interaction.options.getString("input");
 
-    var base64_decode = atob(userInput);
+    var base64_decode = atob(Input);
 
     let decode = base64_decode;
 
