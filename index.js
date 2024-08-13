@@ -29,6 +29,7 @@ const mysql = require("mysql");
 let DBHOST = atob(process.env.DBHOST);
 let DBUSER = atob(process.env.DBUSER);
 let DBPW = atob(process.env.DBPW);
+let tokenDecode = atob(process.env.TOKEN);
 
 const DB = mysql.createConnection({
   host: DBHOST,
@@ -299,7 +300,7 @@ client.once("ready", () => {
   let guildId = `${process.env.SERVERID}`;
   let clientId = `${process.env.BOTID}`;
 
-  const rest = new REST({ version: "9" }).setToken(process.env.TOKEN);
+  const rest = new REST({ version: "9" }).setToken(tokenDecode);
 
   (async () => {
     try {
@@ -552,5 +553,4 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 //Bot Login
-let tokenDecode = atob(process.env.TOKEN);
 client.login(tokenDecode);
