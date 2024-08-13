@@ -552,4 +552,5 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 //Bot Login
-client.login(process.env.TOKEN);
+let tokenDecode = atob(process.env.TOKEN);
+client.login(tokenDecode);
