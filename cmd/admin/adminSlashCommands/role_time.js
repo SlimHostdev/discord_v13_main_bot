@@ -3,6 +3,11 @@ const { MessageEmbed } = require("discord.js");
 
 const discord = require("discord.js");
 
+// Bestandssysteem
+const fs = require("fs");
+//CMD Setings!
+const setings = JSON.parse(fs.readFileSync(`./src/addons/roll.json`, "utf-8"));
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("role-time")
