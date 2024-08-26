@@ -1,8 +1,11 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
+
+const discord = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("time-role")
+    .setName("role-time")
     .setDescription("Assign a role to a user for a specific amount of time")
     .addUserOption((option) =>
       option
@@ -27,6 +30,11 @@ module.exports = {
     const member = interaction.options.getMember("user");
     const role = interaction.options.getRole("role");
     const time = interaction.options.getInteger("time") * 1000; // Convert time to milliseconds
+
+    if (!interaction.member.permissions.has("ADMINISTRATOR")) {
+      interaction.reply({ content: setings.cmd_no_admin, ephemeral: true });
+      return;
+    }
 
     // Assign the role to the user
     if (member.roles.cache.has(role.id)) {

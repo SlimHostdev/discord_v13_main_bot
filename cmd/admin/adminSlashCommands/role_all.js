@@ -1,5 +1,7 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const { MessageEmbed } = require("discord.js");
 
+const discord = require("discord.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("role-all")
@@ -31,6 +33,11 @@ module.exports = {
     const role = interaction.options.getRole("role");
     const guild = interaction.guild; // Get the guild (server)
     const subcommand = interaction.options.getSubcommand();
+
+    if (!interaction.member.permissions.has("ADMINISTRATOR")) {
+      interaction.reply({ content: setings.cmd_no_admin, ephemeral: true });
+      return;
+    }
 
     let action, actionVerb, actionColor;
 
