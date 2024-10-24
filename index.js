@@ -4,6 +4,9 @@
 
 const log = require("./src/function/log/util");
 
+const loadJSONFile = (path) => JSON.parse(fs.readFileSync(path, "utf-8"));
+const logFormatted = (message) => console.log(`\x1b[31m ${message} \x1b[0m`);
+
 log.updated("online");
 
 //------------------------------------Benodigt heeden------------------------------------------
