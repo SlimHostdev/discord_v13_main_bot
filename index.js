@@ -65,14 +65,14 @@ const fs = require("fs");
 const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
 //Taal van de bot
-const language = JSON.parse(
-  fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8")
-);
+//const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
 
 //Eigenaars Rechten Van https://Slimhost.nl
-const rechten = JSON.parse(
-  fs.readFileSync(`./src/language/${process.env.LANGUAGES}.json`, "utf-8")
-);
+//const rechten = JSON.parse(fs.readFileSync(`./src/language/${process.env.LANGUAGES}.json`, "utf-8"));
+
+// Hergebruik voor talen en rechten
+const language = loadJSONFile(`./language/${process.env.LANGUAGES}.json`);
+const rechten = loadJSONFile(`./src/language/${process.env.LANGUAGES}.json`);
 
 console.log(
   "<---------------------------------------------------------------------------------------------------------------------->"
