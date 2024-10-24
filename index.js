@@ -35,21 +35,31 @@ let DBPW = atob(process.env.DBPW);
 let tokenDecode = atob(process.env.TOKEN);
 
 const DB = mysql.createConnection({
-  host: process.env.DBHOST,
-  user: process.env.DBUSER,
-  password: process.env.DBPW,
+  host: DBHOST,
+  user: DBUSER,
+  password: DBPW,
   database: process.env.DBNAME,
 });
 
-const connectDatabase = async () => {
-  try {
-    await DB.connect();
-    logFormatted("Connected To DataBase!");
-  } catch (error) {
-    console.error("Error connecting to database:", error);
-  }
-};
-connectDatabase();
+DB.connect(function (err) {
+  //if (err) throw err;
+
+  log.info(`Connected To DataBase!`);
+
+  //Table Create
+  // var sql = "CREATE TABLE SERVERINFO (JOIN_ROLL_ID VARCHAR(255), WELKOM_ID VARCHAR(255))";
+
+  // DB.query(sql, function (err, result) {
+  //   if (err) throw err;
+  //   log.created(`[\x1b[31m Create Table! \x1b[0m]`);
+  //});
+
+  //Select Form Table
+  //    DB.query("SELECT JOIN_ROLL_ID FROM SERVERINFO", function (err, joinrollid, fields) {
+  //        if (err) throw err;
+  //        log.info(joinrollid);
+  //    });
+});
 
 //File server
 const fs = require("fs");
