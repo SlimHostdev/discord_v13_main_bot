@@ -67,12 +67,6 @@ const fs = require("fs");
 //Main Data
 const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
-//Taal van de bot
-//const language = JSON.parse(fs.readFileSync(`./language/${process.env.LANGUAGES}.json`, "utf-8"));
-
-//Eigenaars Rechten Van https://Slimhost.nl
-//const rechten = JSON.parse(fs.readFileSync(`./src/language/${process.env.LANGUAGES}.json`, "utf-8"));
-
 // Hergebruik voor talen en rechten
 const language = loadJSONFile(`./language/${process.env.LANGUAGES}.json`);
 const rechten = loadJSONFile(`./src/language/${process.env.LANGUAGES}.json`);
@@ -101,8 +95,13 @@ const client = new Client({
 client.commands = new Collection();
 
 //Command handler
-client.slachCommands = new Collection();
-const slachCommands = [];
+
+client.commands = new Collection();
+client.slashCommands = new Collection();
+const slashCommands = [];
+
+//client.slashCommands = new Collection();
+//const slashCommands = [];
 
 //Ophaalen van commandos uit map commands
 const commandFiles = fs
@@ -119,7 +118,7 @@ for (const file of commandFiles) {
   log.success(`${language.cmd_load} [ ${command.help.name}.js ]`);
 }
 
-//Ophaalen van slachCommands uit map slachCommands
+//Ophaalen van slashCommands uit map slashCommands
 const commandSlashFiles = fs
   .readdirSync("./cmd/user/userSlashCommands")
   .filter((file) => file.endsWith(".js"));
@@ -129,13 +128,13 @@ log.updated(`[ UserSlashCommands ]`);
 for (const fileSlash of commandSlashFiles) {
   const commandSlash = require(`./cmd/user/userSlashCommands/${fileSlash}`);
 
-  client.slachCommands.set(commandSlash.data.name, commandSlash);
-  slachCommands.push(commandSlash.data.toJSON());
+  client.slashCommands.set(commandSlash.data.name, commandSlash);
+  slashCommands.push(commandSlash.data.toJSON());
 
   log.success(`${language.cmd_load} [ ${commandSlash.data.name}.js ]`);
 }
 
-//Ophaalen van slachCommands uit map slachCommands
+//Ophaalen van slashCommands uit map slashCommands
 const commandAdminSlashFiles = fs
   .readdirSync("./cmd/admin/adminSlashCommands")
   .filter((file) => file.endsWith(".js"));
@@ -145,8 +144,8 @@ log.updated(`[ adminSlashCommands ]`);
 for (const fileSlash of commandAdminSlashFiles) {
   const adminSlash = require(`./cmd/admin/adminSlashCommands/${fileSlash}`);
 
-  client.slachCommands.set(adminSlash.data.name, adminSlash);
-  slachCommands.push(adminSlash.data.toJSON());
+  client.slashCommands.set(adminSlash.data.name, adminSlash);
+  slashCommands.push(adminSlash.data.toJSON());
 
   log.success(`${language.cmd_load} [ ${adminSlash.data.name}.js ]`);
 }
@@ -314,7 +313,7 @@ client.once("ready", () => {
             */
 
       await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
-        body: slachCommands,
+        body: slashCommands,
       });
 
       /*
@@ -538,7 +537,7 @@ client.on("interactionCreate", async (interaction) => {
       });
     }
   } else if (interaction.isCommand()) {
-    const slachCommand = client.slachCommands.get(interaction.commandName);
+    const slachCommand = client.slashCommands.get(interaction.commandName);
     if (!slachCommand) return;
 
     try {
