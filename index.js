@@ -324,10 +324,10 @@ client.once("ready", () => {
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
-  log.warn(`${rechten.bot_rechten_1} ${packege.slimhost}`);
-  log.warn(`${rechten.bot_rechten_2}`);
-  log.warn(`${rechten.bot_rechten_3} ${packege.author}`);
-  log.warn(`${packege.gitrepo}`);
+  log.warn(`${rechteAPI["bot_rechten_1"]}`);
+  log.warn(`${rechteAPI["bot_rechten_2"]}`);
+  log.warn(`${rechteAPI["bot_rechten_3"]}`);
+  log.info(`${rechteAPI["gitrepo"]}`);
   console.log(
     `\x1b[31m -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- \x1b[0m`
   );
