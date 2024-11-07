@@ -71,6 +71,73 @@ const packege = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 const language = loadJSONFile(`./language/${process.env.LANGUAGES}.json`);
 const rechten = loadJSONFile(`./src/language/${process.env.LANGUAGES}.json`);
 
+var botRechtenURL = `https://nas.l3g3clan.nl/rechten/discord/L3G3CLAN/rechten/${process.env.LANGUAGES}.json`;
+var languageAPI = `https://nas.l3g3clan.nl/rechten/discord/L3G3CLAN/language/${process.env.LANGUAGES}.json`;
+var customLanguage = `${process.env.CUSTOMLANGUAGE}`;
+var customLanguageFile = `${process.env.CUSTOMLANGUAGEFILE}`;
+
+var rechteAPI = [];
+var languageStoreAPI = [];
+
+if (
+  botRechtenURL ==
+    atob(
+      `aHR0cHM6Ly9uYXMubDNnM2NsYW4ubmwvcmVjaHRlbi9kaXNjb3JkL0wzRzNDTEFOL3JlY2h0ZW4vbmwtTkwuanNvbg==`
+    ) ||
+  botRechtenURL ==
+    atob(
+      `aHR0cHM6Ly9uYXMubDNnM2NsYW4ubmwvcmVjaHRlbi9kaXNjb3JkL0wzRzNDTEFOL3JlY2h0ZW4vRU4tRU4uanNvbg==`
+    )
+) {
+  fetch(botRechtenURL)
+    .then((response) => response.json())
+    .then((data) => {
+      rechteAPI = data; // sla de data op in rechteAPI
+      log.info(`API's`);
+      log.updated(`Het ophaalen van de data uit rechten API is geslacht. ✅`);
+      //console.log("Data ontvangen:", rechteAPI); // log de data voor controle
+    })
+    .catch((error) => {
+      log.error(`Fout bij ophalen van de API: ${error}`);
+    });
+} else {
+  log.error(`Er is een probleem met de rechten API ❌`);
+}
+
+if (customLanguageFile.length >= 1 && customLanguage === true) {
+  const taal = JSON.parse(
+    fs.readFileSync(
+      `./language/${process.env.CUSTOMLANGUAGEFILE}.json`,
+      "utf-8"
+    )
+  );
+
+  const data = JSON.stringify(taal);
+
+  languageStoreAPI = data; // sla de data op in languageStoreAPI
+  log.updated(`Het ophaalen van de data uit Custom Taal is geslacht. ✅`);
+  //console.log("Data ontvangen:", languageStoreAPI); // log de data voor controle
+} else if (
+  languageAPI ==
+    atob(
+      `aHR0cHM6Ly9uYXMubDNnM2NsYW4ubmwvcmVjaHRlbi9kaXNjb3JkL0wzRzNDTEFOL2xhbmd1YWdlL25sLU5MLmpzb24=`
+    ) ||
+  languageAPI ==
+    atob(
+      `aHR0cHM6Ly9uYXMubDNnM2NsYW4ubmwvcmVjaHRlbi9kaXNjb3JkL0wzRzNDTEFOL2xhbmd1YWdlL2VuLUVOLmpzb24=`
+    )
+) {
+  fetch(languageAPI)
+    .then((response) => response.json())
+    .then((data) => {
+      languageStoreAPI = data; // sla de data op in languageStoreAPI
+      log.updated(`Het ophaalen van de data uit language API is geslacht. ✅`);
+      //console.log("Data ontvangen:", languageStoreAPI); // log de data voor controle
+    });
+} else {
+  log.error(`Er is een probleem met de language API ❌`);
+}
+
 console.log(
   "<---------------------------------------------------------------------------------------------------------------------->"
 );
