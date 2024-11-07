@@ -328,25 +328,28 @@ client.once("ready", () => {
 });
 
 /*Temp VC*/
-const TempChannels = require("discord-temp-channels");
-const tempChannels = new TempChannels(client);
-// Loade configuration for temp VC.
-const mainVC = loadJSONFile(`./src/config/VC.json`);
-// Configure the VC options
-var name = mainVC.NAME;
-var bitrate = mainVC.BITRATE;
-var voiceChannel = mainVC.MAIN_ID;
-var CATEGORY = mainVC.CATEGORY_ID;
-var maxUsers = mainVC.MAX_USER;
+if (process.env.TEMP_VC) {
+  const TempChannels = require("discord-temp-channels");
+  const tempChannels = new TempChannels(client);
+  // Loade configuration for temp VC.
+  const mainVC = loadJSONFile(`./src/config/VC.json`);
+  // Configure the VC options
+  var name = mainVC.NAME;
+  var bitrate = mainVC.BITRATE;
+  var voiceChannel = mainVC.MAIN_ID;
+  var CATEGORY = mainVC.CATEGORY_ID;
+  var maxUsers = mainVC.MAX_USER;
 
-// Register a new main channel
-tempChannels.registerChannel(voiceChannel, {
-  childCategory: CATEGORY,
-  childAutoDeleteIfEmpty: true,
-  childMaxUsers: maxUsers,
-  childBitrateLimit: bitrate,
-  childFormat: (member, count) => `${name} #${count} | ${member.user.username}`,
-});
+  // Register a new main channel
+  tempChannels.registerChannel(voiceChannel, {
+    childCategory: CATEGORY,
+    childAutoDeleteIfEmpty: true,
+    childMaxUsers: maxUsers,
+    childBitrateLimit: bitrate,
+    childFormat: (member, count) =>
+      `${name} #${count} | ${member.user.username}`,
+  });
+}
 
 /* automatically temporary vc channels */
 const tempvcdb = require("quick.db");
