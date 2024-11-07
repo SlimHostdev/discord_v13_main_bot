@@ -330,14 +330,22 @@ client.once("ready", () => {
 /*Temp VC*/
 const TempChannels = require("discord-temp-channels");
 const tempChannels = new TempChannels(client);
-var maxUsers = process.env.TEMP_VC_MAX_USERS;
+// Loade configuration for temp VC.
+const mainVC = loadJSONFile(`./src/config/VC.json`);
+// Configure the VC options
+var name = mainVC.NAME;
+var bitrate = mainVC.BITRATE;
+var voiceChannel = mainVC.MAIN_ID;
+var CATEGORY = mainVC.CATEGORY_ID;
+var maxUsers = mainVC.MAX_USER;
+
 // Register a new main channel
-tempChannels.registerChannel(process.env.TEMP_VC_MAIN_ID, {
-  childCategory: process.env.TEMP_VC_CATEGORY_ID,
+tempChannels.registerChannel(voiceChannel, {
+  childCategory: CATEGORY,
   childAutoDeleteIfEmpty: true,
   childMaxUsers: maxUsers,
-  childFormat: (member, count) =>
-    `┊✅Open VC #${count} | ${member.user.username}`,
+  childBitrateLimit: bitrate,
+  childFormat: (member, count) => `${name} #${count} | ${member.user.username}`,
 });
 
 /* automatically temporary vc channels */
