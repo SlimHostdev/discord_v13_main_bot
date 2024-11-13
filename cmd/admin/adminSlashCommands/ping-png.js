@@ -36,22 +36,6 @@ module.exports = {
       return;
     }
 
-    const embed = new MessageEmbed()
-      .setTitle(`${language.cmd_ping_title}`)
-      .setDescription(`${language.cmd_ping_disc}`)
-      .setColor(process.env.COLLOR)
-      .setThumbnail(process.env.LOGO)
-      .setImage(process.env.BANNER)
-      .setTimestamp()
-      .setFooter(`${language.cmd_ping_footer}`)
-      .addFields(
-        { name: `${language.cmd_ping_name}`, value: `${client.user.name}` },
-        {
-          name: `${language.cmd_ping_latency}`,
-          value: `${client.ws.ping}ms`,
-        }
-      );
-
     // Canvas instellen en tekenen
     const width = 200;
     const height = 200;
@@ -74,6 +58,22 @@ module.exports = {
     const attachment = new AttachmentBuilder(buffer, {
       name: "afbeelding.png",
     });
+
+    const embed = new MessageEmbed()
+      .setTitle(`${language.cmd_ping_title}`)
+      .setDescription(`${language.cmd_ping_disc}`)
+      .setColor(process.env.COLLOR)
+      .setThumbnail(process.env.LOGO)
+      .setImage(attachment)
+      .setTimestamp()
+      .setFooter(`${language.cmd_ping_footer}`)
+      .addFields(
+        { name: `${language.cmd_ping_name}`, value: `${client.user.name}` },
+        {
+          name: `${language.cmd_ping_latency}`,
+          value: `${client.ws.ping}ms`,
+        }
+      );
 
     interaction
       .reply({ embeds: [embed], files: [attachment], ephemeral: true })
