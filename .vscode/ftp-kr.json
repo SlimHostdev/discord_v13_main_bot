@@ -1,0 +1,13 @@
+{
+  "host": "panel.l3g3clan.nl",
+  "username": "bryan.1d24a18f",
+  "password": "Max30695$",
+  "remotePath": "./",
+  "protocol": "sftp",
+  "port": 22,
+  "fileNameEncoding": "utf8",
+  "autoUpload": true,
+  "autoDelete": false,
+  "autoDownload": false,
+  "ignore": [".git", "/.vscode"]
+}
